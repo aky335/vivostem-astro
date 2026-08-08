@@ -1,34 +1,90 @@
 {
+  "anaMenu": [
+    {
+      "yazi": "Neden Vivostem?",
+      "adres": "/neden-vivostem"
+    },
+    {
+      "yazi": "Sağlık Profesyonelleri",
+      "adres": "/saglik-profesyonelleri"
+    },
+    {
+      "yazi": "Uzmanlarımız",
+      "adres": "/uzmanlarimiz"
+    },
+    {
+      "yazi": "Hakkımızda",
+      "adres": "/hakkimizda"
+    },
+    {
+      "yazi": "İletişim",
+      "adres": "/iletisim"
+    }
+  ],
   "urunMenuYazi": "Ürünler",
   "urunTumuYazi": "Tüm ürünleri görün",
   "anaSayfaYazi": "Ana Sayfa",
-  "anaMenu": [
-    { "yazi": "Neden Vivostem?", "adres": "/neden-vivostem" },
-    { "yazi": "Sağlık Profesyonelleri", "adres": "/saglik-profesyonelleri" },
-    { "yazi": "Uzmanlarımız", "adres": "/uzmanlarimiz" },
-    { "yazi": "Hakkımızda", "adres": "/hakkimizda" },
-    { "yazi": "SSS", "adres": "/sss" },
-    { "yazi": "İletişim", "adres": "/iletisim" }
-  ],
   "urunSutunBaslik": "Ürünler",
   "footerUrunler": [
-    { "yazi": "Cellenis<sup>&reg;</sup> PRGF", "adres": "/cellenis-prgf" },
-    { "yazi": "Cellenis<sup>&reg;</sup> PRF", "adres": "/cellenis-prf" },
-    { "yazi": "Cellenis<sup>&reg;</sup> DermaFiller", "adres": "/cellenis-dermafiller" },
-    { "yazi": "Cellenis<sup>&reg;</sup> Exo&#8209;ME", "adres": "/cellenis-exo-me" },
-    { "yazi": "Tropocells<sup>&reg;</sup> PRP", "adres": "/tropocells-prp" },
-    { "yazi": "TropoVet<sup>&reg;</sup>", "adres": "/tropovet" },
-    { "yazi": "SVF ve BMAC", "adres": "/urunler" }
+    {
+      "yazi": "Cellenis PRGF",
+      "adres": "/cellenis-prgf"
+    },
+    {
+      "yazi": "Cellenis PRF",
+      "adres": "/cellenis-prf"
+    },
+    {
+      "yazi": "Cellenis DermaFiller",
+      "adres": "/cellenis-dermafiller"
+    },
+    {
+      "yazi": "Cellenis Exo-ME",
+      "adres": "/cellenis-exo-me"
+    },
+    {
+      "yazi": "Tropocells PRP",
+      "adres": "/tropocells-prp"
+    },
+    {
+      "yazi": "TropoVet",
+      "adres": "/tropovet"
+    },
+    {
+      "yazi": "SVF ve BMAC",
+      "adres": "/urunler"
+    }
   ],
   "kurumsalSutunBaslik": "Kurumsal",
   "footerKurumsal": [
-    { "yazi": "Hakkımızda", "adres": "/hakkimizda" },
-    { "yazi": "Neden Vivostem?", "adres": "/neden-vivostem" },
-    { "yazi": "Uzmanlarımız", "adres": "/uzmanlarimiz" },
-    { "yazi": "Etkinlik takvimi", "adres": "/etkinlikler" },
-    { "yazi": "Sıkça sorulan sorular", "adres": "/sss" },
-    { "yazi": "Bilgi merkezi", "adres": "/blog" },
-    { "yazi": "Bayilik başvurusu", "adres": "/iletisim" }
+    {
+      "yazi": "Hakkımızda",
+      "adres": "/hakkimizda"
+    },
+    {
+      "yazi": "Neden Vivostem?",
+      "adres": "/neden-vivostem"
+    },
+    {
+      "yazi": "Uzmanlarımız",
+      "adres": "/uzmanlarimiz"
+    },
+    {
+      "yazi": "Etkinlik takvimi",
+      "adres": "/etkinlikler"
+    },
+    {
+      "yazi": "Sıkça sorulan sorular",
+      "adres": "/sss"
+    },
+    {
+      "yazi": "Bilgi merkezi",
+      "adres": "/blog"
+    },
+    {
+      "yazi": "Bayilik başvurusu",
+      "adres": "/iletisim"
+    }
   ],
   "iletisimSutunBaslik": "İletişim"
 }
