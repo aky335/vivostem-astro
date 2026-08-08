@@ -39,6 +39,19 @@ const butonDizisi = (label: string) =>
     { label }
   );
 
+const baglantiDizisi = (label: string, description: string) =>
+  fields.array(
+    fields.object({
+      yazi: fields.text({ label: 'Görünen yazı', description: 'HTML yazabilirsiniz, örnek: Cellenis<sup>&reg;</sup> PRGF' }),
+      adres: fields.text({ label: 'Adres', description: 'Site içi için /sss gibi, dış bağlantı için tam adres.' }),
+    }),
+    {
+      label,
+      description,
+      itemLabel: (p) => (p.fields.yazi.value || '').replace(/<[^>]+>/g, '') || 'Bağlantı',
+    }
+  );
+
 const bolumBasligi = (label: string) =>
   fields.object(
     {
@@ -79,7 +92,7 @@ export default config({
       İçerik: ['blog', 'kategoriler', 'etkinlikler'],
       Sayfalar: ['nedenler', 'uzmanlar', 'sss'],
       'Sayfa metinleri': ['anasayfa', 'saglikProfesyonelleri', 'kvkk', 'gizlilik'],
-      Ayarlar: ['ayarlar'],
+      Ayarlar: ['menuler', 'ayarlar'],
     },
   },
 
@@ -220,6 +233,40 @@ export default config({
         }),
         seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
         seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
+      },
+    }),
+
+    menuler: singleton({
+      label: 'Menüler',
+      path: 'src/content/menuler/',
+      format: { data: 'json' },
+      schema: {
+        // ÜST MENÜ. Sadece sayfanın üstünü besler, footer'a dokunmaz.
+        anaMenu: baglantiDizisi(
+          'ÜST MENÜ · bağlantılar',
+          'Ürünler açılır kutusunun sağındaki bağlantılar. Ürün menüsü buraya yazılmaz, ürün koleksiyonundan kendiliğinden üretilir.'
+        ),
+        urunMenuYazi: fields.text({
+          label: 'ÜST MENÜ · ürün kutusunun adı',
+          description: 'Hem üst menüde hem mobil menüde açılır kutunun başlığı.',
+        }),
+        urunTumuYazi: fields.text({ label: 'ÜST MENÜ · açılır kutunun alt butonu' }),
+        anaSayfaYazi: fields.text({ label: 'ÜST MENÜ · mobilde ana sayfa yazısı' }),
+
+        // FOOTER. Üst menüden tamamen bağımsız, ayrı listeler.
+        urunSutunBaslik: fields.text({ label: 'FOOTER · 1. sütun başlığı' }),
+        footerUrunler: baglantiDizisi(
+          'FOOTER · 1. sütun bağlantıları',
+          'Elle seçiliyor. Yeni ürün eklemek bu listeyi değiştirmez, istersen buraya da elle eklersin.'
+        ),
+
+        kurumsalSutunBaslik: fields.text({ label: 'FOOTER · 2. sütun başlığı' }),
+        footerKurumsal: baglantiDizisi('FOOTER · 2. sütun bağlantıları', ''),
+
+        iletisimSutunBaslik: fields.text({
+          label: 'FOOTER · 3. sütun başlığı',
+          description: 'Bu sütunun içindeki telefon, e-posta ve adres Site bilgilerinden geliyor.',
+        }),
       },
     }),
 

@@ -21,10 +21,10 @@ src/
     UrunBloklari.astro  ürün sayfasının blok yapısı
     BlogKart / EtkinlikKart / UzmanKart / HukukiSayfa
   data/
-    menu.js         ürün dışındaki üst menü ve footer bağlantıları
     ikonlar.js      panelde seçilebilen simgelerin SVG gövdeleri
   content/          PANELİN YAZDIĞI YER, sitenin tüm metni burada
     ayarlar/        site bilgileri (telefon, adres, sosyal medya)
+    menuler/        üst menü ve footer bağlantıları
     anasayfa/       ana sayfa metinleri
     sayfalar/       sağlık profesyonelleri, KVKK, gizlilik
     urunler/        11 ürün sayfası
@@ -95,6 +95,7 @@ oraya yönlendiriyor). Sol menü beş gruba ayrılıyor:
 
 **Ayarlar**
 
+- *Menüler:* Üst menü ve footer sütunlarındaki bağlantılar. İkisi ayrı listelerde, biri diğerini etkilemez. Alan adları ÜST MENÜ ve FOOTER diye ayrılmış. Bağlantıları sürükleyerek sıralarsın, "Add" ile eklersin. Üst menüdeki ürün açılır kutusu burada değil, ürün koleksiyonundan üretiliyor. Footer'ın en altındaki KVKK ve Gizlilik bağlantıları kodda sabit; o iki sayfa her zaman durmalı, metinlerini Sayfa metinleri bölümünden düzenlersin.
 - *Site bilgileri:* Telefon, WhatsApp, e-posta, adres, sosyal medya hesapları ve footer metinleri. Buradaki bir değişiklik sitenin tamamına yayılır.
 
 ## Görseller nerede duruyor

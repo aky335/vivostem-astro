@@ -1,5 +1,5 @@
 ---
-import { footerUrunler, footerKurumsal } from '../data/menu.js';
+import menuler from '../content/menuler/index.json';
 import { ayarlar } from '../lib/ayarlar.js';
 
 // Telif yılı otomatik; her ocak ayında elle güncellemek gerekmesin.
@@ -21,21 +21,21 @@ const yil = new Date().getFullYear();
       </div>
 
       <div>
-        <h4>Ürünler</h4>
+        <h4 set:html={menuler.urunSutunBaslik} />
         <ul>
-          {footerUrunler.map((l) => <li><a href={l.href} set:html={l.ad} /></li>)}
+          {menuler.footerUrunler.map((l) => <li><a href={l.adres} set:html={l.yazi} /></li>)}
         </ul>
       </div>
 
       <div>
-        <h4>Kurumsal</h4>
+        <h4 set:html={menuler.kurumsalSutunBaslik} />
         <ul>
-          {footerKurumsal.map((l) => <li><a href={l.href} set:html={l.ad} /></li>)}
+          {menuler.footerKurumsal.map((l) => <li><a href={l.adres} set:html={l.yazi} /></li>)}
         </ul>
       </div>
 
       <div>
-        <h4>İletişim</h4>
+        <h4 set:html={menuler.iletisimSutunBaslik} />
         <ul>
           <li><a href={ayarlar.whatsappAdres} target="_blank" rel="noopener">{ayarlar.telefon}</a></li>
           <li><a href={`mailto:${ayarlar.eposta}`}>{ayarlar.eposta}</a></li>

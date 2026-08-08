@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-import { anaMenu } from '../data/menu.js';
+import menuler from '../content/menuler/index.json';
 import { ayarlar } from '../lib/ayarlar.js';
 import { urunSutunlari } from '../lib/icerik.js';
 
-// Açılır ürün kutusu ve mobil ürün listesi doğrudan ürün koleksiyonundan
-// besleniyor. Panelden ürün eklendiğinde menüde kendiliğinden beliriyor.
+// Menü bağlantılarının tek kaynağı panelin Menüler bölümü.
+// Tek istisna açılır ürün kutusu: o doğrudan ürün koleksiyonundan besleniyor,
+// panelden ürün eklendiğinde menüde kendiliğinden beliriyor.
 const urunKolonlari = urunSutunlari(
   await getCollection('urunAileleri'),
   await getCollection('urunler')
@@ -22,7 +23,7 @@ const urunlerAktif = yol === '/urunler' || urunYollari.includes(yol);
   <div class="wrap">
     <a href="/" class="marka"><img src="/assets/img/logo.png" alt="Vivostem"></a>
     <nav class="ana-menu">
-      <div class="acilir"><a href="/urunler" class={urunlerAktif ? 'aktif' : undefined}>Ürünler</a>
+      <div class="acilir"><a href="/urunler" class={urunlerAktif ? 'aktif' : undefined} set:html={menuler.urunMenuYazi} />
         <div class="acilir-kutu">
           <div class="acilir-sutunlar">
             {urunKolonlari.map((kolon) => (
@@ -32,11 +33,11 @@ const urunlerAktif = yol === '/urunler' || urunYollari.includes(yol);
               </div>
             ))}
           </div>
-          <div class="acilir-dip"><a class="acilir-buton" href="/urunler">Tüm ürünleri görün <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="acilir-dip"><a class="acilir-buton" href="/urunler">{menuler.urunTumuYazi} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
-      {anaMenu.map((l) => (
-        <a href={l.href} class={yol === l.href ? 'aktif' : undefined} set:html={l.ad} />
+      {menuler.anaMenu.map((l) => (
+        <a href={l.adres} class={yol === l.adres ? 'aktif' : undefined} set:html={l.yazi} />
       ))}
     </nav>
     <div class="header-aksiyon">
@@ -49,10 +50,10 @@ const urunlerAktif = yol === '/urunler' || urunYollari.includes(yol);
 <div class="perde" id="perde"></div>
 <div class="mobil-menu" id="mobilMenu">
   <button class="mobil-kapat" id="mobilKapat" aria-label="Kapat">&times;</button>
-  <a href="/">Ana Sayfa</a>
+  <a href="/">{menuler.anaSayfaYazi}</a>
   <div class="mobil-grup">
     <div class="mobil-bas">
-      <a href="/urunler">Ürünler</a>
+      <a href="/urunler" set:html={menuler.urunMenuYazi} />
       <button type="button" class="mobil-ok" aria-expanded="false"
               aria-label="Ürün listesini aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
     </div>
@@ -62,5 +63,5 @@ const urunlerAktif = yol === '/urunler' || urunYollari.includes(yol);
       ))}
     </div>
   </div>
-  {anaMenu.map((l) => <a href={l.href} set:html={l.ad} />)}
+  {menuler.anaMenu.map((l) => <a href={l.adres} set:html={l.yazi} />)}
 </div>
