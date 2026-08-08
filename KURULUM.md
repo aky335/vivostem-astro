@@ -96,9 +96,25 @@ Panel `vivostem.com.tr/keystatic` adresinde. Sol menü beş gruba ayrılıyor:
 
 - *Site bilgileri:* Telefon, WhatsApp, e-posta, adres, sosyal medya hesapları ve footer metinleri. Buradaki bir değişiklik sitenin tamamına yayılır.
 
-## Bilinen konu: panelde görsel önizlemesi
+## Görseller nerede duruyor
 
-Ürün ve uzman fotoğrafları panelde önizleme olarak görünmeyebiliyor; "Choose file" boş kutusu çıkıyor. Sitede görüntü etkilenmiyor, sadece paneldeki önizleme. Görsel alanları zorunlu olmaktan çıkarıldı, bu yüzden kaydederken mevcut yol silinmiyor. Kendi makinende `npm run dev` ile panele girip fotoğrafın görünüp görünmediğine bakarsan sorunun kaynağı netleşir.
+Keystatic koleksiyonlarda her kaydın görselini kendi klasörüne koyar. Bu yüzden
+klasörler şöyle ayrıldı:
+
+```
+public/assets/img/urunler/<ürün>/     ürün sayfasının büyük görseli
+public/assets/img/uzmanlar/<uzman>/   uzman fotoğrafı
+public/assets/blog/<yazı>/            blog kapak görseli
+public/assets/img/                    tek sayfalık görseller (ana sayfa, logo, favicon)
+```
+
+Panelden fotoğraf yüklediğinde dosya kendiliğinden doğru klasöre gider ve alanın
+adını alır (`fotograf.jpg`, `gorsel.png`). Eski dosya silinir. Elle bir şey
+taşımaya gerek yok.
+
+Bu ayrım zorunlu: `fields.image` bir koleksiyonun içindeyken dosya yoluna kaydın
+adını da ekliyor. Ortak bir klasör verilirse panel dosyayı bulamıyor ve
+"Choose file" kutusu boş görünüyor. Klasör yollarını değiştirmeyin.
 
 ## Geliştirme
 

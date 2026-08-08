@@ -318,8 +318,13 @@ export default config({
         gorsel: fields.image({
           label: 'Ürün görseli',
           description: 'Sayfanın sol tarafındaki büyük görsel.',
-          directory: 'public/assets/img',
-          publicPath: '/assets/img/',
+          // Koleksiyonlarda Keystatic görseli ürünün kendi klasörüne koyuyor:
+          // public/assets/img/urunler/<ürün>/dosya.png. Bu yüzden klasör ortak
+          // değil, koleksiyona özel. Gerekçesi: fields.image koleksiyon
+          // içindeyken yol hesabına dosya adını da ekliyor.
+          directory: 'public/assets/img/urunler',
+          publicPath: '/assets/img/urunler/',
+          validation: { isRequired: true },
         }),
         gorselAlt: fields.text({ label: 'Görsel açıklaması' }),
 
@@ -559,8 +564,9 @@ export default config({
         }),
         fotograf: fields.image({
           label: 'Fotoğraf',
-          directory: 'public/assets/img',
-          publicPath: '/assets/img/',
+          directory: 'public/assets/img/uzmanlar',
+          publicPath: '/assets/img/uzmanlar/',
+          validation: { isRequired: true },
         }),
         sira: fields.integer({
           label: 'Sıra',
