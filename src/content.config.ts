@@ -1,21 +1,38 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// ÖNEMLİ KURAL: zorunluluk denetimi PANELDE yapılır, derleme içerik yüzünden
+// asla durmaz.
+//
+// Keystatic, zorunlu olmayan bir alan boşaltıldığında dosyaya değer yazmak
+// yerine null yazıyor. Zod null'u metin saymadığı için derleme hata veriyor ve
+// o andan sonra panelden yapılan HİÇBİR değişiklik yayına çıkamıyor. Yani tek
+// bir boş hücre bütün yayını kilitliyor. Bu yüzden aşağıdaki yardımcılar
+// null'u sessizce varsayılana çeviriyor.
+//
+// Bir alanın gerçekten dolu olması gerekiyorsa keystatic.config.ts içinde
+// validation: { isRequired: true } yazın; kullanıcı uyarıyı orada, kaydetmeden
+// önce görür. Doğru yer orası.
+const metin = z.string().nullish().transform((d) => d ?? '');
+const metinDizisi = z.array(metin).default([]);
+const sayi = (varsayilan: number) => z.number().nullish().transform((d) => d ?? varsayilan);
+const mantik = (varsayilan: boolean) => z.boolean().nullish().transform((d) => d ?? varsayilan);
+
 // Blog yazıları: src/content/blog altındaki Markdoc dosyaları.
 // Dosya adı adresi belirler: prgf-prp-farki.mdoc -> /blog/prgf-prp-farki
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.mdoc', base: './src/content/blog' }),
   schema: z.object({
-    baslik: z.string(),
-    ozet: z.string(),
+    baslik: metin,
+    ozet: metin,
     tarih: z.date(),
-    kategori: z.string(),
+    kategori: metin,
     // Kapak görseli isteğe bağlı. Boş bırakılırsa kartta marka renginde
     // otomatik zemin ve baş harfler çıkar. Panelden yüklenen görseller
     // public/assets/blog altına düşer, buraya /assets/blog/... yazılır.
-    kapak: z.string().optional(),
-    kapakAlt: z.string().optional(),
-    taslak: z.boolean().default(false),
+    kapak: metin,
+    kapakAlt: metin,
+    taslak: mantik(false),
   }),
 });
 
@@ -24,23 +41,23 @@ const blog = defineCollection({
 const etkinlikler = defineCollection({
   loader: glob({ pattern: '**/*.mdoc', base: './src/content/etkinlikler' }),
   schema: z.object({
-    baslik: z.string(),
-    ozet: z.string(),
+    baslik: metin,
+    ozet: metin,
     tur: z.enum(['webinar', 'egitim', 'kongre']),
     baslangic: z.date(),
     // Kongre ve çok günlü eğitimlerde bitiş tarihi girilir.
-    bitis: z.date().optional(),
+    bitis: z.date().nullish(),
     // "20:00" gibi. Tüm gün süren etkinliklerde boş bırakılır.
-    saat: z.string().optional(),
+    saat: metin,
     // Webinar için "Online", diğerleri için "İstanbul, Vivostem Eğitim Merkezi"
-    konum: z.string(),
-    konusmaci: z.string().optional(),
-    kontenjan: z.string().optional(),
-    standNo: z.string().optional(),
+    konum: metin,
+    konusmaci: metin,
+    kontenjan: metin,
+    standNo: metin,
     // Dış kayıt adresi verilirse butonu oraya yönlendirir, verilmezse
     // sitedeki eğitim başvuru formuna gider.
-    kayitLinki: z.string().url().optional(),
-    taslak: z.boolean().default(false),
+    kayitLinki: metin,
+    taslak: mantik(false),
   }),
 });
 
@@ -50,15 +67,15 @@ const etkinlikler = defineCollection({
 const uzmanlar = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/uzmanlar' }),
   schema: z.object({
-    ad: z.string(),
-    brans: z.string(),
-    gorus: z.string(),
-    fotograf: z.string(),
+    ad: metin,
+    brans: metin,
+    gorus: metin,
+    fotograf: metin,
     // Küçük sayı önce görünür.
-    sira: z.number().default(99),
-    gizli: z.boolean().default(false),
+    sira: sayi(99),
+    gizli: mantik(false),
     // Ana sayfadaki kaydırakta görünsün mü? Uzmanlarımız sayfasında hepsi görünür.
-    anaSayfada: z.boolean().default(true),
+    anaSayfada: mantik(true),
   }),
 });
 
@@ -68,14 +85,14 @@ const uzmanlar = defineCollection({
 const sss = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/sss' }),
   schema: z.object({
-    soru: z.string(),
-    cevap: z.string(),
-    grup: z.string(),
-    grupSirasi: z.number().default(99),
-    sira: z.number().default(99),
+    soru: metin,
+    cevap: metin,
+    grup: metin,
+    grupSirasi: sayi(99),
+    sira: sayi(99),
     // Sayfa açıldığında bu soru açık gelsin mi?
-    acikBasla: z.boolean().default(false),
-    gizli: z.boolean().default(false),
+    acikBasla: mantik(false),
+    gizli: mantik(false),
   }),
 });
 
@@ -85,8 +102,8 @@ const sss = defineCollection({
 const kategoriler = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/kategoriler' }),
   schema: z.object({
-    ad: z.string(),
-    sira: z.number().default(99),
+    ad: metin,
+    sira: sayi(99),
   }),
 });
 
@@ -96,9 +113,9 @@ const kategoriler = defineCollection({
 const urunAileleri = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/urun-aileleri' }),
   schema: z.object({
-    ad: z.string(),
-    sira: z.number().default(99),
-    gizli: z.boolean().default(false),
+    ad: metin,
+    sira: sayi(99),
+    gizli: mantik(false),
   }),
 });
 
@@ -106,50 +123,46 @@ const urunAileleri = defineCollection({
 const urunBlogu = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('metin'),
-    value: z.object({ metin: z.string() }),
+    value: z.object({ metin }),
   }),
   z.object({
     discriminant: z.literal('etiketler'),
-    value: z.object({ etiketler: z.array(z.string()) }),
+    value: z.object({ etiketler: metinDizisi }),
   }),
   z.object({
     discriminant: z.literal('kutular'),
     value: z.object({
-      baslik: z.string().default(''),
-      ustBosluk: z.number().default(0),
-      kutular: z.array(
-        z.object({
-          baslik: z.string().default(''),
-          metin: z.string().default(''),
-          maddeler: z.array(z.string()).default([]),
-        })
-      ),
+      baslik: metin,
+      ustBosluk: sayi(0),
+      kutular: z
+        .array(z.object({ baslik: metin, metin, maddeler: metinDizisi }))
+        .default([]),
     }),
   }),
   z.object({
     discriminant: z.literal('maddeler'),
     value: z.object({
-      baslik: z.string().default(''),
-      maddeler: z.array(z.string()),
+      baslik: metin,
+      maddeler: metinDizisi,
     }),
   }),
   z.object({
     discriminant: z.literal('tablo'),
     value: z.object({
-      basliklar: z.array(z.string()),
-      satirlar: z.array(z.object({ hucreler: z.array(z.string()) })),
+      basliklar: metinDizisi,
+      satirlar: z.array(z.object({ hucreler: metinDizisi })).default([]),
     }),
   }),
   z.object({
     discriminant: z.literal('odul'),
-    value: z.object({ metin: z.string() }),
+    value: z.object({ metin }),
   }),
   z.object({
     discriminant: z.literal('not'),
     value: z.object({
-      vurgu: z.string().default(''),
-      metin: z.string(),
-      ustBosluk: z.number().default(0),
+      vurgu: metin,
+      metin,
+      ustBosluk: sayi(0),
     }),
   }),
 ]);
@@ -157,27 +170,27 @@ const urunBlogu = z.discriminatedUnion('discriminant', [
 const urunler = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/urunler' }),
   schema: z.object({
-    ad: z.string(),
+    ad: metin,
     // Menüde farklı görünmesi isteniyorsa doldurulur, boşsa ad kullanılır.
-    menuAdi: z.string().default(''),
-    ozet: z.string(),
-    seoBaslik: z.string(),
-    seoAciklama: z.string(),
-    gorsel: z.string(),
-    gorselAlt: z.string().default(''),
-    aile: z.string(),
-    sira: z.number().default(99),
-    gizli: z.boolean().default(false),
-    ctaBaslik: z.string().default(''),
-    ctaMetin: z.string().default(''),
+    menuAdi: metin,
+    ozet: metin,
+    seoBaslik: metin,
+    seoAciklama: metin,
+    gorsel: metin,
+    gorselAlt: metin,
+    aile: metin,
+    sira: sayi(99),
+    gizli: mantik(false),
+    ctaBaslik: metin,
+    ctaMetin: metin,
     // Sayfanın altındaki kart şeridi. Ürün olmak zorunda değil; "Tüm ürünler"
     // veya SSS gibi sayfalara da bağlanabiliyor.
     ilgiliKartlar: z
       .array(
         z.object({
-          baslik: z.string(),
-          aciklama: z.string().default(''),
-          adres: z.string(),
+          baslik: metin,
+          aciklama: metin,
+          adres: metin,
         })
       )
       .default([]),
@@ -191,16 +204,16 @@ const urunler = defineCollection({
 const nedenler = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/nedenler' }),
   schema: z.object({
-    baslik: z.string(),
+    baslik: metin,
     // Ana sayfadaki kartta daha kısa bir başlık kullanılabiliyor.
-    kartBaslik: z.string(),
-    kartOzet: z.string(),
-    ikon: z.string(),
-    sira: z.number().default(99),
-    gizli: z.boolean().default(false),
-    notVurgu: z.string().default(''),
-    notMetin: z.string().default(''),
-    detay: z.string(),
+    kartBaslik: metin,
+    kartOzet: metin,
+    ikon: metin,
+    sira: sayi(99),
+    gizli: mantik(false),
+    notVurgu: metin,
+    notMetin: metin,
+    detay: metin,
   }),
 });
 

@@ -9,7 +9,7 @@ const { sayfa } = Astro.props;
 const govde = marked.parse(yerTutuculariDoldur(sayfa.icerik, ayarlar), { async: false }).trim();
 const baslik = yerTutuculariDoldur(sayfa.baslik, ayarlar);
 const ozet = yerTutuculariDoldur(sayfa.ozet, ayarlar);
-const izlek = yerTutuculariDoldur(sayfa.izlek ?? sayfa.baslik, ayarlar);
+const izlek = yerTutuculariDoldur(sayfa.izlek || sayfa.baslik, ayarlar);
 ---
 
 <Layout baslik={sayfa.seoBaslik} aciklama={sayfa.seoAciklama}>

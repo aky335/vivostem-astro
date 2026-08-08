@@ -3,7 +3,7 @@ import { araligiYaz, isoYaz, TUR_ADI, bitisAni } from '../lib/icerik.js';
 const { etkinlik } = Astro.props;
 const d = etkinlik.data;
 
-const kayitYolu = d.kayitLinki ?? `/saglik-profesyonelleri?etkinlik=${encodeURIComponent(d.baslik)}#basvuru`;
+const kayitYolu = d.kayitLinki || `/saglik-profesyonelleri?etkinlik=${encodeURIComponent(d.baslik)}#basvuru`;
 const disLink = Boolean(d.kayitLinki);
 ---
 <article class="e-kart" data-bitis={isoYaz(bitisAni(etkinlik))}>
