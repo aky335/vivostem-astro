@@ -43,7 +43,7 @@ const bolumBasligi = (label: string) =>
 const depolama =
   process.env.NODE_ENV === 'development'
     ? ({ kind: 'local' } as const)
-    : ({ kind: 'github', repo: { owner: 'aky335', name: 'vivostem' } } as const);
+    : ({ kind: 'github', repo: { owner: 'aky335', name: 'vivostem-astro' } } as const);
 
 export default config({
   storage: depolama,
