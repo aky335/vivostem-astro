@@ -65,7 +65,7 @@ bloklar:
             - Exo&#8209;ME ile birlikte uygulama
   - discriminant: metin
     value:
-      metin: '## Neden Cellenis<sup>&reg;</sup> PRGF?'
+      metin: '## Neden Cellenis PRGF?'
   - discriminant: maddeler
     value:
       maddeler:
