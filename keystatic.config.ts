@@ -1,5 +1,17 @@
 import { config, collection, fields, singleton } from '@keystatic/core';
+import { createElement } from 'react';
 import { ikonAdlari } from './src/data/ikonlar.js';
+
+// Panelin sol üstündeki marka işareti. Keystatic buraya bir React bileşeni
+// bekliyor; dosya .ts olduğu için JSX yerine createElement kullanılıyor.
+// Görsel favicon'un kırpılmış hali, ayrı bir logo üretilmedi.
+const markaIsareti = () =>
+  createElement('img', {
+    src: '/assets/img/logo-isaret.png',
+    alt: '',
+    height: 26,
+    style: { display: 'block', width: 'auto' },
+  });
 
 // Panelde ikon secimi icin ortak liste.
 const ikonAlani = (label: string) =>
@@ -61,7 +73,7 @@ export default config({
   cloud: { project: 'd-option/vivostem-astro' },
 
   ui: {
-    brand: { name: 'Vivostem içerik paneli' },
+    brand: { name: 'Vivostem içerik paneli', mark: markaIsareti },
     navigation: {
       Ürünler: ['urunler', 'urunAileleri'],
       İçerik: ['blog', 'kategoriler', 'etkinlikler'],
