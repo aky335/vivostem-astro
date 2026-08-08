@@ -1,104 +1,111 @@
-ad: "Cellenis<sup>&reg;</sup> PRGF"
-ozet: "Lökosit içermeyen, büyüme faktörü açısından zenginleştirilmiş plazma fraksiyonu."
-seoBaslik: "Cellenis PRGF | Vivostem Türkiye"
-seoAciklama: "PRGF, lökosit içermeyen ve büyüme faktörü açısından zenginleştirilmiş plazma fraksiyonudur. Dermatoloji, estetik tıp, diş hekimliği, ortopedi ve oftalmoloji endikasyonları."
-gorsel: "/assets/img/urunler/cellenis-prgf/tup-prp.png"
-gorselAlt: "Cellenis PRP 11 ve 22 ml tüpler"
-aile: "cellenis"
-menuAdi: ""
+ad: Cellenis PRGF
+ozet: >-
+  Lökosit içermeyen, büyüme faktörü açısından zenginleştirilmiş plazma
+  fraksiyonu.
+aile: cellenis
 sira: 2
 gizli: false
-ctaBaslik: "Cellenis<sup>&reg;</sup> PRGF hakkında bilgi almak ister misiniz?"
-ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
-ilgiliKartlar:
-  - baslik: "Cellenis<sup>&reg;</sup> PRF"
-    aciklama: "Membran formu, yavaş salınım."
-    adres: "/cellenis-prf"
-  - baslik: "Cellenis<sup>&reg;</sup> DermaFiller"
-    aciklama: "Otolog hacim desteği."
-    adres: "/cellenis-dermafiller"
-  - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
-    aciklama: "Ekzozom bazlı rejenerasyon."
-    adres: "/cellenis-exo-me"
-  - baslik: "Tropocells<sup>&reg;</sup> PRP"
-    aciklama: "Ortopedi ve üroloji odaklı PRP."
-    adres: "/tropocells-prp"
+gorsel: /assets/img/urunler/cellenis-prgf/gorsel.png
+gorselAlt: Cellenis PRP 11 ve 22 ml tüpler
 bloklar:
   - discriminant: etiketler
     value:
       etiketler:
-        - "Otolog"
-        - "Lökositsiz"
-        - "Enjekte edilebilir"
-        - "FDA ve CE onaylı"
+        - Otolog
+        - Lökositsiz
+        - Enjekte edilebilir
+        - FDA ve CE onaylı
   - discriminant: metin
     value:
-      metin: |-
+      metin: >-
         ## PRGF nedir?
 
-        PRGF (Plasma Rico en Factores de Crecimiento), trombositler tarafından salgılanan büyüme faktörlerinden arındırılmamış, yalnızca büyüme faktörü açısından zenginleştirilmiş plazma fraksiyonudur.
 
-        Standart PRP'den temel farkı lökosit içermemesidir. Bu sayede enflamasyon riski en aza iner; doku iyileşmesi daha kontrollü ve öngörülebilir ilerler.
+        PRGF (Plasma Rico en Factores de Crecimiento), trombositler tarafından
+        salgılanan büyüme faktörlerinden arındırılmamış, yalnızca büyüme faktörü
+        açısından zenginleştirilmiş plazma fraksiyonudur.
+
+
+        Standart PRP'den temel farkı lökosit içermemesidir. Bu sayede
+        enflamasyon riski en aza iner; doku iyileşmesi daha kontrollü ve
+        öngörülebilir ilerler.
+
 
         ## Endikasyonlar
   - discriminant: kutular
     value:
-      baslik: ""
       ustBosluk: 0
       kutular:
-        - baslik: "Dermatoloji"
-          metin: ""
+        - baslik: Dermatoloji
           maddeler:
-            - "Yüz gençleştirme"
-            - "Saç dökülmesi"
-        - baslik: "Estetik tıp"
-          metin: ""
+            - Yüz gençleştirme
+            - Saç dökülmesi
+        - baslik: Estetik tıp
           maddeler:
-            - "Dolgu kombinasyonu"
-            - "Cilt kalitesi"
-        - baslik: "Diş hekimliği"
-          metin: ""
+            - Dolgu kombinasyonu
+            - Cilt kalitesi
+        - baslik: Diş hekimliği
           maddeler:
-            - "İmplant iyileşmesi"
-            - "Kemik rejenerasyonu"
-        - baslik: "Ortopedi"
-          metin: ""
+            - İmplant iyileşmesi
+            - Kemik rejenerasyonu
+        - baslik: Ortopedi
           maddeler:
-            - "Eklem dejenerasyonu"
-            - "Tendon yaralanmaları"
+            - Eklem dejenerasyonu
+            - Tendon yaralanmaları
   - discriminant: kutular
     value:
-      baslik: ""
       ustBosluk: 20
       kutular:
-        - baslik: "Oftalmoloji"
-          metin: ""
+        - baslik: Oftalmoloji
           maddeler:
-            - "Kuru göz tedavisi"
-        - baslik: "Kombinasyon"
-          metin: ""
+            - Kuru göz tedavisi
+        - baslik: Kombinasyon
           maddeler:
-            - "PRF ile sinerjik kullanım"
-            - "Exo&#8209;ME ile birlikte uygulama"
+            - PRF ile sinerjik kullanım
+            - Exo&#8209;ME ile birlikte uygulama
   - discriminant: metin
     value:
-      metin: |-
-        ## Neden Cellenis<sup>&reg;</sup> PRGF?
+      metin: '## Neden Cellenis PRGF?'
   - discriminant: maddeler
     value:
-      baslik: ""
       maddeler:
-        - "Komplikasyonsuz protokol"
-        - "Kişinin kendi kanından elde edilir, yabancı madde içermez"
-        - "Klinik çalışmalarla desteklenmiş etkinlik"
-        - "60'tan fazla ülkede aktif kullanım"
-        - "Yüksek saflık sayesinde birçok uygulamada daha az seans hedefi"
+        - Komplikasyonsuz protokol
+        - Kişinin kendi kanından elde edilir, yabancı madde içermez
+        - Klinik çalışmalarla desteklenmiş etkinlik
+        - 60'tan fazla ülkede aktif kullanım
+        - Yüksek saflık sayesinde birçok uygulamada daha az seans hedefi
   - discriminant: not
     value:
-      vurgu: "Hassas bölgeler:"
-      metin: "Hekim değerlendirmesi doğrultusunda göz çevresi gibi ince ve hassas bölgelerde de uygulanabilmektedir. Göz altı görünümünün desteklenmesi, ince çizgilerin azaltılması ve kolajen üretiminin desteklenmesine yönelik uygulamalarda tercih edilmektedir."
+      vurgu: 'Hassas bölgeler:'
+      metin: >-
+        Hekim değerlendirmesi doğrultusunda göz çevresi gibi ince ve hassas
+        bölgelerde de uygulanabilmektedir. Göz altı görünümünün desteklenmesi,
+        ince çizgilerin azaltılması ve kolajen üretiminin desteklenmesine
+        yönelik uygulamalarda tercih edilmektedir.
       ustBosluk: 26
   - discriminant: metin
     value:
-      metin: |-
-        <p style="margin-top:26px">Seans sayısı, etki süresi ve uygulama detayları için <a href="/sss">sıkça sorulan sorular</a> bölümüne bakabilirsiniz.</p>
+      metin: >-
+        <p style="margin-top:26px">Seans sayısı, etki süresi ve uygulama
+        detayları için <a href="/sss">sıkça sorulan sorular</a> bölümüne
+        bakabilirsiniz.</p>
+ilgiliKartlar:
+  - baslik: Cellenis<sup>&reg;</sup> PRF
+    aciklama: Membran formu, yavaş salınım.
+    adres: /cellenis-prf
+  - baslik: Cellenis<sup>&reg;</sup> DermaFiller
+    aciklama: Otolog hacim desteği.
+    adres: /cellenis-dermafiller
+  - baslik: Cellenis<sup>&reg;</sup> Exo&#8209;ME
+    aciklama: Ekzozom bazlı rejenerasyon.
+    adres: /cellenis-exo-me
+  - baslik: Tropocells<sup>&reg;</sup> PRP
+    aciklama: Ortopedi ve üroloji odaklı PRP.
+    adres: /tropocells-prp
+ctaBaslik: Cellenis PRGF hakkında bilgi almak ister misiniz?
+ctaMetin: Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın.
+seoBaslik: Cellenis PRGF | Vivostem Türkiye
+seoAciklama: >-
+  PRGF, lökosit içermeyen ve büyüme faktörü açısından zenginleştirilmiş plazma
+  fraksiyonudur. Dermatoloji, estetik tıp, diş hekimliği, ortopedi ve
+  oftalmoloji endikasyonları.

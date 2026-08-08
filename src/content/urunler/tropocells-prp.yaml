@@ -1,73 +1,99 @@
-ad: "Tropocells<sup>&reg;</sup> PRP"
-ozet: "Yüksek trombosit konsantrasyonu ve standardize protokolüyle yeni nesil PRP sistemi."
-seoBaslik: "Tropocells PRP | Vivostem Türkiye"
-seoAciklama: "Tropocells, yüksek trombosit konsantrasyonu ve standardize protokolüyle öne çıkan yeni nesil PRP sistemidir. Ortopedi, spor hekimliği ve üroloji endikasyonları."
-gorsel: "/assets/img/urunler/tropocells-prp/urun-tropocells.jpg"
-gorselAlt: "Tropocells PRP tüpleri ve enjektör"
-aile: "tropocells"
-menuAdi: ""
+ad: Tropocells PRP
+ozet: >-
+  Yüksek trombosit konsantrasyonu ve standardize protokolüyle yeni nesil PRP
+  sistemi.
+aile: tropocells
 sira: 7
 gizli: false
-ctaBaslik: "Tropocells<sup>&reg;</sup> PRP hakkında bilgi almak ister misiniz?"
-ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
-ilgiliKartlar:
-  - baslik: "TropoVisc<sup>&trade;</sup>"
-    aciklama: "PRP etkisini uzatan taşıyıcı sistem."
-    adres: "/tropovisc"
-  - baslik: "TRS"
-    aciklama: "Trombinden zengin otolog serum."
-    adres: "/trs"
-  - baslik: "BMAC"
-    aciklama: "Kemik iliği kaynaklı kök hücre konsantresi."
-    adres: "/bmac"
-  - baslik: "TropoVet<sup>&reg;</sup>"
-    aciklama: "Veteriner hekimlik için PRGF."
-    adres: "/tropovet"
+gorsel: /assets/img/urunler/tropocells-prp/gorsel.jpg
+gorselAlt: Tropocells PRP tüpleri ve enjektör
 bloklar:
   - discriminant: etiketler
     value:
       etiketler:
-        - "FDA onaylı"
-        - "CE Class IIb"
-        - "ISO 13485"
-        - "Standardize kit"
+        - FDA onaylı
+        - CE Class IIb
+        - ISO 13485
+        - Standardize kit
   - discriminant: metin
     value:
-      metin: |-
+      metin: >-
         ## Tropocells<sup>&reg;</sup> PRP nedir?
 
-        Tropocells<sup>&reg;</sup>, yeni nesil PRP (Platelet Rich Plasma) teknolojisiyle üretilmiş, yüksek trombosit konsantrasyonu ve standardize protokolüyle öne çıkan bir biyolojik tedavi sistemidir.
 
-        Komplikasyonsuz uygulama protokolü ve klinik olarak kanıtlanmış sonuçlarıyla sağlık profesyonellerinin güvendiği seçimdir.
+        Tropocells<sup>&reg;</sup>, yeni nesil PRP (Platelet Rich Plasma)
+        teknolojisiyle üretilmiş, yüksek trombosit konsantrasyonu ve standardize
+        protokolüyle öne çıkan bir biyolojik tedavi sistemidir.
+
+
+        Komplikasyonsuz uygulama protokolü ve klinik olarak kanıtlanmış
+        sonuçlarıyla sağlık profesyonellerinin güvendiği seçimdir.
+
 
         ## Eklem sağlığı ve ortopedi
 
-        Osteoartrit, tendon yaralanmaları ve kıkırdak dejenerasyonunda PRP'nin anti&#8209;inflamatuvar ve rejeneratif etkisi klinik çalışmalarla kanıtlanmıştır. Tropocells<sup>&reg;</sup>, yüksek trombosit konsantrasyonuyla eklem içi uygulamada üstün sonuçlar sunar.
+
+        Osteoartrit, tendon yaralanmaları ve kıkırdak dejenerasyonunda PRP'nin
+        anti&#8209;inflamatuvar ve rejeneratif etkisi klinik çalışmalarla
+        kanıtlanmıştır. Tropocells<sup>&reg;</sup>, yüksek trombosit
+        konsantrasyonuyla eklem içi uygulamada üstün sonuçlar sunar.
+
 
         ## Sporcu yaralanmaları
 
-        Tendon, ligaman ve kas yaralanmalarında hızlı doku onarımı sağlar. Profesyonel sporcularda da tercih edilen güvenli bir protokoldür.
+
+        Tendon, ligaman ve kas yaralanmalarında hızlı doku onarımı sağlar.
+        Profesyonel sporcularda da tercih edilen güvenli bir protokoldür.
   - discriminant: odul
     value:
-      metin: "Tropocel, <strong>Brezilya futbol milli takımının resmi sponsoru</strong>dur."
+      metin: >-
+        Tropocel, <strong>Brezilya futbol milli takımının resmi
+        sponsoru</strong>dur.
   - discriminant: metin
     value:
-      metin: |-
+      metin: >-
         ## Üroloji
 
-        Ereksiyon disfonksiyonu ve Peyronie hastalığı tedavisinde PRP'nin rejeneratif etkisinden yararlanılır. Düşük invazivlik, hızlı iyileşme ve yüksek hasta memnuniyeti öne çıkan özellikleridir.
+
+        Ereksiyon disfonksiyonu ve Peyronie hastalığı tedavisinde PRP'nin
+        rejeneratif etkisinden yararlanılır. Düşük invazivlik, hızlı iyileşme ve
+        yüksek hasta memnuniyeti öne çıkan özellikleridir.
+
 
         ## Neden Tropocells<sup>&reg;</sup>?
   - discriminant: maddeler
     value:
-      baslik: ""
       maddeler:
-        - "Yeni nesil, komplikasyonsuz protokol"
-        - "Standardize kit, tekrarlanabilir klinik sonuç"
-        - "FDA, CE ve ISO 13485 onaylı üretim"
-        - "Geniş endikasyon yelpazesi"
+        - Yeni nesil, komplikasyonsuz protokol
+        - Standardize kit, tekrarlanabilir klinik sonuç
+        - FDA, CE ve ISO 13485 onaylı üretim
+        - Geniş endikasyon yelpazesi
   - discriminant: not
     value:
-      vurgu: "Sistemi genişleten ürünler:"
-      metin: "<a href=\"/tropovisc\">TropoVisc<sup>&trade;</sup></a> PRP'nin etkisini enjeksiyon bölgesinde iki aya kadar uzatır; <a href=\"/trs\">TRS</a> trombinden zengin otolog serum sağlar; <a href=\"/bmac\">BMAC</a> ortopedik uygulamalarda kök hücre desteği verir."
+      vurgu: 'Sistemi genişleten ürünler:'
+      metin: >-
+        <a href="/tropovisc">TropoVisc<sup>&trade;</sup></a> PRP'nin etkisini
+        enjeksiyon bölgesinde iki aya kadar uzatır; <a href="/trs">TRS</a>
+        trombinden zengin otolog serum sağlar; <a href="/bmac">BMAC</a>
+        ortopedik uygulamalarda kök hücre desteği verir.
       ustBosluk: 26
+ilgiliKartlar:
+  - baslik: TropoVisc<sup>&trade;</sup>
+    aciklama: PRP etkisini uzatan taşıyıcı sistem.
+    adres: /tropovisc
+  - baslik: TRS
+    aciklama: Trombinden zengin otolog serum.
+    adres: /trs
+  - baslik: BMAC
+    aciklama: Kemik iliği kaynaklı kök hücre konsantresi.
+    adres: /bmac
+  - baslik: TropoVet<sup>&reg;</sup>
+    aciklama: Veteriner hekimlik için PRGF.
+    adres: /tropovet
+ctaBaslik: Tropocells PRP hakkında bilgi almak ister misiniz?
+ctaMetin: Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın.
+seoBaslik: Tropocells PRP | Vivostem Türkiye
+seoAciklama: >-
+  Tropocells, yüksek trombosit konsantrasyonu ve standardize protokolüyle öne
+  çıkan yeni nesil PRP sistemidir. Ortopedi, spor hekimliği ve üroloji
+  endikasyonları.

@@ -1,70 +1,75 @@
-ad: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
-ozet: "Mezenkimal kök hücrelerden elde edilen ekzozomlar içeren rejeneratif ürün."
-seoBaslik: "Cellenis Exo-ME | Vivostem Türkiye"
-seoAciklama: "Exo-ME, mezenkimal kök hücrelerden elde edilen ekzozomlar içeren rejeneratif üründür. Saç dökülmesi, cilt yenileme ve skar tedavisinde kullanılır."
-gorsel: "/assets/img/urunler/cellenis-exo-me/urun-cellenis.png"
-gorselAlt: "Cellenis ürün kutuları ve tüpleri"
-aile: "cellenis"
-menuAdi: ""
+ad: Cellenis Exo-ME
+ozet: Mezenkimal kök hücrelerden elde edilen ekzozomlar içeren rejeneratif ürün.
+aile: cellenis
 sira: 5
 gizli: false
-ctaBaslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME hakkında bilgi almak ister misiniz?"
-ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
-ilgiliKartlar:
-  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
-    aciklama: "Kombinasyonda sinerjik etki."
-    adres: "/cellenis-prgf"
-  - baslik: "Cellenis<sup>&reg;</sup> PRF"
-    aciklama: "Membran formu, yavaş salınım."
-    adres: "/cellenis-prf"
-  - baslik: "Cellenis<sup>&reg;</sup> DermaFiller"
-    aciklama: "Otolog hacim desteği."
-    adres: "/cellenis-dermafiller"
-  - baslik: "SVF"
-    aciklama: "Yağ dokusu kaynaklı kök hücre konsantresi."
-    adres: "/svf"
+gorsel: /assets/img/urunler/cellenis-exo-me/gorsel.png
+gorselAlt: Cellenis ürün kutuları ve tüpleri
 bloklar:
   - discriminant: etiketler
     value:
       etiketler:
-        - "Hücre içermez"
-        - "Standardize üretim"
-        - "Kombinasyona uygun"
+        - Hücre içermez
+        - Standardize üretim
+        - Kombinasyona uygun
   - discriminant: metin
     value:
-      metin: |-
+      metin: >-
         ## Exo&#8209;ME nedir?
 
-        Exo&#8209;ME, mezenkimal kök hücrelerden elde edilen ekzozomlar içeren rejeneratif bir üründür. Ekzozomlar, hücreler arası iletişimi düzenleyen nano boyutlu veziküllerdir; doku yenilenmesini, iltihabın azalmasını ve hücresel onarımı tetikler.
+
+        Exo&#8209;ME, mezenkimal kök hücrelerden elde edilen ekzozomlar içeren
+        rejeneratif bir üründür. Ekzozomlar, hücreler arası iletişimi düzenleyen
+        nano boyutlu veziküllerdir; doku yenilenmesini, iltihabın azalmasını ve
+        hücresel onarımı tetikler.
+
 
         ## Endikasyonlar
   - discriminant: maddeler
     value:
-      baslik: ""
       maddeler:
-        - "Androgenetik alopesi (saç dökülmesi)"
-        - "Cilt yenileme ve anti&#8209;aging"
-        - "Pigmentasyon bozuklukları"
-        - "Skar ve stria tedavisi"
-        - "PRGF veya PRF ile kombinasyon uygulamaları"
+        - Androgenetik alopesi (saç dökülmesi)
+        - Cilt yenileme ve anti&#8209;aging
+        - Pigmentasyon bozuklukları
+        - Skar ve stria tedavisi
+        - PRGF veya PRF ile kombinasyon uygulamaları
   - discriminant: metin
     value:
-      metin: |-
-        ## Neden Exo&#8209;ME?
+      metin: '## Neden Exo&#8209;ME?'
   - discriminant: kutular
     value:
-      baslik: ""
       ustBosluk: 0
       kutular:
-        - baslik: "Yüksek konsantrasyon"
-          metin: "PRP'ye kıyasla çok daha yüksek büyüme faktörü konsantrasyonu sunar."
+        - baslik: Yüksek konsantrasyon
+          metin: PRP'ye kıyasla çok daha yüksek büyüme faktörü konsantrasyonu sunar.
           maddeler: []
-        - baslik: "Tutarlı sonuç"
-          metin: "Standardize üretim sayesinde klinik sonuç seanstan seansa değişmez."
+        - baslik: Tutarlı sonuç
+          metin: Standardize üretim sayesinde klinik sonuç seanstan seansa değişmez.
           maddeler: []
-        - baslik: "Bağışıklık tepkisi yok"
-          metin: "Hücre içermediği için bağışıklık sistemi tepkisi oluşturmaz."
+        - baslik: Bağışıklık tepkisi yok
+          metin: Hücre içermediği için bağışıklık sistemi tepkisi oluşturmaz.
           maddeler: []
-        - baslik: "Sinerjik etki"
-          metin: "Cellenis<sup>&reg;</sup> PRGF ile kombinasyonda güçlü sinerji sağlar."
+        - baslik: Sinerjik etki
+          metin: >-
+            Cellenis<sup>&reg;</sup> PRGF ile kombinasyonda güçlü sinerji
+            sağlar.
           maddeler: []
+ilgiliKartlar:
+  - baslik: Cellenis<sup>&reg;</sup> PRGF
+    aciklama: Kombinasyonda sinerjik etki.
+    adres: /cellenis-prgf
+  - baslik: Cellenis<sup>&reg;</sup> PRF
+    aciklama: Membran formu, yavaş salınım.
+    adres: /cellenis-prf
+  - baslik: Cellenis<sup>&reg;</sup> DermaFiller
+    aciklama: Otolog hacim desteği.
+    adres: /cellenis-dermafiller
+  - baslik: SVF
+    aciklama: Yağ dokusu kaynaklı kök hücre konsantresi.
+    adres: /svf
+ctaBaslik: Cellenis Exo-ME hakkında bilgi almak ister misiniz?
+ctaMetin: Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın.
+seoBaslik: Cellenis Exo-ME | Vivostem Türkiye
+seoAciklama: >-
+  Exo-ME, mezenkimal kök hücrelerden elde edilen ekzozomlar içeren rejeneratif
+  üründür. Saç dökülmesi, cilt yenileme ve skar tedavisinde kullanılır.
