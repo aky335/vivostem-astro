@@ -17,13 +17,27 @@ import keystaticConfig from '../../../../keystatic.config';
 
 export const prerender = false;
 
+// Astro'nun import.meta.env değerleri derleme anında koda gömülüyor.
+// Cloudflare'de tanımlanan gizli değişkenler ise çalışma anında geliyor ve
+// oradan okunmalı. Bu yüzden önce Cloudflare ortamına bakıp, bulunamazsa
+// (geliştirme ortamı) import.meta.env'e düşüyoruz.
+async function ortam(): Promise<Record<string, string | undefined>> {
+  try {
+    const { env } = await import('cloudflare:workers');
+    return env as Record<string, string | undefined>;
+  } catch {
+    return {};
+  }
+}
+
 export async function ALL(context: APIContext) {
+  const cf = await ortam();
   const handler = makeGenericAPIRouteHandler(
     {
       config: keystaticConfig,
-      clientId: import.meta.env.KEYSTATIC_GITHUB_CLIENT_ID,
-      clientSecret: import.meta.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
-      secret: import.meta.env.KEYSTATIC_SECRET,
+      clientId: cf.KEYSTATIC_GITHUB_CLIENT_ID ?? import.meta.env.KEYSTATIC_GITHUB_CLIENT_ID,
+      clientSecret: cf.KEYSTATIC_GITHUB_CLIENT_SECRET ?? import.meta.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
+      secret: cf.KEYSTATIC_SECRET ?? import.meta.env.KEYSTATIC_SECRET,
     },
     { slugEnvName: 'PUBLIC_KEYSTATIC_GITHUB_APP_SLUG' }
   );

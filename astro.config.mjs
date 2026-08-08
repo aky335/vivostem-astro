@@ -31,6 +31,16 @@ export default defineConfig({
     format: 'directory',
   },
 
+  // Keystatic panelinin tarayıcı tarafı, GitHub uygulamasının adını
+  // import.meta.env üzerinden okuyor ve bu değer derleme anında gömülüyor.
+  // Gizli bir bilgi olmadığı için ortam değişkeni yerine doğrudan burada
+  // tanımlı; Cloudflare'de ayrıca değişken tanımlamaya gerek kalmıyor.
+  vite: {
+    define: {
+      'import.meta.env.PUBLIC_KEYSTATIC_GITHUB_APP_SLUG': JSON.stringify('vivostem-icerik-paneli'),
+    },
+  },
+
   // Astro varsayılan olarak boşlukları sıkıştırıyor ve satır sonundaki
   // boşluğu tamamen siliyor; bu da "için <a>" ifadesini "için<a>" yapıyor.
   // Metin akışı bozulmasın diye kapalı.
