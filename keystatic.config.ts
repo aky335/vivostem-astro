@@ -170,16 +170,13 @@ export default config({
         basvuruBaslik: fields.text({ label: 'Başvuru bölümü başlığı' }),
         basvuruMetin: fields.text({ label: 'Başvuru bölümü açıklaması', multiline: true }),
 
-        webinarUstBaslik: fields.text({ label: 'Webinar bölümü üst başlığı' }),
-        webinarBaslik: fields.text({ label: 'Webinar bölümü başlığı' }),
-        webinarMetin: fields.text({ label: 'Webinar bölümü açıklaması', multiline: true }),
-        webinarKutulari: fields.array(
-          fields.object({
-            baslik: fields.text({ label: 'Kutu başlığı' }),
-            metin: fields.text({ label: 'Açıklama', multiline: true }),
-          }),
-          { label: 'Webinar konuları' }
-        ),
+        takvimUstBaslik: fields.text({ label: 'Takvim şeridi üst başlığı' }),
+        takvimBaslik: fields.text({ label: 'Takvim şeridi başlığı' }),
+        takvimMetin: fields.text({ label: 'Takvim şeridi açıklaması', multiline: true }),
+        takvimButonYazi: fields.text({
+          label: 'Takvim şeridi buton yazısı',
+          description: 'Buton her zaman etkinlik takvimi sayfasına gider.',
+        }),
 
         ctaBaslik: fields.text({ label: 'Alt çağrı başlığı', multiline: true }),
         ctaMetin: fields.text({ label: 'Alt çağrı metni', multiline: true }),

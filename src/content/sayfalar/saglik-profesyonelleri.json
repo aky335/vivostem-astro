@@ -32,23 +32,10 @@
   "basvuruUstBaslik": "Başvuru",
   "basvuruBaslik": "Eğitim ve ürün bilgisi talebi",
   "basvuruMetin": "Hangi konuda destek istediğinizi seçin, ilgili ekip arkadaşımız size dönsün.",
-  "webinarUstBaslik": "Webinar Takvimi",
-  "webinarBaslik": "Etkinlik takvimi yakında bu sayfada",
-  "webinarMetin": "Yaklaşan webinar ve eğitim etkinliklerinin tarihleri, konuları ve konuşmacıları burada yayınlanacak. Duyuruları ilk siz almak isterseniz yukarıdaki eğitim başvurusu formunu doldurmanız yeterli.",
-  "webinarKutulari": [
-    {
-      "baslik": "Cellenis Exo&#8209;ME",
-      "metin": "Saç dökülmesi ve cilt yenilemede ekzozom protokolleri."
-    },
-    {
-      "baslik": "Tropocells PRP",
-      "metin": "Ortopedi ve spor hekimliğinde uygulama pratiği."
-    },
-    {
-      "baslik": "Rejeneratif diş hekimliği",
-      "metin": "İmplant iyileşmesi ve kemik rejenerasyonunda PRGF."
-    }
-  ],
+  "takvimUstBaslik": "Etkinlik Takvimi",
+  "takvimBaslik": "Yaklaşan webinar ve eğitimler",
+  "takvimMetin": "Online webinarlar, uygulamalı eğitimler ve kongre katılımlarımızın tarihleri etkinlik takviminde. Katılmak istediğiniz etkinliğin kayıt formuna oradan ulaşabilirsiniz.",
+  "takvimButonYazi": "Etkinlik takvimine git",
   "ctaBaslik": "Bir sonraki eğitime katılmak ister misiniz?",
   "ctaMetin": "Kontenjan ve tarih bilgisi için ekibimize yazın, sizi listeye ekleyelim."
 }

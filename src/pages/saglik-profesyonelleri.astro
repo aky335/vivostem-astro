@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { ayarlar } from '../lib/ayarlar.js';
 import Ikon from '../components/Ikon.astro';
+import TakvimYonlendirme from '../components/TakvimYonlendirme.astro';
 import s from '../content/sayfalar/saglik-profesyonelleri.json';
 
 ---
@@ -101,16 +102,12 @@ import s from '../content/sayfalar/saglik-profesyonelleri.json';
 
 <section class="bolum bolum--dar">
   <div class="wrap">
-    <div class="bolum-bas"><div class="kural"></div>
-      <p class="ustbaslik ustbaslik--mor" set:html={s.webinarUstBaslik} />
-      <h2 set:html={s.webinarBaslik} />
-      <p set:html={s.webinarMetin} /></div>
-    <div class="kutu-grid kutu-grid--3">
-      {s.webinarKutulari.map((k) => (
-        <div class="kutu kutu--lila"><h3 set:html={k.baslik} />
-          <p set:html={k.metin} /></div>
-      ))}
-    </div>
+    <TakvimYonlendirme
+      ustBaslik={s.takvimUstBaslik}
+      baslik={s.takvimBaslik}
+      metin={s.takvimMetin}
+      butonYazi={s.takvimButonYazi}
+    />
   </div>
 </section>
 

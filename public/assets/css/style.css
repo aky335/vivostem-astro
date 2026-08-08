@@ -24,6 +24,12 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
+/* hidden özniteliği her koşulda gizlesin.
+   Tarayıcının varsayılanı display:none, ama .y-kart ve .e-liste gibi kendi
+   display değerini veren sınıflar bunu eziyor. Sonuç: blog kategori süzgeci
+   ve etkinlik listeleri JS ile gizlense bile ekranda kalıyordu. */
+[hidden]{display:none !important}
+
 html{scroll-behavior:smooth; scroll-padding-top:96px; -webkit-text-size-adjust:100%}
 
 body{
@@ -887,4 +893,21 @@ details.sss summary:focus-visible{outline:2px solid var(--mor); outline-offset:-
   .e-tarih{flex-direction:row; gap:10px; justify-content:flex-start; padding:10px 16px}
   .e-gun{font-size:1.3rem}
   .e-ay{margin-top:0}
+}
+
+/* --------------------------------------------- etkinlik takvimi şeridi --- */
+.takvim-yon{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:36px; flex-wrap:wrap;
+  background:var(--lila-acik); border:1px solid var(--cizgi-acik);
+  border-radius:var(--r); padding:36px 40px;
+}
+.takvim-yon-metin{max-width:640px}
+.takvim-yon .ustbaslik{margin-bottom:8px}
+.takvim-yon h2{font-size:clamp(1.4rem,2.1vw,1.75rem); margin:0 0 10px}
+.takvim-yon p:last-child{margin:0; color:var(--soluk)}
+.takvim-yon .btn{flex:0 0 auto}
+@media(max-width:760px){
+  .takvim-yon{padding:28px 24px; gap:24px}
+  .takvim-yon .btn{width:100%; justify-content:center}
 }

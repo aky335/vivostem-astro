@@ -1,0 +1,21 @@
+---
+// Etkinlik takvimine yönlendiren şerit.
+// Sağlık profesyonelleri sayfasında kullanılıyor; başka sayfalara da
+// eklenebilsin diye ayrı bileşen. Metinler panelden geliyor.
+const {
+  ustBaslik = '',
+  baslik = '',
+  metin = '',
+  butonYazi = 'Etkinlik takvimine git',
+  adres = '/etkinlikler',
+} = Astro.props;
+---
+
+<div class="takvim-yon">
+  <div class="takvim-yon-metin">
+    {ustBaslik && <p class="ustbaslik ustbaslik--mor" set:html={ustBaslik} />}
+    {baslik && <h2 set:html={baslik} />}
+    {metin && <p set:html={metin} />}
+  </div>
+  <a href={adres} class="btn btn--dolu">{butonYazi}</a>
+</div>
