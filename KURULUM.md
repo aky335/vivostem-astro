@@ -50,7 +50,7 @@ astro.config.mjs    site adresi, adaptör, entegrasyonlar
 
 ### Yeni blog yazısı veya etkinlik eklemek
 
-Panelden: `vivostem.com.tr/keystatic` adresine git, GitHub ile giriş yap,
+Panelden: `vivostem.com.tr/panel` adresine git, e-posta ve şifrenle giriş yap,
 soldan Blog yazıları veya Etkinlikler seç, doldur, kaydet. Kaydettiğin anda
 repoya commit atılır ve Cloudflare siteyi yeniden yayınlar. Yaklaşık 1 dakika
 sonra canlıda görünür.
@@ -69,7 +69,8 @@ açmaya gerek yok.
 
 ## Panelde ne var, ne nerede
 
-Panel `vivostem.com.tr/keystatic` adresinde. Sol menü beş gruba ayrılıyor:
+Panel `vivostem.com.tr/panel` adresinde (gerçek adresi `/keystatic`, `/panel`
+oraya yönlendiriyor). Sol menü beş gruba ayrılıyor:
 
 **Ürünler**
 
@@ -139,30 +140,43 @@ statik HTML olarak üretiliyor; sadece `/keystatic` paneli sunucu tarafında
 ### Tek seferlik kurulum
 
 1. Cloudflare panelinde **Workers & Pages > Create > Import a repository**,
-   `aky335/vivostem` reposunu bağla
+   `aky335/vivostem-astro` reposunu bağla
 2. Build komutu `npm run build`, çıktı klasörü `dist`
 3. GitHub'a her gönderimde otomatik yayınlanır
 
-### Panelin GitHub ile çalışması için
+### Panele giriş ve kullanıcı yönetimi
 
-Keystatic yayında GitHub üzerinden çalışır. Bunun için bir GitHub App gerekir:
+Panel Keystatic Cloud üzerinden çalışıyor. İçerik girecek kişinin GitHub
+hesabına ihtiyacı yok, e-posta ve şifresiyle giriyor.
 
-1. Site yayına girdikten sonra `vivostem.com.tr/keystatic/setup` adresini aç
-2. Ekrandaki adımları izle, Keystatic GitHub App'i senin adına oluşturur
-3. Kurulum sonunda üç değer verir; bunları Cloudflare'de
-   **Settings > Variables and Secrets** altına gizli değişken olarak ekle:
-   - `KEYSTATIC_GITHUB_CLIENT_ID`
-   - `KEYSTATIC_GITHUB_CLIENT_SECRET`
-   - `KEYSTATIC_SECRET`
-   - `PUBLIC_KEYSTATIC_GITHUB_APP_SLUG` (bu gizli değil, normal değişken)
-4. Yeniden yayınla
+Yönetim adresi: **keystatic.cloud**, takım `d-option`, proje `vivostem-astro`.
 
-Bu değerler repoya yazılmaz, sadece Cloudflare'de durur.
+- **Yeni kişi eklemek:** Takım sayfasında Users > davet et. Kişi e-postasına
+  gelen bağlantıdan kendi şifresini belirler.
+- **Kişi çıkarmak:** Aynı sayfadan sil. O andan itibaren panele giremez, site
+  ve içerik etkilenmez.
+- **Ücret:** 3 kullanıcıya kadar ücretsiz.
+
+Depoya yazma yetkisi kullanıcıda değil, Keystatic Cloud projesinde duruyor.
+Proje ayarlarındaki **Project URLs** listesi, panelin hangi adreslerden giriş
+kabul edeceğini belirler. Alan adı değişirse yeni adresi oraya eklemek gerekir,
+yoksa giriş çalışmaz.
+
+### GitHub moduna geri dönmek gerekirse
+
+`keystatic.config.ts` içindeki `depolama` değişkenini
+`{ kind: 'github', repo: { owner: 'aky335', name: 'vivostem-astro' } }` yap.
+O durumda her kullanıcının GitHub hesabı gerekir ve Cloudflare'de şu gizli
+değişkenler devreye girer (şu an duruyorlar ama kullanılmıyorlar):
+`KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`,
+`KEYSTATIC_SECRET`.
 
 ### Alan adına geçerken
 
 - `astro.config.mjs` içindeki `site` değerini gerçek adresle güncelle
 - `public/robots.txt` şu an arama motorlarına kapalı, açmayı unutma
+- keystatic.cloud proje ayarlarında **Project URLs** listesine yeni adresi ekle,
+  yoksa panele giriş çalışmaz
 
 ## Bilinmesi gereken iki teknik not
 

@@ -37,16 +37,28 @@ const bolumBasligi = (label: string) =>
     { label }
   );
 
-// Yerelde çalışırken dosyalar doğrudan diske yazılır.
-// Yayında ise panel GitHub üzerinden çalışır; kaydet dediğinde
-// repoya commit atar ve Cloudflare otomatik yeniden yayınlar.
+// Yerelde çalışırken dosyalar doğrudan diske yazılır, giriş istenmez.
+//
+// Yayında panel Keystatic Cloud üzerinden çalışıyor: kullanıcı e-posta ve
+// şifresiyle giriyor, GitHub hesabına ihtiyaç duymuyor. Depoya yazma yetkisi
+// kullanıcıda değil, Keystatic Cloud projesinde duruyor. Kaydet dendiğinde yine
+// repoya commit atılıyor ve Cloudflare siteyi yeniden yayınlıyor; içerik her
+// zaman kendi depomuzda düz dosya olarak kalıyor.
+//
+// GitHub moduna dönmek gerekirse aşağıdaki satırı şununla değiştirmek yeterli:
+//   { kind: 'github', repo: { owner: 'aky335', name: 'vivostem-astro' } }
+// O durumda Cloudflare'deki KEYSTATIC_* gizli değişkenleri tekrar devreye girer.
 const depolama =
   process.env.NODE_ENV === 'development'
     ? ({ kind: 'local' } as const)
-    : ({ kind: 'github', repo: { owner: 'aky335', name: 'vivostem-astro' } } as const);
+    : ({ kind: 'cloud' } as const);
 
 export default config({
   storage: depolama,
+
+  // Keystatic Cloud'daki takım ve proje adı. Gizli bir bilgi değil.
+  // Kullanıcı yönetimi (davet, şifre, çıkarma) keystatic.cloud üzerinden yapılır.
+  cloud: { project: 'd-option/vivostem-astro' },
 
   ui: {
     brand: { name: 'Vivostem içerik paneli' },

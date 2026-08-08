@@ -31,6 +31,13 @@ export default defineConfig({
     format: 'directory',
   },
 
+  // Panelin gerçek adresi /keystatic; bu yol Keystatic'in kendi kodunda sabit,
+  // değiştirilemiyor. Müşteriye "siteadi.com/panel" demek yeterli olsun diye
+  // kısa bir yönlendirme bırakıldı.
+  redirects: {
+    '/panel': '/keystatic',
+  },
+
   // Keystatic panelinin tarayıcı tarafı, GitHub uygulamasının adını
   // import.meta.env üzerinden okuyor ve bu değer derleme anında gömülüyor.
   // Gizli bir bilgi olmadığı için ortam değişkeni yerine doğrudan burada
