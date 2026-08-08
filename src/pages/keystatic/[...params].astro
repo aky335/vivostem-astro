@@ -6,7 +6,12 @@ import { Panel } from '../../keystatic-panel.js';
 export const prerender = false;
 ---
 
-<style is:global>
+{/*
+  is:inline zorunlu. Bu sayfa tam bir HTML belgesi değil, <head> bölümü yok;
+  Astro'nun normal stil işleyişi stili head'e taşımaya çalışıp sayfaya hiç
+  koymuyor. is:inline ile stil yazıldığı yerde, olduğu gibi çıktıya giriyor.
+*/}
+<style is:inline>
   /*
     Keystatic'in "dal" (branch) arayüzünü gizler.
 
