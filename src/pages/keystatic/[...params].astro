@@ -6,4 +6,33 @@ import { Panel } from '../../keystatic-panel.js';
 export const prerender = false;
 ---
 
+<style is:global>
+  /*
+    Keystatic'in "dal" (branch) arayüzünü gizler.
+
+    NEDEN: Panele içerik girecek kişi git bilmiyor. "master", "main",
+    "New branch" gibi ifadeler hem kafa karıştırıyor hem de gerçek bir risk
+    taşıyor: yeni bir dal açıp orada kaydederse yazdıkları siteye hiçbir zaman
+    çıkmaz ve kimse sebebini anlamaz. Keystatic bu arayüzü kapatmak için bir
+    ayar sunmadığı için tek yol bu.
+
+    KIRILIRSA NE OLUR: Keystatic güncellenip iç yapısı değişirse bu kurallar
+    tutmaz ve dal kutusu geri görünür. Panel bozulmaz, sadece gizleme çalışmaz.
+    Bilerek bu tarafa kırılacak şekilde yazıldı. Sınıf adları her sürümde
+    değiştiği için seçiciler sınıfa değil anlamlı özelliklere bağlı.
+  */
+
+  /* Sol üstteki dal kutusu ve yanındaki git menüsü.
+     İçinde bağlantı olan üst katmanlar hariç tutuluyor ki menü kaybolmasın. */
+  div:has(input[aria-label="Current branch"]):not(:has(a)) {
+    display: none !important;
+  }
+
+  /* Dashboard'daki "CURRENT BRANCH / New branch…" bölümü.
+     Koleksiyon bölümleri bağlantı içerdiği için bu kuralın dışında kalıyor. */
+  section:has(> div > button):not(:has(a)) {
+    display: none !important;
+  }
+</style>
+
 <Panel client:only="react" />
