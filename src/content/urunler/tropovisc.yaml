@@ -1,68 +1,81 @@
-ad: "TropoVisc<sup>&trade;</sup>"
-ozet: "Tropocells<sup>&reg;</sup> PRP'nin etkisini enjeksiyon bölgesinde koruyan otolog taşıyıcı sistem."
-seoBaslik: "TropoVisc | Vivostem Türkiye"
-seoAciklama: "TropoVisc, Tropocells PRP'nin etkinliğini enjeksiyon bölgesinde daha uzun süre korumak için geliştirilen otolog hücre taşıyıcı sistemidir."
-gorsel: "/assets/img/urunler/tropovisc/urun-tropocells.jpg"
-gorselAlt: "Tropocells PRP tüpleri ve enjektör"
-aile: "tropocells"
-menuAdi: ""
+ad: TropoVisc
+ozet: >-
+  Tropocells PRP'nin etkisini enjeksiyon bölgesinde koruyan otolog taşıyıcı
+  sistem.
+aile: tropocells
 sira: 8
 gizli: false
-ctaBaslik: "TropoVisc<sup>&trade;</sup> hakkında bilgi almak ister misiniz?"
-ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
-ilgiliKartlar:
-  - baslik: "Tropocells<sup>&reg;</sup> PRP"
-    aciklama: "Sistemin ana platformu."
-    adres: "/tropocells-prp"
-  - baslik: "TRS"
-    aciklama: "Trombinden zengin otolog serum."
-    adres: "/trs"
-  - baslik: "BMAC"
-    aciklama: "Kemik iliği kaynaklı kök hücre konsantresi."
-    adres: "/bmac"
-  - baslik: "SVF"
-    aciklama: "Yağ dokusu kaynaklı kök hücre konsantresi."
-    adres: "/svf"
+gorsel: /assets/img/urunler/tropovisc/gorsel.jpg
+gorselAlt: Tropocells PRP tüpleri ve enjektör
 bloklar:
   - discriminant: etiketler
     value:
       etiketler:
-        - "Otolog"
-        - "Viskö suplementasyon"
-        - "Ek donanım gerektirmez"
+        - Otolog
+        - Viskö suplementasyon
+        - Ek donanım gerektirmez
   - discriminant: metin
     value:
-      metin: |-
-        ## TropoVisc<sup>&trade;</sup> nedir?
+      metin: >-
+        ## TropoVisc nedir?
 
-        TropoVisc<sup>&trade;</sup>, Tropocells<sup>&reg;</sup> PRP'nin etkinliğini enjeksiyon bölgesinde daha uzun süre korumak için geliştirilen otolog, biyolojik bir hücre taşıyıcı sistemidir. Literatürde "otolog viskö suplementasyon" olarak tanımlanır.
+
+        TropoVisc, Tropocells PRP'nin etkinliğini enjeksiyon bölgesinde daha
+        uzun süre korumak için geliştirilen otolog, biyolojik bir hücre taşıyıcı
+        sistemidir. Literatürde "otolog viskö suplementasyon" olarak tanımlanır.
+
 
         ## Nasıl çalışır?
 
-        Hastanın kanından ayrıştırılan trombositten fakir plazma (PPP), 100 derecede 10 dakika ısıtılarak denatüre edilir. Albümin proteinleri yapısal değişime uğrayarak yavaş rezorbe olan yoğun bir protein iskeleti oluşturur; bu iskelet iki aya kadar yerinde kalır.
 
-        Tropocells<sup>&reg;</sup> PRP ile karıştırılıp enjekte edildiğinde PRP enjeksiyon bölgesinde tutulur ve büyüme faktörü salınımı uzatılır.
+        Hastanın kanından ayrıştırılan trombositten fakir plazma (PPP), 100
+        derecede 10 dakika ısıtılarak denatüre edilir. Albümin proteinleri
+        yapısal değişime uğrayarak yavaş rezorbe olan yoğun bir protein iskeleti
+        oluşturur; bu iskelet iki aya kadar yerinde kalır.
+
+
+        Tropocells PRP ile karıştırılıp enjekte edildiğinde PRP enjeksiyon
+        bölgesinde tutulur ve büyüme faktörü salınımı uzatılır.
+
 
         ## Avantajlar
   - discriminant: maddeler
     value:
-      baslik: ""
       maddeler:
-        - "Yüzde yüz doğal ve otolog, kişinin kendi kanından hazırlanır"
-        - "PRP'nin etki süresini iki aya kadar uzatır"
-        - "Protein iskeleti yeni doku oluşumuna rehberlik eder"
-        - "Tek seansta viskö suplementasyon ve büyüme faktörü tedavisi"
-        - "Minimal invaziv, hızlı hazırlama süreci"
-        - "Standart Tropocells<sup>&reg;</sup> PRP kitinden ek donanım gerektirmez"
+        - Yüzde yüz doğal ve otolog, kişinin kendi kanından hazırlanır
+        - PRP'nin etki süresini iki aya kadar uzatır
+        - Protein iskeleti yeni doku oluşumuna rehberlik eder
+        - Tek seansta viskö suplementasyon ve büyüme faktörü tedavisi
+        - Minimal invaziv, hızlı hazırlama süreci
+        - >-
+          Standart Tropocells<sup>&reg;</sup> PRP kitinden ek donanım
+          gerektirmez
   - discriminant: metin
     value:
-      metin: |-
-        ## Uygulama alanları
+      metin: '## Uygulama alanları'
   - discriminant: maddeler
     value:
-      baslik: ""
       maddeler:
-        - "Eklem dejenerasyonu ve osteoartrit (diz, kalça, omuz)"
-        - "Tendon ve bağ yaralanmaları"
-        - "Uzun süreli etki gerektiren sporcu vakaları"
-        - "Zor iyileşen kronik yaralar"
+        - Eklem dejenerasyonu ve osteoartrit (diz, kalça, omuz)
+        - Tendon ve bağ yaralanmaları
+        - Uzun süreli etki gerektiren sporcu vakaları
+        - Zor iyileşen kronik yaralar
+ilgiliKartlar:
+  - baslik: Tropocells<sup>&reg;</sup> PRP
+    aciklama: Sistemin ana platformu.
+    adres: /tropocells-prp
+  - baslik: TRS
+    aciklama: Trombinden zengin otolog serum.
+    adres: /trs
+  - baslik: BMAC
+    aciklama: Kemik iliği kaynaklı kök hücre konsantresi.
+    adres: /bmac
+  - baslik: SVF
+    aciklama: Yağ dokusu kaynaklı kök hücre konsantresi.
+    adres: /svf
+ctaBaslik: TropoVisc hakkında bilgi almak ister misiniz?
+ctaMetin: Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın.
+seoBaslik: TropoVisc | Vivostem Türkiye
+seoAciklama: >-
+  TropoVisc, Tropocells PRP'nin etkinliğini enjeksiyon bölgesinde daha uzun süre
+  korumak için geliştirilen otolog hücre taşıyıcı sistemidir.
