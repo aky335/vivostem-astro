@@ -1,0 +1,99 @@
+---
+import { marked } from 'marked';
+
+// Ürün sayfasının gövdesi. Panelden eklenen bloklar sırayla basılıyor;
+// her blok kendi tasarımını taşıdığı için sıra değişse de düzen bozulmuyor.
+const { bloklar } = Astro.props;
+
+// Satır içi HTML (sup, a, strong) olduğu gibi geçsin diye varsayılan ayar.
+marked.setOptions({ mangle: false, headerIds: false });
+
+function mdCevir(metin) {
+  return marked.parse(metin ?? '', { async: false }).trim();
+}
+
+function bosluk(px) {
+  return px ? `margin-top:${px}px` : undefined;
+}
+---
+{bloklar.map((b) => {
+  const v = b.value;
+
+  if (b.discriminant === 'etiketler') {
+    return (
+      <ul class="urun-etiketler">
+        {v.etiketler.map((e) => <li set:html={e} />)}
+      </ul>
+    );
+  }
+
+  if (b.discriminant === 'metin') {
+    return <Fragment set:html={mdCevir(v.metin)} />;
+  }
+
+  if (b.discriminant === 'kutular') {
+    return (
+      <>
+        {v.baslik && <h2 set:html={v.baslik} />}
+        <div class="kutu-grid" style={bosluk(v.ustBosluk)}>
+          {v.kutular.map((k) => (
+            <div class="kutu">
+              {k.baslik && <h3 set:html={k.baslik} />}
+              {k.metin && <p set:html={k.metin} />}
+              {k.maddeler.length > 0 && (
+                <ul>{k.maddeler.map((m) => <li set:html={m} />)}</ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  }
+
+  if (b.discriminant === 'maddeler') {
+    return (
+      <>
+        {v.baslik && <h2 set:html={v.baslik} />}
+        <ul class="liste-ok">
+          {v.maddeler.map((m) => <li set:html={m} />)}
+        </ul>
+      </>
+    );
+  }
+
+  if (b.discriminant === 'tablo') {
+    return (
+      <table class="karsilastirma">
+        <thead><tr>{v.basliklar.map((h) => <th set:html={h} />)}</tr></thead>
+        <tbody>
+          {v.satirlar.map((s) => (
+            <tr>{s.hucreler.map((h) => <td set:html={h} />)}</tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
+
+  if (b.discriminant === 'odul') {
+    return (
+      <div class="odul">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+             stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-2 7 5.5-3 5.5 3-2-7"/></svg>
+        <p set:html={v.metin} />
+      </div>
+    );
+  }
+
+  if (b.discriminant === 'not') {
+    return (
+      <div class="olcut" style={bosluk(v.ustBosluk)}>
+        <p>
+          {v.vurgu && <><strong set:html={v.vurgu} />{' '}</>}
+          <Fragment set:html={v.metin} />
+        </p>
+      </div>
+    );
+  }
+
+  return null;
+})}

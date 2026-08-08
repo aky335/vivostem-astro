@@ -1,0 +1,65 @@
+ad: "TropoVet<sup>&reg;</sup>"
+ozet: "Veteriner hekimlik alanına özel geliştirilmiş PRGF teknolojisi."
+seoBaslik: "TropoVet | Vivostem Türkiye"
+seoAciklama: "TropoVet, veteriner hekimlik alanına özel geliştirilmiş PRGF teknolojisi ürünüdür. Köpek, kedi ve atlarda eklem dejenerasyonu ve doku onarımı uygulamalarında kullanılır."
+gorsel: "/assets/img/urun-tropovet.jpg"
+gorselAlt: "TropoVet tüpü ve enjektörü"
+aile: "tropocells"
+menuAdi: ""
+sira: 11
+gizli: false
+ctaBaslik: "Veteriner kliniğiniz için bilgi alın"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "Tropocells<sup>&reg;</sup> PRP"
+    aciklama: "İnsan hekimliği için PRP sistemi."
+    adres: "/tropocells-prp"
+  - baslik: "TropoVisc<sup>&trade;</sup>"
+    aciklama: "PRP etkisini uzatan taşıyıcı sistem."
+    adres: "/tropovisc"
+  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+    aciklama: "İnsan hekimliği için PRGF."
+    adres: "/cellenis-prgf"
+  - baslik: "Tüm ürünler"
+    aciklama: "Portföyün tamamını görün."
+    adres: "/urunler"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog"
+        - "Sadece PRGF teknolojisi"
+        - "Uluslararası sertifikalı üretim"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## TropoVet<sup>&reg;</sup> nedir?
+
+        TropoVet<sup>&reg;</sup>, veteriner hekimlik alanına özel geliştirilmiş PRGF (Platelet Rich Growth Factors) teknolojisi ürünüdür. Köpek, kedi ve atlarda eklem dejenerasyonu, yara iyileşmesi ve doku onarımı uygulamalarında kullanılır.
+
+        ## Uygulama alanları
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Eklem dejenerasyonu ve osteoartrit (köpek, at)"
+        - "Tendon ve ligaman yaralanmaları"
+        - "Cerrahi sonrası doku iyileşmesi"
+        - "Cilt yaraları ve kronik ülserler"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Neden TropoVet<sup>&reg;</sup>?
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Sadece PRGF teknolojisi, en saf büyüme faktörü konsantresi"
+        - "Hayvan için güvenli, komplikasyonsuz protokol"
+        - "Klinik çalışmalarla desteklenmiş"
+        - "Uluslararası sertifikalı üretim"
+  - discriminant: not
+    value:
+      vurgu: "Hedef klinikler:"
+      metin: "Özel veteriner klinikleri ve ortopedi odaklı veteriner hekimler. Klinik bazlı eğitim ve uygulama desteği için ekibimize yazabilirsiniz."
+      ustBosluk: 26

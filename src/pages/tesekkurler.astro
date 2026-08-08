@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+---
+
+<Layout
+  baslik="Teşekkürler | Vivostem Türkiye"
+  aciklama="Formunuz bize ulaştı. En kısa sürede dönüş yapacağız."
+  robots="noindex, follow"
+>
+
+<section class="bolum">
+  <div class="wrap" style="max-width:640px; text-align:center">
+    <div class="basari-ikon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+           stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>
+    </div>
+    <h1 style="font-size:2rem">Mesajınız bize ulaştı</h1>
+    <p class="giris">Formunuzu aldık. İlgili ekip arkadaşımız en kısa sürede size dönecek.
+       Acil bir konuysa WhatsApp hattımızdan doğrudan yazabilirsiniz.</p>
+    <div class="btn-grup" style="justify-content:center; margin-top:30px">
+      <a href="/" class="btn btn--dolu">Ana sayfaya dönün</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--cizgi"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

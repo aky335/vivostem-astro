@@ -1,0 +1,53 @@
+ad: "BMAC"
+ozet: "Kemik iliği aspirasyonuyla elde edilen, mezenkimal kök hücre açısından zengin konsantre."
+seoBaslik: "BMAC (Bone Marrow Aspirate Concentrate) | Vivostem Türkiye"
+seoAciklama: "BMAC, kemik iliği aspirasyonuyla elde edilen ve mezenkimal kök hücreler açısından zengin konsantredir. Ortopedik uygulamalarda altın standart kabul edilir."
+gorsel: "/assets/img/santrifuj.png"
+gorselAlt: "Santrifüj cihazı"
+aile: "tropocells"
+menuAdi: ""
+sira: 10
+gizli: false
+ctaBaslik: "BMAC hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "SVF"
+    aciklama: "Yağ dokusu kaynaklı kök hücre konsantresi."
+    adres: "/svf"
+  - baslik: "Tropocells<sup>&reg;</sup> PRP"
+    aciklama: "Ortopedi odaklı PRP sistemi."
+    adres: "/tropocells-prp"
+  - baslik: "TropoVisc<sup>&trade;</sup>"
+    aciklama: "PRP etkisini uzatan taşıyıcı sistem."
+    adres: "/tropovisc"
+  - baslik: "Cellenis<sup>&reg;</sup>"
+    aciklama: "Otolog biyolojik tedavi platformu."
+    adres: "/cellenis"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog"
+        - "Kök hücre bazlı"
+        - "Ortopedi"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## BMAC nedir?
+
+        BMAC (Bone Marrow Aspirate Concentrate), kemik iliği aspirasyonuyla elde edilen ve mezenkimal kök hücreler açısından zengin bir konsantredir. Ortopedik uygulamalarda altın standart olarak kabul görmektedir.
+
+        ## Uygulama alanları
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Diz, kalça ve omuz eklem dejenerasyonu"
+        - "Kıkırdak hasarı"
+        - "Stres kırıkları ve kemik iyileşme bozuklukları"
+        - "Spinal dejenerasyon"
+  - discriminant: not
+    value:
+      vurgu: "SVF ile farkı:"
+      metin: "BMAC kemik iliğinden, <a href=\"/svf\">SVF</a> ise yağ dokusundan elde edilir. Hangisinin tercih edileceği endikasyona, hasta profiline ve hekim değerlendirmesine bağlıdır."
+      ustBosluk: 26

@@ -1,0 +1,20 @@
+---
+import { tarihYaz, isoYaz } from '../lib/icerik.js';
+const { yazi, kategoriAdi } = Astro.props;
+const d = yazi.data;
+---
+<article class="y-kart" data-kategori={d.kategori}>
+  <a href={`/blog/${yazi.id}`} class="y-kart-gorsel" aria-hidden="true" tabindex="-1">
+    {d.kapak
+      ? <img src={d.kapak} alt="" loading="lazy" decoding="async">
+      : <img class="y-kart-amblem" src="/assets/img/logo.png" alt="" loading="lazy" decoding="async">}
+  </a>
+  <div class="y-kart-govde">
+    <p class="y-kart-ust">
+      <span class="y-rozet">{kategoriAdi ?? d.kategori}</span>
+      <time datetime={isoYaz(d.tarih)}>{tarihYaz(d.tarih)}</time>
+    </p>
+    <h3><a href={`/blog/${yazi.id}`}>{d.baslik}</a></h3>
+    <p class="y-kart-ozet">{d.ozet}</p>
+  </div>
+</article>

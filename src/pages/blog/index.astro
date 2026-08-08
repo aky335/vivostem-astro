@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import { ayarlar } from '../../lib/ayarlar.js';
+import Layout from '../../layouts/Layout.astro';
+import BlogKart from '../../components/BlogKart.astro';
+import { yayindakiYazilar, kategoriAdiCozucu } from '../../lib/icerik.js';
+
+const yazilar = yayindakiYazilar(await getCollection('blog'));
+const tumKategoriler = (await getCollection('kategoriler')).sort((a, b) => a.data.sira - b.data.sira);
+const kategoriAdi = kategoriAdiCozucu(tumKategoriler);
+
+// Sadece yazısı olan kategoriler süzgeçte görünsün.
+const kullanilan = new Set(yazilar.map((y) => y.data.kategori));
+const kategoriler = tumKategoriler.filter((k) => kullanilan.has(k.id));
+---
+
+<Layout
+  baslik="Bilgi Merkezi | Vivostem Türkiye"
+  aciklama="Rejeneratif ve biyolojik tıp üzerine klinik kanıt, uygulama protokolü ve ürün karşılaştırmaları. Vivostem Türkiye bilgi merkezi."
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Bilgi Merkezi</p>
+    <h1>Bilgi merkezi</h1>
+    <p>Klinik kanıt, uygulama protokolü ve ürün karşılaştırmalarından oluşan içerik bölümü.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap">
+    {yazilar.length === 0 ? (
+      <div class="blog-bos">
+        <h2>Yakında yayında</h2>
+        <p>İçerikler hazırlanma aşamasında. Yayına alındığında haberdar olmak isterseniz
+           iletişim formundan bize yazabilirsiniz.</p>
+        <div class="btn-grup" style="justify-content:center; margin-top:24px">
+          <a href="/iletisim" class="btn btn--dolu">Haber verin</a>
+        </div>
+      </div>
+    ) : (
+      <>
+        {kategoriler.length > 1 && (
+          <div class="y-suzgec" role="group" aria-label="Kategoriye göre süz">
+            <button type="button" class="y-cip aktif" data-suz="hepsi">Tümü</button>
+            {kategoriler.map((k) => (
+              <button type="button" class="y-cip" data-suz={k.id}>{k.data.ad}</button>
+            ))}
+          </div>
+        )}
+
+        <div class="y-izgara" id="yaziIzgara">
+          {yazilar.map((y) => <BlogKart yazi={y} kategoriAdi={kategoriAdi(y.data.kategori)} />)}
+        </div>
+
+        <p class="y-bos-uyari" id="yaziBos" hidden>Bu kategoride henüz yazı yok.</p>
+      </>
+    )}
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Belirli bir konuda içerik ister misiniz?</h2>
+      <p>Kliniğinizde sık karşılaştığınız soruları bize yazın, yayın planına alalım.</p>
+    </div>
+    <div class="btn-grup">
+      <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf">WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

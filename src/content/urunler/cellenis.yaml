@@ -1,0 +1,78 @@
+ad: "Cellenis<sup>&reg;</sup>"
+ozet: "İspanya'da Bioteck tarafından geliştirilen, PRGF teknolojisini temel alan otolog biyolojik tedavi platformu."
+seoBaslik: "Cellenis | Vivostem Türkiye"
+seoAciklama: "Cellenis, Bioteck (İspanya) tarafından geliştirilen PRGF teknolojisini temel alan otolog biyolojik tedavi platformudur. PRGF, PRF, DermaFiller ve Exo-ME ürünleri."
+gorsel: "/assets/img/urun-cellenis-kutu.jpg"
+gorselAlt: "Cellenis PRP kutusu"
+aile: "cellenis"
+menuAdi: "Cellenis<sup>&reg;</sup> ailesi"
+sira: 1
+gizli: false
+ctaBaslik: "Cellenis<sup>&reg;</sup> hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+    aciklama: "Lökosit içermeyen, saf plazma fraksiyonu."
+    adres: "/cellenis-prgf"
+  - baslik: "Cellenis<sup>&reg;</sup> PRF"
+    aciklama: "Yavaş salınımlı fibrin membran."
+    adres: "/cellenis-prf"
+  - baslik: "Cellenis<sup>&reg;</sup> DermaFiller"
+    aciklama: "Otolog biyolojik dolgu."
+    adres: "/cellenis-dermafiller"
+  - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
+    aciklama: "Mezenkimal kök hücre ekzozomları."
+    adres: "/cellenis-exo-me"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "FDA onaylı"
+        - "CE Class IIb"
+        - "ISO 13485"
+        - "GMP"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Cellenis<sup>&reg;</sup> nedir?
+
+        Cellenis<sup>&reg;</sup>, İspanya'da Bioteck tarafından geliştirilen ve PRGF (Platelet Rich Growth Factors) teknolojisini temel alan otolog biyolojik tedavi platformudur.
+
+        Kişinin kendi kanından veya plazmasından elde edilen Cellenis<sup>&reg;</sup> ürünleri yabancı madde içermez, alerjik reaksiyon riski taşımaz ve uzun süreli, doğal iyileşme sürecini destekler.
+
+        ## Sistemi ayıran nokta
+
+        Cellenis<sup>&reg;</sup> sistemi, standart laboratuvar tüplerinden farklı olarak yalnızca kan ayrıştırmak için değil, biyolojik ürünün güvenli şekilde hazırlanıp yeniden uygulanmasına yönelik geliştirilmiş patentli bir medikal sistemdir.
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Patentli jel bariyer teknolojisi ile yüksek saflıkta plazma"
+        - "Özel cam tüp yapısı, trombositlerin plazmaya etkin geçişi"
+        - "Kan alımından uygulamaya kapalı sistem çalışma prensibi"
+        - "Standartlaştırılmış ayrıştırma süreci, tekrarlanabilir sonuç"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Ürün ailesi
+  - discriminant: kutular
+    value:
+      baslik: ""
+      ustBosluk: 0
+      kutular:
+        - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+          metin: "Lökosit içermeyen, büyüme faktörü açısından zenginleştirilmiş sıvı plazma fraksiyonu. Enjekte edilebilir, hızlı etkilidir."
+          maddeler: []
+        - baslik: "Cellenis<sup>&reg;</sup> PRF"
+          metin: "Pıhtılaşma ve büyüme faktörlerini içeren fibrin membran. Yavaş salınımlıdır, fiziksel bariyer görevi görür."
+          maddeler: []
+        - baslik: "Cellenis<sup>&reg;</sup> DermaFiller"
+          metin: "Kişinin kendi plazmasından üretilen otolog biyolojik dolgu. Hacim desteği ile rejeneratif etkiyi birlikte sunar."
+          maddeler: []
+        - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
+          metin: "Mezenkimal kök hücrelerden elde edilen ekzozomlar. Hücre içermez, bağışıklık sistemi tepkisi oluşturmaz."
+          maddeler: []
+  - discriminant: metin
+    value:
+      metin: |-
+        <p style="margin-top:26px">Rejeneratif cerrahi tarafında <a href="/svf">SVF</a> uygulamaları da bu platformun tamamlayıcısıdır.</p>

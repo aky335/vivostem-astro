@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import { ayarlar } from '../lib/ayarlar.js';
+import Layout from '../layouts/Layout.astro';
+import EtkinlikKart from '../components/EtkinlikKart.astro';
+import { yayindakiEtkinlikler, bitisAni } from '../lib/icerik.js';
+
+const hepsi = yayindakiEtkinlikler(await getCollection('etkinlikler'));
+
+// Build anındaki ayrım. Site yeniden derlenmese bile tarayıcı tarafındaki
+// script bunu her ziyarette güncelliyor; aşağıdaki bölüm sadece
+// JavaScript kapalıyken makul bir başlangıç görüntüsü versin diye.
+const simdi = new Date();
+const yaklasan = hepsi.filter((e) => bitisAni(e) >= simdi);
+const gecmis = hepsi.filter((e) => bitisAni(e) < simdi).reverse();
+---
+
+<Layout
+  baslik="Etkinlik Takvimi | Vivostem Türkiye"
+  aciklama="Vivostem Türkiye webinar, yüz yüze eğitim ve kongre katılım takvimi. Yaklaşan etkinlikleri görün, kayıt olun."
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Etkinlik Takvimi</p>
+    <h1>Etkinlik takvimi</h1>
+    <p>Online webinarlar, uygulamalı eğitimler ve katıldığımız kongreler. Katılmak istediğiniz
+       etkinliğin altındaki butondan başvurabilirsiniz.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap" style="max-width:900px">
+    <h2 style="font-size:1.3rem">Yaklaşan etkinlikler</h2>
+    <div class="e-liste" id="yaklasanListe">
+      {yaklasan.map((e) => <EtkinlikKart etkinlik={e} />)}
+    </div>
+    <div class="blog-bos" id="yaklasanBos" hidden={yaklasan.length > 0}>
+      <h2>Planlanan etkinlik yok</h2>
+      <p>Yeni webinar ve eğitim tarihleri belirlendiğinde burada yayınlanır.
+         Haberdar olmak için bize yazabilirsiniz.</p>
+      <div class="btn-grup" style="justify-content:center; margin-top:24px">
+        <a href="/iletisim" class="btn btn--dolu">Haber verin</a>
+      </div>
+    </div>
+
+    <div id="gecmisAlan" hidden={gecmis.length === 0}>
+      <h2 style="font-size:1.3rem; margin-top:56px">Geçmiş etkinlikler</h2>
+      <p class="e-arsiv-not">Webinar kayıtları
+         <a href={ayarlar.youtubeAdres} target="_blank" rel="noopener">YouTube kanalımızda</a>
+         yayınlanıyor.</p>
+      <div class="e-liste e-liste--gecmis" id="gecmisListe">
+        {gecmis.map((e) => <EtkinlikKart etkinlik={e} />)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Kliniğinize özel eğitim ister misiniz?</h2>
+      <p>Ekibiniz için yerinde uygulamalı eğitim planlayabiliriz.</p>
+    </div>
+    <div class="btn-grup">
+      <a href="/saglik-profesyonelleri#basvuru" class="btn btn--beyaz">Eğitim başvurusu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf">WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

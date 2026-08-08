@@ -1,0 +1,13 @@
+# ---------------------------------------------------------------------------
+# TEST / ONIZLEME AYARI
+# Su an tum arama motorlarina kapali. Site gercek alan adinda yayina
+# alindiginda asagidaki "Disallow: /" satirini silin, yerine sitemap satirini
+# ekleyin. Aksi halde Google siteyi hic indekslemez.
+# ---------------------------------------------------------------------------
+User-agent: *
+Disallow: /
+
+# Yayina alirken bunu kullanin:
+# User-agent: *
+# Allow: /
+# Sitemap: https://vivostem.com.tr/sitemap.xml

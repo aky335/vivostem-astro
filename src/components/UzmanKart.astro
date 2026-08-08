@@ -1,0 +1,14 @@
+---
+// Ana sayfadaki kaydırakta ve uzmanlarımız sayfasında aynı kart kullanılıyor,
+// ikisi de aynı koleksiyondan besleniyor. Metin tek yerde duruyor.
+const { uzman } = Astro.props;
+const d = uzman.data;
+---
+<article class="uzman-kart">
+  <div class="uzman-foto"><img src={d.fotograf} alt={d.ad} loading="lazy"></div>
+  <div class="uzman-govde">
+    <h3>{d.ad}</h3>
+    <p class="uzman-brans" set:html={d.brans} />
+    <blockquote set:html={d.gorus} />
+  </div>
+</article>

@@ -1,0 +1,79 @@
+ad: "TRS"
+ozet: "Hastanın kendi kanından elde edilen, trombin bakımından zengin otolog serum."
+seoBaslik: "TRS (Thrombin-Rich Serum) | Vivostem Türkiye"
+seoAciklama: "TRS, hastanın kendi kanından elde edilen ve trombin bakımından zengin otolog serumdur. Yara iyileşmesi, estetik ve diş hekimliği uygulamalarında kullanılır."
+gorsel: "/assets/img/urun-tropocells.jpg"
+gorselAlt: "Tropocells PRP tüpleri ve enjektör"
+aile: "tropocells"
+menuAdi: ""
+sira: 9
+gizli: false
+ctaBaslik: "TRS hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "Tropocells<sup>&reg;</sup> PRP"
+    aciklama: "Sistemin ana platformu."
+    adres: "/tropocells-prp"
+  - baslik: "TropoVisc<sup>&trade;</sup>"
+    aciklama: "PRP etkisini uzatan taşıyıcı sistem."
+    adres: "/tropovisc"
+  - baslik: "Cellenis<sup>&reg;</sup> PRF"
+    aciklama: "Membran formu, yavaş salınım."
+    adres: "/cellenis-prf"
+  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+    aciklama: "Sıvı form, hızlı etki."
+    adres: "/cellenis-prgf"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog"
+        - "Minimal invaziv"
+        - "Kombinasyona uygun"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## TRS nedir?
+
+        TRS (Thrombin&#8209;Rich Serum), hastanın kendi kanından elde edilen otolog bir üründür. Kanın pıhtılaşma sürecindeki kilit enzim olan trombin bakımından zengindir.
+
+        Kalsiyum glukonat eklenerek pıhtılaşma süreci tetiklenir ve PDGF, TGF&#8209;beta gibi büyüme faktörleri serbest bırakılır.
+
+        ## Uygulama alanları
+  - discriminant: kutular
+    value:
+      baslik: ""
+      ustBosluk: 0
+      kutular:
+        - baslik: "Yara iyileşmesi"
+          metin: ""
+          maddeler:
+            - "Kronik ülserler"
+            - "Cerrahi yaralar"
+        - baslik: "Estetik ve anti&#8209;aging"
+          metin: ""
+          maddeler:
+            - "Cilt yenileme"
+            - "Leke tedavisi"
+            - "Kolajen sentezi"
+        - baslik: "Diş hekimliği"
+          metin: ""
+          maddeler:
+            - "Çekim sonrası iyileşme desteği"
+        - baslik: "Kombinasyon"
+          metin: ""
+          maddeler:
+            - "PRGF, PRF veya Exo&#8209;ME ile sinerjik etki"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Neden TRS?
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Hastanın kendi kanından elde edilir, yabancı madde içermez"
+        - "PDGF ve TGF&#8209;beta büyüme faktörlerini aktive eder"
+        - "Hücre yenilenmesini ve doku iyileşmesini uyarır"
+        - "Minimal invaziv"
+        - "Diğer otolog tedavilerle kombinasyon mümkün"

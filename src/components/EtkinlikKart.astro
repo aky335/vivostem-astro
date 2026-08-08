@@ -1,0 +1,35 @@
+---
+import { araligiYaz, isoYaz, TUR_ADI, bitisAni } from '../lib/icerik.js';
+const { etkinlik } = Astro.props;
+const d = etkinlik.data;
+
+const kayitYolu = d.kayitLinki ?? `/saglik-profesyonelleri?etkinlik=${encodeURIComponent(d.baslik)}#basvuru`;
+const disLink = Boolean(d.kayitLinki);
+---
+<article class="e-kart" data-bitis={isoYaz(bitisAni(etkinlik))}>
+  <div class="e-tarih" aria-hidden="true">
+    <span class="e-gun">{d.baslangic.getUTCDate()}</span>
+    <span class="e-ay">{araligiYaz(d.baslangic, d.bitis).split(' ').slice(-2).join(' ')}</span>
+  </div>
+  <div class="e-govde">
+    <p class="e-ust">
+      <span class={`e-rozet e-rozet--${d.tur}`}>{TUR_ADI[d.tur]}</span>
+      <time datetime={isoYaz(d.baslangic)}>{araligiYaz(d.baslangic, d.bitis)}{d.saat && ` · ${d.saat}`}</time>
+    </p>
+    <h3>{d.baslik}</h3>
+    <p class="e-ozet">{d.ozet}</p>
+    <ul class="e-bilgi">
+      <li><strong>Yer:</strong> {d.konum}</li>
+      {d.konusmaci && <li><strong>Konuşmacı:</strong> {d.konusmaci}</li>}
+      {d.kontenjan && <li><strong>Kontenjan:</strong> {d.kontenjan}</li>}
+      {d.standNo && <li><strong>Stant:</strong> {d.standNo}</li>}
+    </ul>
+    <div class="e-aksiyon">
+      <a
+        class="btn btn--dolu"
+        href={kayitYolu}
+        {...(disLink ? { target: '_blank', rel: 'noopener' } : {})}
+      >Kayıt ol</a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,9 @@
+---
+import { ikonlar } from '../data/ikonlar.js';
+
+// Panelde seçilen ikon adını gerçek SVG'ye çevirir.
+// Bilinmeyen ad gelirse hiçbir şey basmaz, sayfa bozulmaz.
+const { ad, sinif } = Astro.props;
+const govde = ikonlar[ad];
+---
+{govde && <Fragment set:html={sinif ? govde.replace('<svg', `<svg class="${sinif}"`) : govde} />}

@@ -1,0 +1,53 @@
+ad: "SVF"
+ozet: "Yağ dokusundan elde edilen, mezenkimal kök hücre açısından zengin biyolojik konsantre."
+seoBaslik: "SVF (Stromal Vasküler Fraksiyon) | Vivostem Türkiye"
+seoAciklama: "SVF, mini liposuction ile alınan yağ dokusundan elde edilen ve mezenkimal kök hücreler içeren biyolojik konsantredir."
+gorsel: "/assets/img/santrifuj.png"
+gorselAlt: "Santrifüj cihazı"
+aile: "cellenis"
+menuAdi: ""
+sira: 6
+gizli: false
+ctaBaslik: "SVF hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "BMAC"
+    aciklama: "Kemik iliği kaynaklı kök hücre konsantresi."
+    adres: "/bmac"
+  - baslik: "Cellenis<sup>&reg;</sup>"
+    aciklama: "Otolog biyolojik tedavi platformu."
+    adres: "/cellenis"
+  - baslik: "Tropocells<sup>&reg;</sup> PRP"
+    aciklama: "Ortopedi odaklı PRP sistemi."
+    adres: "/tropocells-prp"
+  - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
+    aciklama: "Ekzozom bazlı rejenerasyon."
+    adres: "/cellenis-exo-me"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog"
+        - "Kök hücre bazlı"
+        - "Rejeneratif cerrahi"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## SVF nedir?
+
+        SVF (Stromal Vasküler Fraksiyon), mini liposuction ile alınan yağ dokusundan elde edilen ve mezenkimal kök hücreler, endotel öncü hücreler ile büyüme faktörleri içeren biyolojik bir konsantredir.
+
+        ## Uygulama alanları
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Eklem dejenerasyonu (diz, kalça, omuz)"
+        - "Cilt rejenerasyonu"
+        - "Estetik ve rekonstrüktif cerrahi"
+        - "Yaralanma sonrası doku onarımı"
+  - discriminant: not
+    value:
+      vurgu: "Not:"
+      metin: "SVF, Cellenis<sup>&reg;</sup> platformunun rejeneratif cerrahi tarafındaki tamamlayıcısıdır. Ortopedik uygulamalarda kemik iliği kaynaklı alternatifi için <a href=\"/bmac\">BMAC</a> sayfasına bakabilirsiniz."
+      ustBosluk: 26

@@ -1,0 +1,148 @@
+{
+  "heroUstBaslik": "Rejeneratif ve Biyolojik Tıp",
+  "heroBaslik": "Rejeneratif tıbbın<br>Türkiye distribütörü",
+  "heroMetin": "Cellenis<sup>&reg;</sup> ve Tropocells<sup>&reg;</sup>, sağlık profesyonellerine yönelik FDA ve CE onaylı yeni nesil biyolojik tedavi çözümleri. Ürün tedarikinin yanında eğitim, webinar ve klinik protokol desteğiyle yanınızdayız.",
+  "heroButonlar": [
+    {
+      "yazi": "Ürünleri keşfedin",
+      "adres": "/urunler",
+      "stil": "dolu"
+    },
+    {
+      "yazi": "Sağlık profesyoneli misiniz?",
+      "adres": "/saglik-profesyonelleri",
+      "stil": "cizgi"
+    }
+  ],
+  "heroBelgeler": [
+    {
+      "yazi": "FDA onaylı",
+      "ikon": "belge"
+    },
+    {
+      "yazi": "CE Class IIb",
+      "ikon": "ce"
+    },
+    {
+      "yazi": "ISO 13485",
+      "ikon": "madalya"
+    },
+    {
+      "yazi": "GMP üretim",
+      "ikon": "fabrika"
+    }
+  ],
+  "heroGorsel": "/assets/img/hero.png",
+  "heroGorselAlt": "Cellenis PRP uygulama tüpleri",
+  "guvenMetin": "Portföyümüzdeki Cellenis<sup>&reg;</sup> ve Tropocells<sup>&reg;</sup> ürünleri 60'tan fazla ülkede, birbirinden farklı branşlarda sağlık profesyonelleri tarafından kullanılıyor.",
+  "guvenMaddeler": [
+    {
+      "yazi": "Kapalı sistem hazırlık",
+      "ikon": "kalkan"
+    },
+    {
+      "yazi": "Patentli jel bariyer",
+      "ikon": "tup"
+    },
+    {
+      "yazi": "Resmi Türkiye distribütörü",
+      "ikon": "bina"
+    }
+  ],
+  "urunBolumu": {
+    "ustBaslik": "Ürün Portföyü",
+    "baslik": "Tek elden, branşınıza uygun biyolojik çözümler",
+    "metin": "Dermatoloji, estetik tıp, ortopedi, diş hekimliği, üroloji ve veteriner hekimlik alanlarında konfor ve düşük komplikasyon profiliyle tercih edilen otolog tedavi sistemleri."
+  },
+  "urunKartlari": [
+    {
+      "gorsel": "/assets/img/urun-cellenis.png",
+      "gorselAlt": "Cellenis PRP kutu ve tüpleri",
+      "baslik": "Cellenis<sup>&reg;</sup>",
+      "altBaslik": "PRGF &middot; PRF &middot; DermaFiller &middot; Exo&#8209;ME",
+      "metin": "Bioteck (İspanya) tarafından geliştirilen PRGF teknolojisiyle estetik, dermatoloji ve rejeneratif tıp uygulamaları.",
+      "adres": "/cellenis"
+    },
+    {
+      "gorsel": "/assets/img/urun-tropocells.jpg",
+      "gorselAlt": "Tropocells PRP tüpü ve enjektör",
+      "baslik": "Tropocells<sup>&reg;</sup> PRP",
+      "altBaslik": "Eklem sağlığı &middot; Sporcu &middot; Üroloji",
+      "metin": "Yüksek trombosit konsantrasyonu ve standardize protokolüyle yeni nesil PRP platformu. TropoVisc<sup>&trade;</sup> ve TRS ile genişleyen sistem.",
+      "adres": "/tropocells-prp"
+    },
+    {
+      "gorsel": "/assets/img/santrifuj.png",
+      "gorselAlt": "Santrifüj cihazı",
+      "baslik": "SVF ve BMAC",
+      "altBaslik": "Kök hücre uygulamaları",
+      "metin": "Yağ dokusu ve kemik iliği kaynaklı mezenkimal kök hücre konsantreleri, rejeneratif cerrahide ileri düzey çözümler.",
+      "adres": "/svf"
+    },
+    {
+      "gorsel": "/assets/img/urun-tropovet.jpg",
+      "gorselAlt": "TropoVet veteriner PRGF tüpü",
+      "baslik": "TropoVet<sup>&reg;</sup>",
+      "altBaslik": "Veteriner hekimlik",
+      "metin": "Köpek, kedi ve atlarda eklem dejenerasyonu, yara iyileşmesi ve doku onarımı için geliştirilmiş PRGF teknolojisi.",
+      "adres": "/tropovet"
+    }
+  ],
+  "nedenBolumu": {
+    "ustBaslik": "Neden Vivostem?",
+    "baslik": "Bir tüpten fazlası:<br>doğrulanabilir bir sistem",
+    "metin": "Rejeneratif tıpta sonucu belirleyen, ürünün adı değil hazırlanma biçimidir. Aşağıdaki altı başlık, Vivostem portföyünü standart PRP kitlerinden ayıran teknik ve operasyonel farkları anlatıyor."
+  },
+  "nedenButonYazi": "Tüm başlıkları okuyun",
+  "nedenButonAdres": "/neden-vivostem",
+  "uzmanBolumu": {
+    "ustBaslik": "Uzman Görüşleri",
+    "baslik": "Kliniğinde kullanan hekimler ne diyor?",
+    "metin": "Vivostem portföyünü kendi pratiğinde kullanan hekimlerin değerlendirmeleri."
+  },
+  "uzmanButonYazi": "Tüm uzman görüşlerini okuyun",
+  "uzmanButonAdres": "/uzmanlarimiz",
+  "egitimBolumu": {
+    "ustBaslik": "Sağlık Profesyonelleri",
+    "baslik": "Ürünü değil, yöntemi devrediyoruz",
+    "metin": "Sağlık profesyonellerine yalnızca ürün tedariki yapmıyoruz. Uygulamalı eğitim programları, uzman webinarları ve klinik protokol desteğiyle ürünlerimizi pratiğinize en doğru şekilde entegre etmenize yardımcı oluyoruz."
+  },
+  "egitimMaddeler": [
+    {
+      "baslik": "Uygulamalı eğitim programları",
+      "metin": "Kliniğinizde veya merkezimizde birebir hands&#8209;on workshop.",
+      "ikon": "egitim-1"
+    },
+    {
+      "baslik": "Periyodik webinarlar",
+      "metin": "Cellenis Exo&#8209;ME, Tropocells PRP ve rejeneratif diş hekimliği başlıklarında oturumlar.",
+      "ikon": "egitim-2"
+    },
+    {
+      "baslik": "Yazılı klinik protokoller",
+      "metin": "Endikasyon, seans planı ve hazırlık adımlarını içeren dokümantasyon.",
+      "ikon": "egitim-3"
+    },
+    {
+      "baslik": "Uzman eğitmen desteği",
+      "metin": "İlk uygulamalarınızda saha ekibimiz yanınızda. Medikod Expert Days katılımı.",
+      "ikon": "egitim-4"
+    }
+  ],
+  "egitimButonlar": [
+    {
+      "yazi": "Eğitim başvurusu yapın",
+      "adres": "/saglik-profesyonelleri",
+      "stil": "dolu"
+    },
+    {
+      "yazi": "Ürün bilgisi talep edin",
+      "adres": "/saglik-profesyonelleri#demo",
+      "stil": "cizgi"
+    }
+  ],
+  "egitimGorsel": "/assets/img/tup-prp.png",
+  "egitimGorselAlt": "Cellenis PRP 11 ve 22 ml tüpler",
+  "ctaBaslik": "Doktor veya klinik sahibi misiniz?",
+  "ctaMetin": "Ürün bilgisi, eğitim programları veya yaklaşan webinarlar için doğrudan bize ulaşın. Aynı gün içinde dönüş yapıyoruz."
+}

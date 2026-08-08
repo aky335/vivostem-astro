@@ -1,0 +1,31 @@
+---
+import { marked } from 'marked';
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+import { yerTutuculariDoldur } from '../lib/icerik.js';
+
+// KVKK ve gizlilik gibi tek metinli sayfalar için ortak iskelet.
+const { sayfa } = Astro.props;
+const govde = marked.parse(yerTutuculariDoldur(sayfa.icerik, ayarlar), { async: false }).trim();
+const baslik = yerTutuculariDoldur(sayfa.baslik, ayarlar);
+const ozet = yerTutuculariDoldur(sayfa.ozet, ayarlar);
+const izlek = yerTutuculariDoldur(sayfa.izlek ?? sayfa.baslik, ayarlar);
+---
+
+<Layout baslik={sayfa.seoBaslik} aciklama={sayfa.seoAciklama}>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; <Fragment set:html={izlek} /></p>
+    <h1 set:html={baslik} />
+    <p set:html={ozet} />
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap" style="max-width:820px">
+    <Fragment set:html={govde} />
+  </div>
+</section>
+
+</Layout>

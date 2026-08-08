@@ -1,0 +1,15 @@
+# bağımlılıklar
+node_modules/
+
+# derleme çıktısı
+dist/
+.astro/
+.wrangler/
+
+# ortam değişkenleri (gizli anahtarlar buraya yazılır, repoya girmez)
+.dev.vars
+.env
+.env.production
+
+# işletim sistemi
+.DS_Store

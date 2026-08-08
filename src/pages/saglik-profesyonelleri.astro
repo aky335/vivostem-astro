@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+import Ikon from '../components/Ikon.astro';
+import s from '../content/sayfalar/saglik-profesyonelleri.json';
+
+---
+
+<Layout
+  baslik={s.seoBaslik}
+  aciklama={s.seoAciklama}
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Sağlık Profesyonelleri</p>
+    <h1 set:html={s.baslik} />
+    <p set:html={s.ozet} />
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap">
+    <div class="egitim">
+      <div>
+        <div class="kural"></div>
+        <p class="ustbaslik ustbaslik--mor" set:html={s.destekUstBaslik} />
+        <h2 set:html={s.destekBaslik} />
+        <ul class="egitim-liste">
+          {s.destekMaddeler.map((m) => (
+            <li><Ikon ad={m.ikon} />
+              <div><strong set:html={m.baslik} />
+                <span set:html={m.metin} /></div></li>
+          ))}
+        </ul>
+      </div>
+      <div class="egitim-gorsel">
+        <img src="/assets/img/tup-prf.png" alt="Cellenis PRF tüpü">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bolum bolum--lila" id="basvuru">
+  <div class="wrap">
+    <div class="bolum-bas orta"><div class="kural" style="margin:0 auto 22px"></div>
+      <p class="ustbaslik ustbaslik--mor" set:html={s.basvuruUstBaslik} />
+      <h2 set:html={s.basvuruBaslik} />
+      <p set:html={s.basvuruMetin} /></div>
+
+    <div class="sekme-alani">
+      <div class="sekmeler" role="tablist" aria-label="Başvuru türü">
+        <button type="button" class="sekme aktif" role="tab" id="sekme-egitim"
+                aria-controls="egitim" aria-selected="true">Eğitim başvurusu</button>
+        <button type="button" class="sekme" role="tab" id="sekme-demo"
+                aria-controls="demo" aria-selected="false">Ürün bilgisi ve demo</button>
+      </div>
+
+      <div class="form-kutu sekme-panel acik" id="egitim" role="tabpanel" aria-labelledby="sekme-egitim">
+        <p class="aciklama">Uygulamalı workshop ve webinar programlarına katılım için.
+           Branşınıza uygun bir sonraki eğitim tarihini size iletelim.</p>
+<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+          <input type="hidden" name="_subject" value="Vivostem web sitesi - Egitim basvurusu">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-satir"><div class="alan"><label for="e-ad">Ad</label><input type="text" id="e-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="e-soyad">Soyad</label><input type="text" id="e-soyad" name="Soyad" required autocomplete="family-name"></div></div>
+          <div class="form-satir"><div class="alan"><label for="e-uzmanlik-bransi">Uzmanlık branşı</label><input type="text" id="e-uzmanlik-bransi" name="Uzmanlik bransi"></div><div class="alan"><label for="e-klinik">Klinik / Kurum</label><input type="text" id="e-klinik" name="Klinik" autocomplete="organization"></div></div>
+          <div class="form-satir"><div class="alan"><label for="e-telefon">Telefon</label><input type="tel" id="e-telefon" name="Telefon" required autocomplete="tel"></div><div class="alan"><label for="e-e-posta">E&#8209;posta</label><input type="email" id="e-e-posta" name="E-posta" required autocomplete="email"></div></div>
+          <div class="alan"><label for="e-ilgilenilen-urun">Hangi ürünle ilgileniyorsunuz?</label><select id="e-ilgilenilen-urun" name="Ilgilenilen urun"><option>Cellenis PRGF</option><option>Cellenis PRF</option><option>Cellenis DermaFiller</option><option>Cellenis Exo-ME</option><option>Tropocells PRP</option><option>TropoVisc</option><option>TRS</option><option>TropoVet</option><option>SVF veya BMAC</option><option>Henuz karar vermedim</option></select></div>
+          <div class="alan"><label for="e-mesaj">Eklemek istedikleriniz</label><textarea id="e-mesaj" name="Mesaj"></textarea></div>
+          <label class="onay"><input type="checkbox" name="KVKK onayi" value="Verildi" required>
+            <span>Kişisel verilerimin <a href="/kvkk">aydınlatma metninde</a> belirtilen kapsamda işlenmesini onaylıyorum.</span></label>
+          <button type="submit" class="btn btn--dolu">Başvuruyu gönderin</button>
+        </form>
+      </div>
+
+      <div class="form-kutu sekme-panel" id="demo" role="tabpanel" aria-labelledby="sekme-demo">
+        <p class="aciklama">Ürün dosyası, fiyat bilgisi veya kliniğinizde demo uygulaması için.
+           Talebinizi alır almaz ilgili ürün sorumlusu size döner.</p>
+<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+          <input type="hidden" name="_subject" value="Vivostem web sitesi - Urun bilgisi ve demo talebi">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-satir"><div class="alan"><label for="d-ad">Ad</label><input type="text" id="d-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="d-soyad">Soyad</label><input type="text" id="d-soyad" name="Soyad" required autocomplete="family-name"></div></div>
+          <div class="form-satir"><div class="alan"><label for="d-uzmanlik-bransi">Branş</label><input type="text" id="d-uzmanlik-bransi" name="Uzmanlik bransi"></div><div class="alan"><label for="d-klinik">Klinik</label><input type="text" id="d-klinik" name="Klinik" autocomplete="organization"></div></div>
+          <div class="form-satir"><div class="alan"><label for="d-telefon">Telefon</label><input type="tel" id="d-telefon" name="Telefon" required autocomplete="tel"></div><div class="alan"><label for="d-e-posta">E&#8209;posta</label><input type="email" id="d-e-posta" name="E-posta" required autocomplete="email"></div></div>
+          <div class="alan"><label for="d-ilgilenilen-urun">Hangi ürün için bilgi istiyorsunuz?</label><select id="d-ilgilenilen-urun" name="Ilgilenilen urun"><option>Cellenis PRGF</option><option>Cellenis PRF</option><option>Cellenis DermaFiller</option><option>Cellenis Exo-ME</option><option>Tropocells PRP</option><option>TropoVisc</option><option>TRS</option><option>TropoVet</option><option>SVF veya BMAC</option><option>Henuz karar vermedim</option></select></div>
+          <div class="alan"><label for="d-mesaj">Mesajınız</label><textarea id="d-mesaj" name="Mesaj"></textarea></div>
+          <label class="onay"><input type="checkbox" name="KVKK onayi" value="Verildi" required>
+            <span>Kişisel verilerimin <a href="/kvkk">aydınlatma metninde</a> belirtilen kapsamda işlenmesini onaylıyorum.</span></label>
+          <button type="submit" class="btn btn--dolu">Talebi gönderin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bolum bolum--dar">
+  <div class="wrap">
+    <div class="bolum-bas"><div class="kural"></div>
+      <p class="ustbaslik ustbaslik--mor" set:html={s.webinarUstBaslik} />
+      <h2 set:html={s.webinarBaslik} />
+      <p set:html={s.webinarMetin} /></div>
+    <div class="kutu-grid kutu-grid--3">
+      {s.webinarKutulari.map((k) => (
+        <div class="kutu kutu--lila"><h3 set:html={k.baslik} />
+          <p set:html={k.metin} /></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2 set:html={s.ctaBaslik} />
+      <p set:html={s.ctaMetin} />
+    </div>
+    <div class="btn-grup">
+      <a href="#basvuru" class="btn btn--beyaz">Eğitim başvurusu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

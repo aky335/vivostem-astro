@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import UzmanKart from '../components/UzmanKart.astro';
+import { gorunenUzmanlar } from '../lib/icerik.js';
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+
+const uzmanlar = gorunenUzmanlar(await getCollection('uzmanlar'));
+---
+
+<Layout
+  baslik="Uzmanlarımız | Vivostem Türkiye"
+  aciklama="Vivostem portföyünü klinik pratiğinde kullanan hekimlerin değerlendirmeleri ve uzman topluluğuna katılım formu."
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Uzmanlarımız</p>
+    <h1>Uzmanlarımız</h1>
+    <p>Vivostem portföyünü kendi klinik pratiğinde kullanan hekimlerin değerlendirmeleri.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap">
+    <div class="uzman-grid uzman-grid--4">
+      {uzmanlar.map((u) => <UzmanKart uzman={u} />)}
+</div>
+  </div>
+</section>
+
+<section class="bolum bolum--lila" id="katil">
+  <div class="wrap">
+    <div class="iki-form">
+      <div>
+        <div class="kural"></div>
+        <p class="ustbaslik ustbaslik--mor">Siz de Katılın</p>
+        <h2>Deneyiminizi paylaşın</h2>
+        <p class="giris">Vivostem ürünlerini kullanıyor ve deneyimlerinizi paylaşmak mı istiyorsunuz?
+           Uzman topluluğumuza katılın; web sitemizde profiliniz yer alsın, eğitim etkinliklerimizde
+           yer alın.</p>
+        <ul class="liste-ok">
+          <li>Web sitesinde hekim profili ve görüşünüz</li>
+          <li>Eğitim ve webinar programlarında konuşmacı daveti</li>
+          <li>Yeni ürünlerde erken erişim ve deneme imkanı</li>
+          <li>Vaka paylaşımlarında iş birliği</li>
+        </ul>
+      </div>
+      <div class="form-kutu">
+        <h3>Katılım formu</h3>
+        <p class="aciklama">Formu doldurun, ekibimiz sizinle iletişime geçsin.</p>
+<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+          <input type="hidden" name="_subject" value="Vivostem web sitesi - Uzman toplulugu katilim formu">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-satir"><div class="alan"><label for="u-ad">Ad</label><input type="text" id="u-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="u-soyad">Soyad</label><input type="text" id="u-soyad" name="Soyad" required autocomplete="family-name"></div></div>
+          <div class="form-satir"><div class="alan"><label for="u-uzmanlik-bransi">Uzmanlık</label><input type="text" id="u-uzmanlik-bransi" name="Uzmanlik bransi" required></div><div class="alan"><label for="u-klinik">Kurum</label><input type="text" id="u-klinik" name="Klinik" autocomplete="organization"></div></div>
+          <div class="form-satir"><div class="alan"><label for="u-telefon">Telefon</label><input type="tel" id="u-telefon" name="Telefon" required autocomplete="tel"></div><div class="alan"><label for="u-e-posta">E&#8209;posta</label><input type="email" id="u-e-posta" name="E-posta" required autocomplete="email"></div></div>
+          <div class="alan"><label for="u-kullanilan-urun">Kullandığınız ürün</label><select id="u-kullanilan-urun" name="Kullanilan urun"><option>Cellenis PRGF</option><option>Cellenis PRF</option><option>Cellenis DermaFiller</option><option>Cellenis Exo-ME</option><option>Tropocells PRP</option><option>TropoVisc</option><option>TRS</option><option>TropoVet</option><option>SVF veya BMAC</option><option>Henuz karar vermedim</option></select></div>
+          <div class="alan"><label for="u-mesaj">Mesajınız</label><textarea id="u-mesaj" name="Mesaj"></textarea></div>
+          <label class="onay"><input type="checkbox" name="KVKK onayi" value="Verildi" required>
+            <span>Kişisel verilerimin <a href="/kvkk">aydınlatma metninde</a> belirtilen kapsamda işlenmesini onaylıyorum.</span></label>
+          <button type="submit" class="btn btn--dolu">Formu gönderin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Ürünleri kliniğinizde denemek ister misiniz?</h2>
+      <p>Demo uygulaması ve eğitim planı için ekibimize yazın.</p>
+    </div>
+    <div class="btn-grup">
+      <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

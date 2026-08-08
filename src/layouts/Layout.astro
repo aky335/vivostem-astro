@@ -1,0 +1,53 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  baslik,
+  aciklama,
+  paylasimGorseli = '/assets/img/paylasim.jpg',
+  robots,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://vivostem.com.tr');
+const kanonik = new URL(Astro.url.pathname, site).href.replace(/\/$/, '') || site.href;
+const gorselTam = new URL(paylasimGorseli, site).href;
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{baslik}</title>
+<meta name="description" content={aciklama}>
+<meta name="theme-color" content="#5031c2">
+<link rel="canonical" href={kanonik}>
+{robots && <meta name="robots" content={robots}>}
+<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vivostem Türkiye">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content={baslik}>
+<meta property="og:description" content={aciklama}>
+<meta property="og:url" content={kanonik}>
+<meta property="og:image" content={gorselTam}>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<Header />
+
+<slot />
+
+<Footer />
+
+<script>
+  import '../scripts/site.js';
+</script>
+</body>
+</html>

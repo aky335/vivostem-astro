@@ -1,0 +1,82 @@
+ad: "Cellenis<sup>&reg;</sup> PRF"
+ozet: "Pıhtılaşma ve büyüme faktörlerini içeren, yavaş salınımlı fibrin membran."
+seoBaslik: "Cellenis PRF | Vivostem Türkiye"
+seoAciklama: "PRF, pıhtılaşma ve büyüme faktörlerini içeren fibrin membrandır. Büyüme faktörlerini yavaş salarak doku iyileşmesini uzun süreli destekler."
+gorsel: "/assets/img/tup-prf.png"
+gorselAlt: "Cellenis PRF tüpü"
+aile: "cellenis"
+menuAdi: ""
+sira: 3
+gizli: false
+ctaBaslik: "Cellenis<sup>&reg;</sup> PRF hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+    aciklama: "Sıvı form, hızlı etki."
+    adres: "/cellenis-prgf"
+  - baslik: "Cellenis<sup>&reg;</sup> DermaFiller"
+    aciklama: "Otolog hacim desteği."
+    adres: "/cellenis-dermafiller"
+  - baslik: "TRS"
+    aciklama: "Trombinden zengin otolog serum."
+    adres: "/trs"
+  - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
+    aciklama: "Ekzozom bazlı rejenerasyon."
+    adres: "/cellenis-exo-me"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog"
+        - "Membran ve jel form"
+        - "Yavaş salınım"
+        - "FDA ve CE onaylı"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## PRF nedir?
+
+        PRF (Platelet Rich Fibrin), pıhtılaşma faktörleri ve büyüme faktörlerini içeren fibrin membrandır. Santrifüj işlemiyle elde edilen PRF, büyüme faktörlerini yavaş yavaş serbest bırakarak doku iyileşmesini uzun süreli destekler.
+
+        ## Endikasyonlar
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Yüz gençleştirme ve cilt sıkılaştırma"
+        - "Saç dökülmesi (alopesi)"
+        - "Yara iyileşmesi ve skar tedavisi"
+        - "Diş hekimliği: çekim sonrası iyileşme, sinüs lifting"
+        - "Göz çevresi rejenerasyonu"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## PRGF ile PRF farkı
+  - discriminant: tablo
+    value:
+      basliklar:
+        - ""
+        - "Cellenis<sup>&reg;</sup> PRGF"
+        - "Cellenis<sup>&reg;</sup> PRF"
+      satirlar:
+        - hucreler:
+            - "Form"
+            - "Sıvı"
+            - "Membran veya jel"
+        - hucreler:
+            - "Uygulama"
+            - "Enjekte edilebilir"
+            - "Fiziksel bariyer olarak yerleştirilir"
+        - hucreler:
+            - "Etki hızı"
+            - "Hızlı"
+            - "Yavaş salınımlı, uzun süreli"
+        - hucreler:
+            - "Öne çıktığı alan"
+            - "Hacim ve cilt kalitesi"
+            - "Yara iyileşmesi ve doku desteği"
+  - discriminant: not
+    value:
+      vurgu: "Kombinasyon:"
+      metin: "PRGF ve PRF birlikte kullanıldığında sinerjik etki oluşur. Hangi kombinasyonun hangi endikasyonda tercih edileceği hekim değerlendirmesiyle belirlenir."
+      ustBosluk: 24

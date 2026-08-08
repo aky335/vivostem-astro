@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+---
+
+<Layout
+  baslik="İletişim | Vivostem Türkiye"
+  aciklama={`Vivostem Türkiye iletişim bilgileri, ürün bilgisi ve bayilik başvuru formu. WhatsApp: ${ayarlar.telefon}`}
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; İletişim</p>
+    <h1>İletişim</h1>
+    <p>Ürün bilgisi, eğitim başvurusu veya bayilik görüşmesi için bize yazın. Aynı gün içinde dönüş yapıyoruz.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap">
+    <div class="iletisim-ust">
+      <div>
+        <div class="kural"></div>
+        <p class="ustbaslik ustbaslik--mor">Form</p>
+        <h2>Bize yazın</h2>
+        <p class="giris">Formu doldurun, ilgili ekip arkadaşımız en kısa sürede size dönsün.</p>
+<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+          <input type="hidden" name="_subject" value="Vivostem web sitesi - Iletisim formu">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-satir"><div class="alan"><label for="i-ad">Ad</label><input type="text" id="i-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="i-soyad">Soyad</label><input type="text" id="i-soyad" name="Soyad" required autocomplete="family-name"></div></div>
+          <div class="form-satir"><div class="alan"><label for="i-telefon">Telefon</label><input type="tel" id="i-telefon" name="Telefon" required autocomplete="tel"></div><div class="alan"><label for="i-e-posta">E&#8209;posta</label><input type="email" id="i-e-posta" name="E-posta" required autocomplete="email"></div></div>
+          <div class="form-satir"><div class="alan"><label for="i-uzmanlik-bransi">Uzmanlık branşı</label><input type="text" id="i-uzmanlik-bransi" name="Uzmanlik bransi"></div><div class="alan"><label for="i-klinik">Klinik / Kurum</label><input type="text" id="i-klinik" name="Klinik" autocomplete="organization"></div></div>
+          <div class="alan"><label for="i-konu">Konu</label><select id="i-konu" name="Konu"><option>Urun bilgisi</option><option>Egitim basvurusu</option><option>Demo talebi</option><option>Bayilik ve distributorluk</option><option>Diger</option></select></div>
+          <div class="alan"><label for="i-mesaj">Mesajınız</label><textarea id="i-mesaj" name="Mesaj"></textarea></div>
+          <label class="onay"><input type="checkbox" name="KVKK onayi" value="Verildi" required>
+            <span>Kişisel verilerimin <a href="/kvkk">aydınlatma metninde</a> belirtilen kapsamda işlenmesini onaylıyorum.</span></label>
+          <button type="submit" class="btn btn--dolu">Formu gönderin</button>
+        </form>
+      </div>
+
+      <div>
+        <h3 style="margin-top:8px">Doğrudan ulaşın</h3>
+        <ul class="bilgi-liste">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+            <div><span class="etiket">WhatsApp ve telefon</span>
+              <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener">{ayarlar.telefon}</a></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <div><span class="etiket">E&#8209;posta</span><a href={`mailto:${ayarlar.eposta}`}>{ayarlar.eposta}</a></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            <div><span class="etiket">Instagram</span>
+              <a href={ayarlar.instagramAdres} target="_blank" rel="noopener">{ayarlar.instagramKullanici}</a></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <div><span class="etiket">LinkedIn</span>
+              <a href={ayarlar.linkedinAdres} target="_blank" rel="noopener">{ayarlar.linkedinAd}</a></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>
+            <div><span class="etiket">YouTube</span>
+              <a href={ayarlar.youtubeAdres} target="_blank" rel="noopener">@vivostem</a></div></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+              stroke-linejoin="round"><path d="M12 21s7-4.4 7-10a7 7 0 1 0-14 0c0 5.6 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
+            <div><span class="etiket">Adres</span>
+              <span class="bilgi-metin">{ayarlar.adres}</span></div></li>
+        </ul>
+
+        <div class="kutu kutu--lila" style="margin-top:30px">
+          <h3>Bayilik ve distribütörlük</h3>
+          <p>Bölge bayiliği ve iş ortaklığı görüşmeleri için formda "Bayilik ve distribütörlük"
+             konusunu seçmeniz yeterli. Başvurular doğrudan yönetim tarafından değerlendirilir.</p>
+        </div>
+        <div class="kutu" style="margin-top:20px">
+          <h3>Eğitim ve demo</h3>
+          <p>Uygulamalı eğitim veya kliniğinizde demo talebi için
+             <a href="/saglik-profesyonelleri#basvuru">Sağlık Profesyonelleri</a> sayfasındaki
+             başvuru formlarını kullanabilirsiniz.</p>
+        </div>
+        <div class="kutu" style="margin-top:20px">
+          <h3>Künye</h3>
+          <ul class="kunye">
+            <li><span>Unvan</span>Vivostem Medikal (Didem Sözer)</li>
+            <li><span>Adres</span>{ayarlar.adres}</li>
+            <li><span>Vergi dairesi</span>Sarıgazi Vergi Dairesi</li>
+            <li><span>Faaliyet</span>461803 &middot; Tıbbi ürünlerin, araç ve malzemelerin toptan satışı ile ilgili aracıların faaliyetleri</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>

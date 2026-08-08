@@ -1,0 +1,83 @@
+ad: "Cellenis<sup>&reg;</sup> DermaFiller"
+ozet: "Kişinin kendi plazmasından üretilen otolog biyolojik dolgu."
+seoBaslik: "Cellenis DermaFiller | Vivostem Türkiye"
+seoAciklama: "Cellenis DermaFiller, kişinin kendi plazmasından üretilen otolog biyolojik dolgudur. Alerjik reaksiyon, granülom ve nekroz riski taşımaz."
+gorsel: "/assets/img/urun-dermafiller.jpg"
+gorselAlt: "Cellenis DermaFiller kutusu ve enjektörü"
+aile: "cellenis"
+menuAdi: ""
+sira: 4
+gizli: false
+ctaBaslik: "Cellenis<sup>&reg;</sup> DermaFiller hakkında bilgi almak ister misiniz?"
+ctaMetin: "Ürün bilgisi, numune ve eğitim talepleriniz için ekibimize yazın."
+ilgiliKartlar:
+  - baslik: "Cellenis<sup>&reg;</sup> PRGF"
+    aciklama: "Sıvı form, hızlı etki."
+    adres: "/cellenis-prgf"
+  - baslik: "Cellenis<sup>&reg;</sup> PRF"
+    aciklama: "Membran formu, yavaş salınım."
+    adres: "/cellenis-prf"
+  - baslik: "Cellenis<sup>&reg;</sup> Exo&#8209;ME"
+    aciklama: "Ekzozom bazlı rejenerasyon."
+    adres: "/cellenis-exo-me"
+  - baslik: "Sıkça sorulan sorular"
+    aciklama: "BioFiller ve PRGF hakkında hekim soruları."
+    adres: "/sss"
+bloklar:
+  - discriminant: etiketler
+    value:
+      etiketler:
+        - "Otolog dolgu"
+        - "Yabancı madde içermez"
+        - "FDA ve CE onaylı"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## DermaFiller nedir?
+
+        DermaFiller, kişinin kendi plazmasından üretilen otolog biyolojik dolgu ürünüdür. Hyalüronik asit fillerlerinden temel farkı, tamamen kişiye özel olması ve yabancı madde içermemesidir. Biyolojik yapısı sayesinde vücut tarafından tanınır.
+
+        Hazırlık, hastanın kendi kanından elde edilen PRGF'nin özel bir ısıtma protokolü ile biyolojik jel formuna dönüştürülmesiyle yapılır. Patentli hazırlama teknolojisi sayesinde hem hacim desteği sağlayan jel elde edilir, hem de PRGF içeriği ile cildin doğal rejenerasyon süreçleri desteklenir.
+
+        ## Öne çıkan özellikler
+  - discriminant: maddeler
+    value:
+      baslik: ""
+      maddeler:
+        - "Alerjik reaksiyon riski taşımaz"
+        - "Granülom veya nekroz riski oluşturmaz"
+        - "Kişinin kendi dokusundan üretilir"
+        - "Doğal görünüm, uzun süreli etki"
+        - "PRGF ile aynı seansta kombine uygulanabilir"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Uygulama alanları
+  - discriminant: kutular
+    value:
+      baslik: ""
+      ustBosluk: 0
+      kutular:
+        - baslik: "Yüz"
+          metin: ""
+          maddeler:
+            - "Nasolabial dolgu"
+            - "Yanak ve çene kontürleme"
+            - "Dudak dolgusu"
+        - baslik: "Diğer bölgeler"
+          metin: ""
+          maddeler:
+            - "Göz altı morluğu"
+            - "El gençleştirme"
+  - discriminant: metin
+    value:
+      metin: |-
+        ## Ödül
+  - discriminant: odul
+    value:
+      metin: "2025 yılında ABD'de biofiller kategorisinde <strong>estetik alanında en iyi gelişim ödülü</strong>ne layık görüldü."
+  - discriminant: not
+    value:
+      vurgu: "Kombine uygulama:"
+      metin: "DermaFiller anlık hacim desteği verirken, içeriğindeki PRGF zaman içinde kolajen ve elastin üretimini destekleyerek cildin biyolojik yenilenme sürecine katkıda bulunur."
+      ustBosluk: 26

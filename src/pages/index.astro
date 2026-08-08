@@ -1,0 +1,185 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Ikon from '../components/Ikon.astro';
+import UzmanKart from '../components/UzmanKart.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+import { gorunenUzmanlar, gorunenNedenler } from '../lib/icerik.js';
+import a from '../content/anasayfa/index.json';
+
+// Ana sayfadaki metinler panelde "Ana sayfa" bölümünden düzenleniyor.
+// Uzman görüşleri ve Neden Vivostem kartları kendi koleksiyonlarından geliyor.
+const uzmanlar = gorunenUzmanlar(await getCollection('uzmanlar')).filter((u) => u.data.anaSayfada);
+const nedenler = gorunenNedenler(await getCollection('nedenler'));
+
+const okIkonu = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+---
+
+<Layout
+  baslik="Vivostem Türkiye | Cellenis ve Tropocells Resmi Distribütörü"
+  aciklama="Vivostem Türkiye, rejeneratif ve biyolojik tıp alanında Cellenis ve Tropocells ürünlerinin Türkiye distribütörüdür. Sağlık profesyonellerine ürün, eğitim ve klinik protokol desteği sunar."
+>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-metin">
+      <p class="ustbaslik" set:html={a.heroUstBaslik} />
+      <h1 set:html={a.heroBaslik} />
+      <p set:html={a.heroMetin} />
+      <div class="btn-grup">
+        {a.heroButonlar.map((b, i) => (
+          <a href={b.adres} class={`btn btn--${b.stil}`}>{b.yazi}{i === 0 && <Fragment set:html={' ' + okIkonu} />}</a>
+        ))}
+      </div>
+      <ul class="belgeler">
+        {a.heroBelgeler.map((b) => (
+          <li><Ikon ad={b.ikon} />{b.yazi}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="hero-gorsel">
+      <img src={a.heroGorsel} alt={a.heroGorselAlt} width="764" height="707">
+    </div>
+  </div>
+</section>
+
+<section class="guven">
+  <div class="wrap">
+    <p class="guven-metin" set:html={a.guvenMetin} />
+    <ul class="guven-liste">
+      {a.guvenMaddeler.map((m) => <li><Ikon ad={m.ikon} />{m.yazi}</li>)}
+    </ul>
+  </div>
+</section>
+
+<section class="bolum" id="urunler">
+  <div class="wrap">
+    <div class="bolum-bas">
+      <div class="kural"></div>
+      <p class="ustbaslik ustbaslik--mor" set:html={a.urunBolumu.ustBaslik} />
+      <h2 set:html={a.urunBolumu.baslik} />
+      <p set:html={a.urunBolumu.metin} />
+    </div>
+
+    <div class="urun-grid">
+      {a.urunKartlari.map((k) => (
+        <article class="urun-kart">
+          <div class="urun-gorsel"><img src={k.gorsel} alt={k.gorselAlt}></div>
+          <div class="urun-govde">
+            <h3 set:html={k.baslik} />
+            <p class="urun-alt" set:html={k.altBaslik} />
+            <p set:html={k.metin} />
+            <a href={k.adres} class="metin-link">İncele <Fragment set:html={okIkonu} /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="bolum neden">
+  <div class="wrap">
+    <div class="neden-ust">
+      <div>
+        <div class="kural"></div>
+        <p class="ustbaslik ustbaslik--mor" set:html={a.nedenBolumu.ustBaslik} />
+        <h2 set:html={a.nedenBolumu.baslik} />
+      </div>
+      <p set:html={a.nedenBolumu.metin} />
+    </div>
+    <div class="kaydirak" data-kaydirak data-otomatik="6000">
+      <div class="kaydirak-ray" role="group" aria-label="Neden Vivostem başlıkları">
+      {nedenler.map((n) => (
+        <a class="neden-kart" href={`/neden-vivostem#${n.id}`}>
+          <div class="neden-ikon"><Ikon ad={n.data.ikon} /></div>
+          <h3 set:html={n.data.kartBaslik} />
+          <p set:html={n.data.kartOzet} />
+          <span class="metin-link">Detay <Fragment set:html={okIkonu} /></span>
+        </a>
+      ))}
+      </div>
+      <div class="kaydirak-alt" hidden>
+        <button type="button" class="kaydirak-ok" data-yon="-1" aria-label="Önceki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <div class="kaydirak-noktalar"></div>
+        <button type="button" class="kaydirak-ok" data-yon="1" aria-label="Sonraki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="neden-dip">
+      <a href={a.nedenButonAdres} class="btn btn--cizgi">{a.nedenButonYazi} <Fragment set:html={okIkonu} /></a>
+    </div>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap">
+    <div class="bolum-bas">
+      <div class="kural"></div>
+      <p class="ustbaslik ustbaslik--mor" set:html={a.uzmanBolumu.ustBaslik} />
+      <h2 set:html={a.uzmanBolumu.baslik} />
+      <p set:html={a.uzmanBolumu.metin} />
+    </div>
+    <div class="kaydirak" data-kaydirak>
+      <div class="kaydirak-ray" role="group" aria-label="Uzman görüşleri">
+      {uzmanlar.map((u) => <UzmanKart uzman={u} />)}
+      </div>
+      <div class="kaydirak-alt" hidden>
+        <button type="button" class="kaydirak-ok" data-yon="-1" aria-label="Önceki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <div class="kaydirak-noktalar"></div>
+        <button type="button" class="kaydirak-ok" data-yon="1" aria-label="Sonraki">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="bolum-dip">
+      <a href={a.uzmanButonAdres} class="btn btn--cizgi">{a.uzmanButonYazi} <Fragment set:html={okIkonu} /></a>
+    </div>
+  </div>
+</section>
+
+<section class="bolum bolum--lila">
+  <div class="wrap">
+    <div class="egitim">
+      <div>
+        <div class="kural"></div>
+        <p class="ustbaslik ustbaslik--mor" set:html={a.egitimBolumu.ustBaslik} />
+        <h2 set:html={a.egitimBolumu.baslik} />
+        <p class="giris" set:html={a.egitimBolumu.metin} />
+        <ul class="egitim-liste">
+          {a.egitimMaddeler.map((m) => (
+            <li><Ikon ad={m.ikon} />
+              <div><strong set:html={m.baslik} />
+                <span set:html={m.metin} /></div></li>
+          ))}
+        </ul>
+        <div class="btn-grup" style="margin-top:30px">
+          {a.egitimButonlar.map((b) => <a href={b.adres} class={`btn btn--${b.stil}`}>{b.yazi}</a>)}
+        </div>
+      </div>
+      <div class="egitim-gorsel">
+        <img src={a.egitimGorsel} alt={a.egitimGorselAlt}>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2 set:html={a.ctaBaslik} />
+      <p set:html={a.ctaMetin} />
+    </div>
+    <div class="btn-grup">
+      <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

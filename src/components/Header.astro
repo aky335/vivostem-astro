@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import { anaMenu } from '../data/menu.js';
+import { ayarlar } from '../lib/ayarlar.js';
+import { urunSutunlari } from '../lib/icerik.js';
+
+// Açılır ürün kutusu ve mobil ürün listesi doğrudan ürün koleksiyonundan
+// besleniyor. Panelden ürün eklendiğinde menüde kendiliğinden beliriyor.
+const urunKolonlari = urunSutunlari(
+  await getCollection('urunAileleri'),
+  await getCollection('urunler')
+);
+
+// Aktif menü maddesini adresten kendisi buluyor, sayfa başına elle
+// "aktif" sınıfı yazmaya gerek yok.
+const yol = Astro.url.pathname.replace(/\/$/, '') || '/';
+const urunYollari = urunKolonlari.flatMap((k) => k.linkler.map((l) => l.href));
+const urunlerAktif = yol === '/urunler' || urunYollari.includes(yol);
+---
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="marka"><img src="/assets/img/logo.png" alt="Vivostem"></a>
+    <nav class="ana-menu">
+      <div class="acilir"><a href="/urunler" class={urunlerAktif ? 'aktif' : undefined}>Ürünler</a>
+        <div class="acilir-kutu">
+          <div class="acilir-sutunlar">
+            {urunKolonlari.map((kolon) => (
+              <div class="acilir-sutun">
+                <strong set:html={kolon.baslik} />
+                {kolon.linkler.map((l) => <a href={l.href} set:html={l.ad} />)}
+              </div>
+            ))}
+          </div>
+          <div class="acilir-dip"><a class="acilir-buton" href="/urunler">Tüm ürünleri görün <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+      </div>
+      {anaMenu.map((l) => (
+        <a href={l.href} class={yol === l.href ? 'aktif' : undefined} set:html={l.ad} />
+      ))}
+    </nav>
+    <div class="header-aksiyon">
+      <a class="wa" href={ayarlar.whatsappAdres} target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg><span>WhatsApp</span></a>
+      <button class="burger" id="burger" aria-label="Menü"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="perde" id="perde"></div>
+<div class="mobil-menu" id="mobilMenu">
+  <button class="mobil-kapat" id="mobilKapat" aria-label="Kapat">&times;</button>
+  <a href="/">Ana Sayfa</a>
+  <div class="mobil-grup">
+    <div class="mobil-bas">
+      <a href="/urunler">Ürünler</a>
+      <button type="button" class="mobil-ok" aria-expanded="false"
+              aria-label="Ürün listesini aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+    </div>
+    <div class="mobil-alt">
+      {urunKolonlari.flatMap((k) => k.linkler).map((l) => (
+        <a href={l.href} set:html={l.ad} />
+      ))}
+    </div>
+  </div>
+  {anaMenu.map((l) => <a href={l.href} set:html={l.ad} />)}
+</div>

@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { ayarlar } from '../lib/ayarlar.js';
+import { sssGruplari } from '../lib/icerik.js';
+
+const gruplar = sssGruplari(await getCollection('sss'));
+---
+
+<Layout
+  baslik="Sıkça Sorulan Sorular | Vivostem Türkiye"
+  aciklama="Cellenis PRGF, BioFiller ve PRP uygulamaları hakkında hekimlerden ve hastalardan gelen sık sorular ve yanıtları."
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; SSS</p>
+    <h1>Sıkça sorulan sorular</h1>
+    <p>Teknoloji, uygulama ve hasta tarafındaki en sık gelen soruları iki başlık altında topladık.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap" style="max-width:900px">
+    {gruplar.map((g) => (
+    <div class="sss-grup">
+      <h2 set:html={g.ad} />
+      <div class="sss-liste">
+        {g.sorular.map((s) => (
+          <details class="sss" open={s.data.acikBasla}>
+            <summary set:html={s.data.soru} />
+            <div class="cevap"><div class="cevap-ic" set:html={s.data.cevap} /></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  ))}
+    <div class="olcut" style="margin-top:44px">
+      <p><strong>Sorunuzu bulamadınız mı?</strong> Ürün, protokol veya endikasyon sorularınız için
+         <a href="/iletisim">iletişim formunu</a> kullanabilir ya da
+         <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener">WhatsApp hattımızdan</a> yazabilirsiniz.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Klinik sorularınız için ekibimiz hazır</h2>
+      <p>Endikasyon, seans planı veya hasta seçimi konusunda görüş almak isterseniz yazın.</p>
+    </div>
+    <div class="btn-grup">
+      <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.2a5.8 5.8 0 0 0 1.2 3 13 13 0 0 0 5 4.4 16 16 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.2-.2-.4-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

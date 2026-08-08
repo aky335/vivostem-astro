@@ -1,0 +1,54 @@
+{
+  "seoBaslik": "Sağlık Profesyonelleri | Vivostem Türkiye",
+  "seoAciklama": "Uygulamalı eğitim programları, uzman webinarları, yazılı klinik protokoller ve saha ekibi desteği. Eğitim başvurusu ve ürün bilgisi talep formu.",
+  "baslik": "Sağlık profesyonelleri için",
+  "ozet": "Ürünü değil, yöntemi devrediyoruz. Uygulamalı eğitim programları, uzman webinarları ve klinik protokol desteğiyle ürünlerimizi pratiğinize entegre etmenize yardımcı oluyoruz.",
+  "destekUstBaslik": "Destek Programımız",
+  "destekBaslik": "Ürünle birlikte gelen dört başlık",
+  "destekMaddeler": [
+    {
+      "baslik": "Uygulamalı eğitim programları",
+      "metin": "Kliniğinizde veya merkezimizde birebir hands&#8209;on workshop. Kan alımından uygulamaya kadar tüm protokol adım adım aktarılır.",
+      "ikon": "egitim-1"
+    },
+    {
+      "baslik": "Periyodik webinarlar",
+      "metin": "Cellenis Exo&#8209;ME, Tropocells PRP ve rejeneratif diş hekimliği başlıklarında oturumlar. Geçmiş oturumlar YouTube kanalımızda arşivleniyor.",
+      "ikon": "egitim-2"
+    },
+    {
+      "baslik": "Yazılı klinik protokoller",
+      "metin": "Endikasyon, seans planı, hazırlık adımları ve hasta seçimi kriterlerini içeren dokümantasyon.",
+      "ikon": "egitim-3"
+    },
+    {
+      "baslik": "Uzman eğitmen desteği",
+      "metin": "İlk uygulamalarınızda saha ekibimiz yanınızda. Medikod Expert Days etkinliklerine katılıyoruz.",
+      "ikon": "egitim-4"
+    }
+  ],
+  "destekGorsel": "/assets/img/tup-prf.png",
+  "destekGorselAlt": "Cellenis PRF tüpü",
+  "basvuruUstBaslik": "Başvuru",
+  "basvuruBaslik": "Eğitim ve ürün bilgisi talebi",
+  "basvuruMetin": "Hangi konuda destek istediğinizi seçin, ilgili ekip arkadaşımız size dönsün.",
+  "webinarUstBaslik": "Webinar Takvimi",
+  "webinarBaslik": "Etkinlik takvimi yakında bu sayfada",
+  "webinarMetin": "Yaklaşan webinar ve eğitim etkinliklerinin tarihleri, konuları ve konuşmacıları burada yayınlanacak. Duyuruları ilk siz almak isterseniz yukarıdaki eğitim başvurusu formunu doldurmanız yeterli.",
+  "webinarKutulari": [
+    {
+      "baslik": "Cellenis Exo&#8209;ME",
+      "metin": "Saç dökülmesi ve cilt yenilemede ekzozom protokolleri."
+    },
+    {
+      "baslik": "Tropocells PRP",
+      "metin": "Ortopedi ve spor hekimliğinde uygulama pratiği."
+    },
+    {
+      "baslik": "Rejeneratif diş hekimliği",
+      "metin": "İmplant iyileşmesi ve kemik rejenerasyonunda PRGF."
+    }
+  ],
+  "ctaBaslik": "Bir sonraki eğitime katılmak ister misiniz?",
+  "ctaMetin": "Kontenjan ve tarih bilgisi için ekibimize yazın, sizi listeye ekleyelim."
+}

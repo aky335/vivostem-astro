@@ -1,0 +1,9 @@
+---
+import { Panel } from '../../keystatic-panel.js';
+
+// Panel sunucuda değil tarayıcıda çalışıyor, bu yüzden bu rota
+// önceden HTML'e dönüştürülmüyor.
+export const prerender = false;
+---
+
+<Panel client:only="react" />

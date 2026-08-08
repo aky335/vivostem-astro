@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ayarlar } from '../../lib/ayarlar.js';
+import Layout from '../../layouts/Layout.astro';
+import BlogKart from '../../components/BlogKart.astro';
+import { tarihYaz, isoYaz, okumaSuresi, yayindakiYazilar, kategoriAdiCozucu } from '../../lib/icerik.js';
+
+export async function getStaticPaths() {
+  const yazilar = yayindakiYazilar(await getCollection('blog'));
+  const kategoriler = await getCollection('kategoriler');
+  return yazilar.map((yazi) => ({
+    params: { slug: yazi.id },
+    props: { yazi, hepsi: yazilar, kategoriler },
+  }));
+}
+
+const { yazi, hepsi, kategoriler } = Astro.props;
+const kategoriAdi = kategoriAdiCozucu(kategoriler);
+const d = yazi.data;
+const { Content } = await render(yazi);
+const sure = okumaSuresi(yazi.body);
+
+// Aynı kategoriden en fazla 3 yazı, yoksa en yeniler.
+const ilgili = hepsi
+  .filter((y) => y.id !== yazi.id)
+  .sort((a, b) => (b.data.kategori === d.kategori) - (a.data.kategori === d.kategori))
+  .slice(0, 3);
+---
+
+<Layout
+  baslik={`${d.baslik} | Vivostem Türkiye`}
+  aciklama={d.ozet}
+  paylasimGorseli={d.kapak}
+>
+
+<section class="sayfa-bas">
+  <div class="wrap">
+    <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; <a href="/blog">Bilgi Merkezi</a> &nbsp;/&nbsp; {kategoriAdi(d.kategori)}</p>
+    <h1>{d.baslik}</h1>
+    <p class="y-kunye">
+      <span class="y-rozet">{kategoriAdi(d.kategori)}</span>
+      <time datetime={isoYaz(d.tarih)}>{tarihYaz(d.tarih)}</time>
+      <span class="y-ayrac">&middot;</span>
+      <span>{sure} dakikalık okuma</span>
+    </p>
+  </div>
+</section>
+
+<section class="bolum">
+  <div class="wrap" style="max-width:820px">
+    {d.kapak && (
+      <img class="y-kapak" src={d.kapak} alt={d.kapakAlt ?? ''} loading="eager" decoding="async">
+    )}
+
+    <div class="y-metin">
+      <Content />
+    </div>
+
+    <div class="olcut" style="margin-top:44px">
+      <p>Bu içerik yalnızca sağlık profesyonellerini bilgilendirme amacı taşır ve tanı,
+         tedavi ya da tıbbi tavsiye yerine geçmez. Uygulama endikasyonu ve tedavi planı
+         hekim değerlendirmesiyle belirlenir.</p>
+    </div>
+  </div>
+</section>
+
+{ilgili.length > 0 && (
+  <section class="bolum bolum--lila">
+    <div class="wrap">
+      <h2 style="font-size:1.3rem; margin-bottom:26px">İlgili yazılar</h2>
+      <div class="y-izgara">
+        {ilgili.map((y) => <BlogKart yazi={y} kategoriAdi={kategoriAdi(y.data.kategori)} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2>Ürün ve protokol hakkında konuşalım</h2>
+      <p>Kliniğinize uygun çözümü birlikte belirleyelim.</p>
+    </div>
+    <div class="btn-grup">
+      <a href="/saglik-profesyonelleri#demo" class="btn btn--beyaz">Demo talebi</a>
+      <a href={ayarlar.whatsappAdres} target="_blank" rel="noopener" class="btn btn--seffaf">WhatsApp'tan yazın</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
