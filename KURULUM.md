@@ -26,7 +26,7 @@ src/
     ayarlar/        site bilgileri (telefon, adres, sosyal medya)
     menuler/        üst menü ve footer bağlantıları
     anasayfa/       ana sayfa metinleri
-    sayfalar/       sağlık profesyonelleri, KVKK, gizlilik
+    sayfalar/       sağlık profesyonelleri (.json), KVKK ve gizlilik (.mdoc)
     urunler/        11 ürün sayfası
     urun-aileleri/  menü sütunları
     nedenler/       Neden Vivostem başlıkları
@@ -91,7 +91,9 @@ oraya yönlendiriyor). Sol menü beş gruba ayrılıyor:
 
 - *Ana sayfa:* Giriş başlığı, sertifika şeridi, güven şeridi, bölüm başlıkları, ürün kartları, alt çağrı.
 - *Sağlık profesyonelleri sayfası:* Başlıklar ve destek maddeleri. Formlar kodda kalıyor.
-- *KVKK* ve *Gizlilik politikası:* Metin markdown olarak yazılıyor. İçinde `{{adres}}`, `{{eposta}}`, `{{telefon}}` yazarsan Site bilgilerinden otomatik doldurulur.
+- *KVKK* ve *Gizlilik politikası:* Metin zengin editörle yazılıyor; kalın, italik, başlık, liste ve bağlantı düğmelerle yapılır, kod yazmak gerekmez. Metnin içine `{{adres}}`, `{{eposta}}` veya `{{telefon}}` yazarsan Site bilgilerinden otomatik doldurulur, bağlantı adresinde de çalışır. KVKK'daki firma künyesi ayrı bir alan; metnin ilk paragrafından hemen sonra tablo olarak çıkar. "Son güncelleme" de ayrı bir alan, metnin altındaki kutuda görünür.
+
+  Bu iki sayfanın metni `.mdoc` uzantılı dosyada duruyor, diğerleri gibi `.json` değil. Zengin editör ancak böyle çalışıyor.
 
 **Ayarlar**
 

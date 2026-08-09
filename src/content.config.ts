@@ -217,4 +217,21 @@ const nedenler = defineCollection({
   }),
 });
 
-export const collections = { blog, etkinlikler, uzmanlar, sss, kategoriler, urunler, urunAileleri, nedenler };
+// KVKK ve gizlilik metinleri. Gövde .mdoc dosyasında, diğer alanlar dosyanın
+// başındaki bilgi bloğunda. Panelde zengin metin editörüyle düzenleniyor.
+const hukuki = defineCollection({
+  loader: glob({ pattern: '{kvkk,gizlilik}.mdoc', base: './src/content/sayfalar' }),
+  schema: z.object({
+    baslik: metin,
+    izlek: metin,
+    ozet: metin,
+    kunye: z
+      .array(z.object({ etiket: metin, deger: metin, adres: metin }))
+      .default([]),
+    sonGuncelleme: metin,
+    seoBaslik: metin,
+    seoAciklama: metin,
+  }),
+});
+
+export const collections = { blog, etkinlikler, uzmanlar, sss, kategoriler, urunler, urunAileleri, nedenler, hukuki };

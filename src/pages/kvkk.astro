@@ -1,5 +1,6 @@
 ---
+import { getEntry } from 'astro:content';
 import HukukiSayfa from '../components/HukukiSayfa.astro';
-import sayfa from '../content/sayfalar/kvkk.json';
+const kayit = await getEntry('hukuki', 'kvkk');
 ---
-<HukukiSayfa sayfa={sayfa} />
+<HukukiSayfa kayit={kayit} />

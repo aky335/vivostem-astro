@@ -911,3 +911,12 @@ details.sss summary:focus-visible{outline:2px solid var(--mor); outline-offset:-
   .takvim-yon{padding:28px 24px; gap:24px}
   .takvim-yon .btn{width:100%; justify-content:center}
 }
+
+/* ---------------------------------------------- hukuki sayfa gövdesi --- */
+/* KVKK ve gizlilik metinleri artık panelde zengin editörle yazılıyor.
+   Editör düz <ul> üretiyor; bu sayfalarda kullanılan tek liste biçimi
+   tikli liste olduğu için burada onu düz listeye uyguluyoruz. */
+.hukuki-govde ul:not(.kunye){list-style:none; padding:0; margin:16px 0 0}
+.hukuki-govde ul:not(.kunye) li{position:relative; padding-left:26px; margin-bottom:11px; color:var(--metin)}
+.hukuki-govde ul:not(.kunye) li::before{content:""; position:absolute; left:0; top:11px; width:9px; height:9px;
+  border-radius:50%; background:linear-gradient(140deg,var(--mor),var(--turkuaz))}

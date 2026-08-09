@@ -204,16 +204,52 @@ export default config({
       label: 'KVKK aydınlatma metni',
       path: 'src/content/sayfalar/kvkk',
       previewUrl: '/kvkk',
-      format: { data: 'json' },
+      // Gövde ayrı bir dosyada (.mdoc) tutuluyor; zengin metin alanı ancak
+      // böyle çalışıyor. Diğer alanlar dosyanın başındaki bilgi bloğunda.
+      format: { contentField: 'icerik' },
       schema: {
         baslik: fields.text({ label: 'Sayfa başlığı' }),
         izlek: fields.text({ label: 'Üstteki yol adı', description: 'Ana Sayfa / ... kısmında görünen ad.' }),
         ozet: fields.text({ label: 'Giriş metni', multiline: true }),
-        icerik: fields.text({
+
+        kunye: fields.array(
+          fields.object({
+            etiket: fields.text({ label: 'Satır adı', description: 'Örnek: Vergi dairesi' }),
+            deger: fields.text({ label: 'Değer', description: '{{adres}}, {{eposta}}, {{telefon}} yazabilirsiniz.' }),
+            adres: fields.text({
+              label: 'Bağlantı (isteğe bağlı)',
+              description: 'Doldurulursa değer tıklanabilir olur. Örnek: mailto:{{eposta}}',
+            }),
+          }),
+          {
+            label: 'Firma künyesi',
+            description: 'Veri sorumlusu bölümünün altındaki bilgi tablosu.',
+            itemLabel: (p) => p.fields.etiket.value || 'Satır',
+          }
+        ),
+        icerik: fields.markdoc({
           label: 'Metin',
           description:
-            'Başlık için ## yazın. {{adres}}, {{eposta}}, {{telefon}} yazarsanız site bilgilerinden otomatik doldurulur.',
-          multiline: true,
+            'Biçimlendirme düğmelerle yapılır, kod yazmanıza gerek yok. Metnin içine {{adres}}, {{eposta}} veya {{telefon}} yazarsanız Site bilgilerinden otomatik doldurulur.',
+          options: {
+            heading: [2, 3],
+            bold: true,
+            italic: true,
+            link: true,
+            unorderedList: true,
+            orderedList: true,
+            blockquote: false,
+            table: false,
+            code: false,
+            codeBlock: false,
+            image: false,
+            divider: false,
+            strikethrough: false,
+          },
+        }),
+        sonGuncelleme: fields.text({
+          label: 'Son güncelleme',
+          description: 'Metnin altındaki kutuda görünür. Örnek: Ağustos 2026',
         }),
         seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
         seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
@@ -224,16 +260,36 @@ export default config({
       label: 'Gizlilik politikası',
       path: 'src/content/sayfalar/gizlilik',
       previewUrl: '/gizlilik',
-      format: { data: 'json' },
+      // Gövde ayrı bir dosyada (.mdoc) tutuluyor; zengin metin alanı ancak
+      // böyle çalışıyor. Diğer alanlar dosyanın başındaki bilgi bloğunda.
+      format: { contentField: 'icerik' },
       schema: {
         baslik: fields.text({ label: 'Sayfa başlığı' }),
         izlek: fields.text({ label: 'Üstteki yol adı' }),
         ozet: fields.text({ label: 'Giriş metni', multiline: true }),
-        icerik: fields.text({
+        icerik: fields.markdoc({
           label: 'Metin',
           description:
-            'Başlık için ## yazın. {{adres}}, {{eposta}}, {{telefon}} yazarsanız site bilgilerinden otomatik doldurulur.',
-          multiline: true,
+            'Biçimlendirme düğmelerle yapılır, kod yazmanıza gerek yok. Metnin içine {{adres}}, {{eposta}} veya {{telefon}} yazarsanız Site bilgilerinden otomatik doldurulur.',
+          options: {
+            heading: [2, 3],
+            bold: true,
+            italic: true,
+            link: true,
+            unorderedList: true,
+            orderedList: true,
+            blockquote: false,
+            table: false,
+            code: false,
+            codeBlock: false,
+            image: false,
+            divider: false,
+            strikethrough: false,
+          },
+        }),
+        sonGuncelleme: fields.text({
+          label: 'Son güncelleme',
+          description: 'Metnin altındaki kutuda görünür. Örnek: Ağustos 2026',
         }),
         seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
         seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
