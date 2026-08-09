@@ -98,6 +98,17 @@ oraya yönlendiriyor). Sol menü beş gruba ayrılıyor:
 - *Menüler:* Üst menü ve footer sütunlarındaki bağlantılar. İkisi ayrı listelerde, biri diğerini etkilemez. Alan adları ÜST MENÜ ve FOOTER diye ayrılmış. Bağlantıları sürükleyerek sıralarsın, "Add" ile eklersin. Üst menüdeki ürün açılır kutusu burada değil, ürün koleksiyonundan üretiliyor. Footer'ın en altındaki KVKK ve Gizlilik bağlantıları kodda sabit; o iki sayfa her zaman durmalı, metinlerini Sayfa metinleri bölümünden düzenlersin.
 - *Site bilgileri:* Telefon, WhatsApp, e-posta, adres, sosyal medya hesapları ve footer metinleri. Buradaki bir değişiklik sitenin tamamına yayılır.
 
+## Sitede gör bağlantısı
+
+Her kaydın ve her sayfanın düzenleme ekranında, Save butonunun solunda bir
+"dışarı ok" simgesi var. Tıklayınca o içeriğin canlı sayfası açılır. Ürün ve
+blog yazısı kendi sayfasına, uzman görüşü uzmanlarımız sayfasına, SSS sss
+sayfasına gider.
+
+İki not: yayınlanmamış bir değişiklik canlıda henüz görünmez, önce kaydetmek
+gerekir. Gizli işaretli bir ürünün sayfası yayınlanmadığı için bağlantı 404
+verir, bu beklenen davranıştır.
+
 ## Görseller nerede duruyor
 
 Keystatic koleksiyonlarda her kaydın görselini kendi klasörüne koyar. Bu yüzden

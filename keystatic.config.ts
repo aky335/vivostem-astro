@@ -100,6 +100,7 @@ export default config({
     anasayfa: singleton({
       label: 'Ana sayfa',
       path: 'src/content/anasayfa/',
+      previewUrl: '/',
       format: { data: 'json' },
       schema: {
         heroUstBaslik: fields.text({ label: 'Giriş üst başlığı' }),
@@ -161,6 +162,7 @@ export default config({
     saglikProfesyonelleri: singleton({
       label: 'Sağlık profesyonelleri sayfası',
       path: 'src/content/sayfalar/saglik-profesyonelleri',
+      previewUrl: '/saglik-profesyonelleri',
       format: { data: 'json' },
       schema: {
         baslik: fields.text({ label: 'Sayfa başlığı' }),
@@ -201,6 +203,7 @@ export default config({
     kvkk: singleton({
       label: 'KVKK aydınlatma metni',
       path: 'src/content/sayfalar/kvkk',
+      previewUrl: '/kvkk',
       format: { data: 'json' },
       schema: {
         baslik: fields.text({ label: 'Sayfa başlığı' }),
@@ -220,6 +223,7 @@ export default config({
     gizlilik: singleton({
       label: 'Gizlilik politikası',
       path: 'src/content/sayfalar/gizlilik',
+      previewUrl: '/gizlilik',
       format: { data: 'json' },
       schema: {
         baslik: fields.text({ label: 'Sayfa başlığı' }),
@@ -239,6 +243,7 @@ export default config({
     menuler: singleton({
       label: 'Menüler',
       path: 'src/content/menuler/',
+      previewUrl: '/',
       format: { data: 'json' },
       schema: {
         // ÜST MENÜ. Sadece sayfanın üstünü besler, footer'a dokunmaz.
@@ -273,6 +278,7 @@ export default config({
     ayarlar: singleton({
       label: 'Site bilgileri',
       path: 'src/content/ayarlar/',
+      previewUrl: '/',
       format: { data: 'json' },
       schema: {
         telefon: fields.text({
@@ -318,6 +324,7 @@ export default config({
       label: 'Ürün aileleri',
       slugField: 'ad',
       path: 'src/content/urun-aileleri/*',
+      previewUrl: '/urunler',
       format: { data: 'yaml' },
       columns: ['ad', 'sira'],
       schema: {
@@ -342,6 +349,7 @@ export default config({
       label: 'Ürünler',
       slugField: 'ad',
       path: 'src/content/urunler/*',
+      previewUrl: '/{slug}',
       format: { data: 'yaml' },
       columns: ['ad', 'aile', 'sira'],
       schema: {
@@ -519,6 +527,7 @@ export default config({
       label: 'Neden Vivostem başlıkları',
       slugField: 'baslik',
       path: 'src/content/nedenler/*',
+      previewUrl: '/neden-vivostem',
       format: { data: 'yaml' },
       columns: ['baslik', 'sira'],
       schema: {
@@ -549,6 +558,7 @@ export default config({
       label: 'Kategoriler',
       slugField: 'ad',
       path: 'src/content/kategoriler/*',
+      previewUrl: '/blog',
       format: { data: 'yaml' },
       columns: ['ad', 'sira'],
       schema: {
@@ -571,6 +581,7 @@ export default config({
       label: 'Sıkça sorulan sorular',
       slugField: 'soru',
       path: 'src/content/sss/*',
+      previewUrl: '/sss',
       format: { data: 'yaml' },
       columns: ['soru', 'grup', 'sira'],
       schema: {
@@ -612,6 +623,7 @@ export default config({
       label: 'Uzman görüşleri',
       slugField: 'ad',
       path: 'src/content/uzmanlar/*',
+      previewUrl: '/uzmanlarimiz',
       format: { data: 'yaml' },
       columns: ['ad', 'brans', 'sira'],
       schema: {
@@ -658,6 +670,7 @@ export default config({
       label: 'Blog yazıları',
       slugField: 'baslik',
       path: 'src/content/blog/*',
+      previewUrl: '/blog/{slug}',
       format: { contentField: 'icerik' },
       columns: ['baslik', 'kategori', 'tarih'],
       entryLayout: 'content',
@@ -721,6 +734,7 @@ export default config({
       label: 'Etkinlikler',
       slugField: 'baslik',
       path: 'src/content/etkinlikler/*',
+      previewUrl: '/etkinlikler',
       format: { contentField: 'icerik' },
       columns: ['baslik', 'tur', 'baslangic'],
       entryLayout: 'form',
