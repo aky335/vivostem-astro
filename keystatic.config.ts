@@ -92,7 +92,7 @@ export default config({
       İçerik: ['blog', 'kategoriler', 'etkinlikler'],
       Sayfalar: ['nedenler', 'uzmanlar', 'sss'],
       'Sayfa metinleri': ['anasayfa', 'saglikProfesyonelleri', 'kvkk', 'gizlilik'],
-      Ayarlar: ['menuler', 'ayarlar'],
+      Ayarlar: ['menuler', 'formlar', 'ayarlar'],
     },
   },
 
@@ -327,6 +327,27 @@ export default config({
         iletisimSutunBaslik: fields.text({
           label: 'FOOTER · 3. sütun başlığı',
           description: 'Bu sütunun içindeki telefon, e-posta ve adres Site bilgilerinden geliyor.',
+        }),
+      },
+    }),
+
+    formlar: singleton({
+      label: 'Formlar',
+      path: 'src/content/formlar/',
+      previewUrl: '/iletisim',
+      format: { data: 'json' },
+      schema: {
+        formsubmitKodu: fields.text({
+          label: 'Form kodu',
+          description:
+            'Sitedeki dört form da (iletişim, eğitim başvurusu, ürün bilgisi, uzman başvurusu) bu koda gönderiliyor. formsubmit.co adresinden aldığınız gizli kodu yapıştırın; e-posta adresi de yazabilirsiniz ama o zaman adres sayfa kaynağında görünür ve spam alabilirsiniz. DİKKAT: burayı değiştirdikten sonra formlar hemen çalışmaz. Yeni adrese ilk form gönderildiğinde o adrese bir onay e-postası gider; içindeki bağlantıya tıklanana kadar form mesajları ulaşmaz. Değişiklikten sonra bir deneme gönderip gelen onay e-postasını onaylayın.',
+          validation: { length: { min: 1 } },
+        }),
+        tesekkurAdresi: fields.text({
+          label: 'Teşekkür sayfası adresi',
+          description:
+            'Form gönderildikten sonra ziyaretçinin yönlendirileceği sayfa. Tam adres yazılmalı. Sitenin alan adı değişirse burayı da güncelleyin.',
+          validation: { length: { min: 1 } },
         }),
       },
     }),

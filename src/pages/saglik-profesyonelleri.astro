@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { formAyarlari } from '../lib/formlar.js';
 import { ayarlar } from '../lib/ayarlar.js';
 import Ikon from '../components/Ikon.astro';
 import TakvimYonlendirme from '../components/TakvimYonlendirme.astro';
@@ -60,11 +61,11 @@ import s from '../content/sayfalar/saglik-profesyonelleri.json';
       <div class="form-kutu sekme-panel acik" id="egitim" role="tabpanel" aria-labelledby="sekme-egitim">
         <p class="aciklama">Uygulamalı workshop ve webinar programlarına katılım için.
            Branşınıza uygun bir sonraki eğitim tarihini size iletelim.</p>
-<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+<form action={formAyarlari.adres} method="POST">
           <input type="hidden" name="_subject" value="Vivostem web sitesi - Egitim basvurusu">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="hidden" name="_next" value={formAyarlari.tesekkurAdresi}>
           <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-satir"><div class="alan"><label for="e-ad">Ad</label><input type="text" id="e-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="e-soyad">Soyad</label><input type="text" id="e-soyad" name="Soyad" required autocomplete="family-name"></div></div>
           <div class="form-satir"><div class="alan"><label for="e-uzmanlik-bransi">Uzmanlık branşı</label><input type="text" id="e-uzmanlik-bransi" name="Uzmanlik bransi"></div><div class="alan"><label for="e-klinik">Klinik / Kurum</label><input type="text" id="e-klinik" name="Klinik" autocomplete="organization"></div></div>
@@ -80,11 +81,11 @@ import s from '../content/sayfalar/saglik-profesyonelleri.json';
       <div class="form-kutu sekme-panel" id="demo" role="tabpanel" aria-labelledby="sekme-demo">
         <p class="aciklama">Ürün dosyası, fiyat bilgisi veya kliniğinizde demo uygulaması için.
            Talebinizi alır almaz ilgili ürün sorumlusu size döner.</p>
-<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+<form action={formAyarlari.adres} method="POST">
           <input type="hidden" name="_subject" value="Vivostem web sitesi - Urun bilgisi ve demo talebi">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="hidden" name="_next" value={formAyarlari.tesekkurAdresi}>
           <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-satir"><div class="alan"><label for="d-ad">Ad</label><input type="text" id="d-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="d-soyad">Soyad</label><input type="text" id="d-soyad" name="Soyad" required autocomplete="family-name"></div></div>
           <div class="form-satir"><div class="alan"><label for="d-uzmanlik-bransi">Branş</label><input type="text" id="d-uzmanlik-bransi" name="Uzmanlik bransi"></div><div class="alan"><label for="d-klinik">Klinik</label><input type="text" id="d-klinik" name="Klinik" autocomplete="organization"></div></div>

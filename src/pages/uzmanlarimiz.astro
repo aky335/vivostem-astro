@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import UzmanKart from '../components/UzmanKart.astro';
 import { gorunenUzmanlar } from '../lib/icerik.js';
 import Layout from '../layouts/Layout.astro';
+import { formAyarlari } from '../lib/formlar.js';
 import { ayarlar } from '../lib/ayarlar.js';
 
 const uzmanlar = gorunenUzmanlar(await getCollection('uzmanlar'));
@@ -49,11 +50,11 @@ const uzmanlar = gorunenUzmanlar(await getCollection('uzmanlar'));
       <div class="form-kutu">
         <h3>Katılım formu</h3>
         <p class="aciklama">Formu doldurun, ekibimiz sizinle iletişime geçsin.</p>
-<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+<form action={formAyarlari.adres} method="POST">
           <input type="hidden" name="_subject" value="Vivostem web sitesi - Uzman toplulugu katilim formu">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="hidden" name="_next" value={formAyarlari.tesekkurAdresi}>
           <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-satir"><div class="alan"><label for="u-ad">Ad</label><input type="text" id="u-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="u-soyad">Soyad</label><input type="text" id="u-soyad" name="Soyad" required autocomplete="family-name"></div></div>
           <div class="form-satir"><div class="alan"><label for="u-uzmanlik-bransi">Uzmanlık</label><input type="text" id="u-uzmanlik-bransi" name="Uzmanlik bransi" required></div><div class="alan"><label for="u-klinik">Kurum</label><input type="text" id="u-klinik" name="Klinik" autocomplete="organization"></div></div>

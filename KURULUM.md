@@ -24,6 +24,7 @@ src/
     ikonlar.js      panelde seçilebilen simgelerin SVG gövdeleri
   content/          PANELİN YAZDIĞI YER, sitenin tüm metni burada
     ayarlar/        site bilgileri (telefon, adres, sosyal medya)
+    formlar/        form adresi ve teşekkür sayfası
     menuler/        üst menü ve footer bağlantıları
     anasayfa/       ana sayfa metinleri
     sayfalar/       sağlık profesyonelleri (.json), KVKK ve gizlilik (.mdoc)
@@ -98,6 +99,7 @@ oraya yönlendiriyor). Sol menü beş gruba ayrılıyor:
 **Ayarlar**
 
 - *Menüler:* Üst menü ve footer sütunlarındaki bağlantılar. İkisi ayrı listelerde, biri diğerini etkilemez. Alan adları ÜST MENÜ ve FOOTER diye ayrılmış. Bağlantıları sürükleyerek sıralarsın, "Add" ile eklersin. Üst menüdeki ürün açılır kutusu burada değil, ürün koleksiyonundan üretiliyor. Footer'ın en altındaki KVKK ve Gizlilik bağlantıları kodda sabit; o iki sayfa her zaman durmalı, metinlerini Sayfa metinleri bölümünden düzenlersin.
+- *Formlar:* Sitedeki dört formun (iletişim, eğitim başvurusu, ürün bilgisi ve demo, uzman başvurusu) ortak ayarı. **Form kodu** mesajların nereye düşeceğini belirler; formsubmit.co'dan alınan gizli kod yapıştırılır, e-posta adresi de yazılabilir ama o zaman adres sayfa kaynağında görünür ve spam alır. Kodu değiştirdikten sonra formlar hemen çalışmaz: yeni adrese ilk gönderim yapıldığında oraya bir onay e-postası gider, bağlantıya tıklanana kadar mesajlar ulaşmaz. **Teşekkür sayfası adresi** gönderim sonrası ziyaretçinin gideceği yer; alan adı değişince burası da güncellenmeli.
 - *Site bilgileri:* Telefon, WhatsApp, e-posta, adres, sosyal medya hesapları ve footer metinleri. Buradaki bir değişiklik sitenin tamamına yayılır.
 
 ## Sitede gör bağlantısı
@@ -189,6 +191,8 @@ değişkenler devreye girer (şu an duruyorlar ama kullanılmıyorlar):
 
 - `astro.config.mjs` içindeki `site` değerini gerçek adresle güncelle
 - `public/robots.txt` şu an arama motorlarına kapalı, açmayı unutma
+- Panelde Ayarlar > Formlar > "Teşekkür sayfası adresi" alanını yeni adresle
+  güncelle, yoksa form gönderen ziyaretçi olmayan bir sayfaya düşer
 - keystatic.cloud proje ayarlarında **Project URLs** listesine yeni adresi ekle,
   yoksa panele giriş çalışmaz
 

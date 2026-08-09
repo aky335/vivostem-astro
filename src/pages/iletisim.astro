@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { formAyarlari } from '../lib/formlar.js';
 import { ayarlar } from '../lib/ayarlar.js';
 ---
 
@@ -24,11 +25,11 @@ import { ayarlar } from '../lib/ayarlar.js';
         <p class="ustbaslik ustbaslik--mor">Form</p>
         <h2>Bize yazın</h2>
         <p class="giris">Formu doldurun, ilgili ekip arkadaşımız en kısa sürede size dönsün.</p>
-<form action="https://formsubmit.co/alper@d-option.com" method="POST">
+<form action={formAyarlari.adres} method="POST">
           <input type="hidden" name="_subject" value="Vivostem web sitesi - Iletisim formu">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://vivostem.com.tr/tesekkurler.html">
+          <input type="hidden" name="_next" value={formAyarlari.tesekkurAdresi}>
           <input type="text" name="_honey" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-satir"><div class="alan"><label for="i-ad">Ad</label><input type="text" id="i-ad" name="Ad" required autocomplete="given-name"></div><div class="alan"><label for="i-soyad">Soyad</label><input type="text" id="i-soyad" name="Soyad" required autocomplete="family-name"></div></div>
           <div class="form-satir"><div class="alan"><label for="i-telefon">Telefon</label><input type="tel" id="i-telefon" name="Telefon" required autocomplete="tel"></div><div class="alan"><label for="i-e-posta">E&#8209;posta</label><input type="email" id="i-e-posta" name="E-posta" required autocomplete="email"></div></div>
