@@ -38,6 +38,14 @@ export const prerender = false;
   section:has(> div > button):not(:has(a)) {
     display: none !important;
   }
+
+  /* Kayıt ekranındaki "View on GitHub" düğmesi. Kaydın ham dosyasını GitHub'da
+     açıyor; müşteriye gösterilecek bir şey değil. Düğmede sabit bir etiket yok,
+     bu yüzden adresinden yakalanıyor. Panelde GitHub'a giden başka bağlantı
+     bulunmuyor, "sitede gör" bağlantısı bu kuraldan etkilenmiyor. */
+  a[href^="https://github.com/"] {
+    display: none !important;
+  }
 </style>
 
 <Panel client:only="react" />
