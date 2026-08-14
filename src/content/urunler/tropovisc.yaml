@@ -42,7 +42,7 @@ bloklar:
   - discriminant: maddeler
     value:
       maddeler:
-        - Yüzde yüz doğal ve otolog, kişinin kendi kanından hazırlanır
+        - '%100 doğal ve otolog, kişinin kendi kanından hazırlanır'
         - PRP'nin etki süresini iki aya kadar uzatır
         - Protein iskeleti yeni doku oluşumuna rehberlik eder
         - Tek seansta viskö suplementasyon ve büyüme faktörü tedavisi
