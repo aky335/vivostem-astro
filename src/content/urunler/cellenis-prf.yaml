@@ -3,7 +3,7 @@ ozet: Pıhtılaşma ve büyüme faktörlerini içeren, yavaş salınımlı fibri
 aile: cellenis
 sira: 3
 gizli: false
-gorsel: /assets/img/urunler/cellenis-prf/gorsel.PNG
+gorsel: /assets/img/urunler/cellenis-prf/gorsel.png
 gorselAlt: Cellenis PRF tüpü
 bloklar:
   - discriminant: etiketler
