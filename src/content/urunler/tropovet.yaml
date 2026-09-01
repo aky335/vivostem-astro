@@ -3,7 +3,7 @@ ozet: Veteriner hekimlik alanına özel geliştirilmiş PRGF teknolojisi.
 aile: tropocells
 sira: 11
 gizli: false
-gorsel: /assets/img/urunler/tropovet/gorsel.jpg
+gorsel: /assets/img/urunler/tropovet/gorsel.png
 gorselAlt: TropoVet tüpü ve enjektörü
 bloklar:
   - discriminant: etiketler
