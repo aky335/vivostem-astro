@@ -5,7 +5,7 @@ ozet: >-
 aile: tropocells
 sira: 7
 gizli: false
-gorsel: /assets/img/urunler/tropocells-prp/gorsel.jpg
+gorsel: /assets/img/urunler/tropocells-prp/gorsel.png
 gorselAlt: Tropocells PRP tüpleri ve enjektör
 bloklar:
   - discriminant: etiketler
