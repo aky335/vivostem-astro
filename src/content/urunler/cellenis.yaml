@@ -6,7 +6,7 @@ ozet: >-
 aile: cellenis
 sira: 1
 gizli: false
-gorsel: /assets/img/urunler/cellenis/gorsel.jpg
+gorsel: /assets/img/urunler/cellenis/gorsel.WEBP
 gorselAlt: Cellenis PRP kutusu
 bloklar:
   - discriminant: etiketler
