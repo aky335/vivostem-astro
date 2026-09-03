@@ -32,7 +32,7 @@
       "ikon": "fabrika"
     }
   ],
-  "heroGorsel": "/assets/img/hero.png",
+  "heroGorsel": "/assets/img/heroGorsel.png",
   "heroGorselAlt": "Cellenis PRP uygulama tüpleri",
   "guvenMetin": "Portföyümüzdeki Cellenis<sup>&reg;</sup> ve Tropocells<sup>&reg;</sup> ürünleri 60'tan fazla ülkede, birbirinden farklı branşlarda sağlık profesyonelleri tarafından kullanılıyor.",
   "guvenMaddeler": [
@@ -56,35 +56,35 @@
   },
   "urunKartlari": [
     {
-      "gorsel": "/assets/img/urun-cellenis.png",
-      "gorselAlt": "Cellenis PRP kutu ve tüpleri",
       "baslik": "Cellenis<sup>&reg;</sup>",
       "altBaslik": "PRGF &middot; PRF &middot; DermaFiller &middot; Exo&#8209;ME",
-      "metin": "Bioteck (İspanya) tarafından geliştirilen PRGF teknolojisiyle estetik, dermatoloji ve rejeneratif tıp uygulamaları.",
+      "metin": "Estar Medical UK Limited (İngiltere) tarafından geliştirilen PRGF teknolojisiyle estetik, dermatoloji ve rejeneratif tıp uygulamaları.",
+      "gorsel": "/assets/img/urunKartlari/0/gorsel.png",
+      "gorselAlt": "Cellenis PRP kutu ve tüpleri",
       "adres": "/cellenis"
     },
     {
-      "gorsel": "/assets/img/urun-tropocells.jpg",
-      "gorselAlt": "Tropocells PRP tüpü ve enjektör",
       "baslik": "Tropocells<sup>&reg;</sup> PRP",
       "altBaslik": "Eklem sağlığı &middot; Sporcu &middot; Üroloji",
       "metin": "Yüksek trombosit konsantrasyonu ve standardize protokolüyle yeni nesil PRP platformu. TropoVisc<sup>&trade;</sup> ve TRS ile genişleyen sistem.",
+      "gorsel": "/assets/img/urunKartlari/1/gorsel.jpg",
+      "gorselAlt": "Tropocells PRP tüpü ve enjektör",
       "adres": "/tropocells-prp"
     },
     {
-      "gorsel": "/assets/img/santrifuj.png",
-      "gorselAlt": "Santrifüj cihazı",
       "baslik": "SVF ve BMAC",
       "altBaslik": "Kök hücre uygulamaları",
       "metin": "Yağ dokusu ve kemik iliği kaynaklı mezenkimal kök hücre konsantreleri, rejeneratif cerrahide ileri düzey çözümler.",
+      "gorsel": "/assets/img/urunKartlari/2/gorsel.png",
+      "gorselAlt": "Santrifüj cihazı",
       "adres": "/svf"
     },
     {
-      "gorsel": "/assets/img/urun-tropovet.jpg",
-      "gorselAlt": "TropoVet veteriner PRGF tüpü",
       "baslik": "TropoVet<sup>&reg;</sup>",
       "altBaslik": "Veteriner hekimlik",
       "metin": "Köpek, kedi ve atlarda eklem dejenerasyonu, yara iyileşmesi ve doku onarımı için geliştirilmiş PRGF teknolojisi.",
+      "gorsel": "/assets/img/urunKartlari/3/gorsel.jpg",
+      "gorselAlt": "TropoVet veteriner PRGF tüpü",
       "adres": "/tropovet"
     }
   ],
@@ -141,7 +141,7 @@
       "stil": "cizgi"
     }
   ],
-  "egitimGorsel": "/assets/img/tup-prp.png",
+  "egitimGorsel": "/assets/img/egitimGorsel.png",
   "egitimGorselAlt": "Cellenis PRP 11 ve 22 ml tüpler",
   "ctaBaslik": "Doktor veya klinik sahibi misiniz?",
   "ctaMetin": "Ürün bilgisi, eğitim programları veya yaklaşan webinarlar için doğrudan bize ulaşın. Aynı gün içinde dönüş yapıyoruz."
