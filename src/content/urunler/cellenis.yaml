@@ -71,8 +71,8 @@ bloklar:
           maddeler: []
         - baslik: Cellenis<sup>&reg;</sup> Exo&#8209;ME
           metin: >-
-            Mezenkimal kök hücrelerden elde edilen ekzozomlar. Hücre içermez,
-            bağışıklık sistemi tepkisi oluşturmaz.
+            Otolog ekzozomlar içeren rejeneratif ürün. Hücre içermez, bağışıklık
+            sistemi tepkisi oluşturmaz.
           maddeler: []
   - discriminant: metin
     value:
