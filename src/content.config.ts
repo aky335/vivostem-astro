@@ -174,6 +174,8 @@ const urunler = defineCollection({
     // Menüde farklı görünmesi isteniyorsa doldurulur, boşsa ad kullanılır.
     menuAdi: metin,
     ozet: metin,
+    // Ürünler sayfasındaki kartın altındaki tek satır. Boşsa ozet kullanılır.
+    kartOzeti: metin,
     seoBaslik: metin,
     seoAciklama: metin,
     gorsel: metin,

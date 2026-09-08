@@ -1,70 +1,58 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { ayarlar } from '../lib/ayarlar.js';
+import { gorunenUrunler } from '../lib/icerik.js';
+import s from '../content/sayfalar/urunler.json';
+
+const urunler = gorunenUrunler(await getCollection('urunler'));
+
+// Her blok kendi ailesindeki ürünleri kart olarak listeliyor. Bloğun kendi
+// ana ürünü (Cellenis, Tropocells PRP gibi) panelde "hariç tutulanlar"
+// listesinde durduğu için kart olarak tekrar çıkmıyor.
+const bloklar = s.bloklar.map((b) => ({
+  ...b,
+  kartlar: b.aile
+    ? urunler.filter((u) => u.data.aile === b.aile && !(b.haricTutulanlar ?? []).includes(u.id))
+    : [],
+}));
 ---
 
-<Layout
-  baslik="Ürünler | Vivostem Türkiye"
-  aciklama="Cellenis PRGF, PRF, DermaFiller, Exo-ME, SVF, Tropocells PRP, TropoVisc, TRS, BMAC ve TropoVet. Vivostem Türkiye ürün portföyü."
->
+<Layout baslik={s.seoBaslik} aciklama={s.seoAciklama}>
 
 <section class="sayfa-bas">
   <div class="wrap">
     <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Ürünler</p>
-    <h1>Ürün portföyü</h1>
-    <p>Dermatoloji, estetik tıp, ortopedi, diş hekimliği, üroloji ve veteriner hekimlik alanlarında kullanılan otolog biyolojik tedavi sistemleri. Tüm portföy tek tedarik ve destek hattından yürütülür.</p>
+    <h1 set:html={s.baslik} />
+    <p set:html={s.ozet} />
   </div>
 </section>
 <section class="bolum"><div class="wrap">
+{bloklar.map((b) => (
       <div class="aile">
         <div class="aile-bas">
-          <div class="aile-gorsel"><img src="/assets/img/urun-cellenis-kutu.jpg" alt="Cellenis PRP kutusu"></div>
+          <div class="aile-gorsel"><img src={b.gorsel} alt={b.gorselAlt}></div>
           <div>
-            <h2>Cellenis<sup>&reg;</sup></h2>
-            <p>İspanya'da Bioteck tarafından geliştirilen, PRGF teknolojisini temel alan otolog biyolojik tedavi platformu. Kişinin kendi kanından veya plazmasından elde edilir; yabancı madde içermez.</p>
-            <p style="margin-top:16px"><a class="metin-link" href="/cellenis">Ürün ailesini inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+            <h2 set:html={b.baslik} />
+            <p set:html={b.metin} />
+            <p style="margin-top:16px"><a class="metin-link" href={b.linkAdres}>{b.linkYazi} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
           </div>
         </div>
+        {b.kartlar.length > 0 && (
         <div class="aile-grid">
-        <a class="ilgili-kart" href="/cellenis-prgf"><h3>Cellenis<sup>&reg;</sup> PRGF</h3><p>Lökosit içermeyen, saf plazma fraksiyonu.</p></a>
-        <a class="ilgili-kart" href="/cellenis-prf"><h3>Cellenis<sup>&reg;</sup> PRF</h3><p>Yavaş salınımlı fibrin membran.</p></a>
-        <a class="ilgili-kart" href="/cellenis-dermafiller"><h3>Cellenis<sup>&reg;</sup> DermaFiller</h3><p>Otolog biyolojik dolgu.</p></a>
-        <a class="ilgili-kart" href="/cellenis-exo-me"><h3>Cellenis<sup>&reg;</sup> Exo&#8209;ME</h3><p>Mezenkimal kök hücre ekzozomları.</p></a>
-        <a class="ilgili-kart" href="/svf"><h3>SVF</h3><p>Yağ dokusu kaynaklı kök hücre konsantresi.</p></a>
+        {b.kartlar.map((u) => (
+        <a class="ilgili-kart" href={'/' + u.id}><h3 set:html={u.data.ad} /><p set:html={u.data.kartOzeti || u.data.ozet} /></a>
+        ))}
         </div>
+        )}
       </div>
-
-      <div class="aile">
-        <div class="aile-bas">
-          <div class="aile-gorsel"><img src="/assets/img/urun-tropocells-kutu.jpg" alt="Tropocells PRP kutusu ve tüpü"></div>
-          <div>
-            <h2>Tropocells<sup>&reg;</sup></h2>
-            <p>Yüksek trombosit konsantrasyonu ve standardize protokolüyle öne çıkan yeni nesil PRP platformu. Eklem sağlığı, sporcu yaralanmaları ve üroloji uygulamalarında kullanılır.</p>
-            <p style="margin-top:16px"><a class="metin-link" href="/tropocells-prp">Ürün ailesini inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-          </div>
-        </div>
-        <div class="aile-grid">
-        <a class="ilgili-kart" href="/tropovisc"><h3>TropoVisc<sup>&trade;</sup></h3><p>PRP etkisini iki aya kadar uzatan taşıyıcı sistem.</p></a>
-        <a class="ilgili-kart" href="/trs"><h3>TRS</h3><p>Trombinden zengin otolog serum.</p></a>
-        <a class="ilgili-kart" href="/bmac"><h3>BMAC</h3><p>Kemik iliği kaynaklı kök hücre konsantresi.</p></a>
-        </div>
-      </div>
-
-      <div class="aile">
-        <div class="aile-bas">
-          <div class="aile-gorsel"><img src="/assets/img/urun-tropovet.jpg" alt="TropoVet tüpü ve enjektörü"></div>
-          <div>
-            <h2>TropoVet<sup>&reg;</sup></h2>
-            <p>Veteriner hekimlik alanına özel geliştirilmiş PRGF teknolojisi. Köpek, kedi ve atlarda eklem dejenerasyonu, yara iyileşmesi ve doku onarımı uygulamalarında kullanılır. Özel veteriner klinikleri ve ortopedi odaklı veteriner hekimler için.</p>
-            <p style="margin-top:16px"><a class="metin-link" href="/tropovet">Ürün sayfasını inceleyin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-          </div>
-        </div>
-      </div></div></section>
+))}
+</div></section>
 <section class="cta">
   <div class="wrap">
     <div>
-      <h2>Branşınıza uygun ürünü birlikte belirleyelim</h2>
-      <p>Hangi ürünün kliniğinize uygun olduğundan emin değilseniz ekibimize yazın, endikasyon ve hasta profiline göre yönlendirelim.</p>
+      <h2 set:html={s.ctaBaslik} />
+      <p set:html={s.ctaMetin} />
     </div>
     <div class="btn-grup">
       <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>

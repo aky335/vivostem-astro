@@ -1,0 +1,45 @@
+{
+  "seoBaslik": "Ürünler | Vivostem Türkiye",
+  "seoAciklama": "Cellenis PRGF, PRF, DermaFiller, Exo-ME, SVF, Tropocells PRP, TropoVisc, TRS, BMAC ve TropoVet. Vivostem Türkiye ürün portföyü.",
+  "baslik": "Ürün portföyü",
+  "ozet": "Dermatoloji, estetik tıp, ortopedi, diş hekimliği, üroloji ve veteriner hekimlik alanlarında kullanılan otolog biyolojik tedavi sistemleri. Tüm portföy tek tedarik ve destek hattından yürütülür.",
+  "bloklar": [
+    {
+      "baslik": "Cellenis<sup>&reg;</sup>",
+      "metin": "İspanya'da Bioteck tarafından geliştirilen, PRGF teknolojisini temel alan otolog biyolojik tedavi platformu. Kişinin kendi kanından veya plazmasından elde edilir; yabancı madde içermez.",
+      "gorsel": "/assets/img/urun-cellenis-kutu.jpg",
+      "gorselAlt": "Cellenis PRP kutusu",
+      "linkYazi": "Ürün ailesini inceleyin",
+      "linkAdres": "/cellenis",
+      "aile": "cellenis",
+      "haricTutulanlar": [
+        "cellenis"
+      ]
+    },
+    {
+      "baslik": "Tropocells<sup>&reg;</sup>",
+      "metin": "Yüksek trombosit konsantrasyonu ve standardize protokolüyle öne çıkan yeni nesil PRP platformu. Eklem sağlığı, sporcu yaralanmaları ve üroloji uygulamalarında kullanılır.",
+      "gorsel": "/assets/img/urun-tropocells-kutu.jpg",
+      "gorselAlt": "Tropocells PRP kutusu ve tüpü",
+      "linkYazi": "Ürün ailesini inceleyin",
+      "linkAdres": "/tropocells-prp",
+      "aile": "tropocells",
+      "haricTutulanlar": [
+        "tropocells-prp",
+        "tropovet"
+      ]
+    },
+    {
+      "baslik": "TropoVet<sup>&reg;</sup>",
+      "metin": "Veteriner hekimlik alanına özel geliştirilmiş PRGF teknolojisi. Köpek, kedi ve atlarda eklem dejenerasyonu, yara iyileşmesi ve doku onarımı uygulamalarında kullanılır. Özel veteriner klinikleri ve ortopedi odaklı veteriner hekimler için.",
+      "gorsel": "/assets/img/urun-tropovet.jpg",
+      "gorselAlt": "TropoVet tüpü ve enjektörü",
+      "linkYazi": "Ürün sayfasını inceleyin",
+      "linkAdres": "/tropovet",
+      "aile": null,
+      "haricTutulanlar": []
+    }
+  ],
+  "ctaBaslik": "Branşınıza uygun ürünü birlikte belirleyelim",
+  "ctaMetin": "Hangi ürünün kliniğinize uygun olduğundan emin değilseniz ekibimize yazın, endikasyon ve hasta profiline göre yönlendirelim."
+}
