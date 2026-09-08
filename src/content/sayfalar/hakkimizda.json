@@ -1,0 +1,92 @@
+{
+  "seoBaslik": "Hakkımızda | Vivostem Türkiye",
+  "seoAciklama": "Vivostem Türkiye, rejeneratif ve biyolojik tıp alanında öncü markaların Türkiye distribütörüdür. Kurucu Didem Sözer, ürün portföyü ve kalite standartları.",
+  "baslik": "Hakkımızda",
+  "ozet": "Vivostem Türkiye, dünya genelinde rejeneratif ve biyolojik tıp alanında öncü markaların Türkiye distribütörüdür.",
+  "anaUstBaslik": "Vivostem Türkiye",
+  "anaBaslik": "Ürün tedarikinden fazlası",
+  "anaGiris": "Bilimsel temelli ve yenilikçi çözümlerle, Vivostem olarak sağlık profesyonellerine yalnızca ürün tedariki yapmıyor; eğitim, webinar ve klinik destek programlarıyla uzun vadeli bir ortaklık sunuyoruz.",
+  "anaMetin": "Uluslararası iş ortaklıklarıyla geliştirilmiş ürün portföyü ve uzman ekibiyle, farklı branşlarda güvenilir, kaliteli ve sürdürülebilir çözümler sunmaya devam ediyoruz.",
+  "portfoyBaslik": "Ürün portföyümüz",
+  "portfoyMaddeler": [
+    "<a href=\"/cellenis\">Cellenis<sup>&reg;</sup></a>, Bioteck (İspanya) tarafından geliştirilen, PRGF teknolojisinin orijinal üreticisi",
+    "<a href=\"/tropocells-prp\">Tropocells<sup>&reg;</sup> PRP</a>, yeni nesil PRP platformu",
+    "<a href=\"/tropovet\">TropoVet<sup>&reg;</sup></a>, veteriner hekimlik için PRGF",
+    "<a href=\"/svf\">SVF</a> ve <a href=\"/bmac\">BMAC</a>, rejeneratif kök hücre uygulamaları"
+  ],
+  "alanlarBaslik": "Çalışma alanlarımız",
+  "alanlar": [
+    "Dermatoloji",
+    "Estetik Tıp",
+    "Plastik Cerrahi",
+    "Ortopedi",
+    "Spor Hekimliği",
+    "Diş Hekimliği",
+    "Kadın Doğum",
+    "Üroloji",
+    "Kalp ve Damar Cerrahisi",
+    "Göz Hastalıkları",
+    "Hayvan Sağlığı"
+  ],
+  "markaEtiket": "Distribütörlüğünü yürüttüğümüz markalar",
+  "markalar": [
+    {
+      "gorsel": "/assets/img/marka-cellenis.png",
+      "alt": "Cellenis",
+      "kucuk": false
+    },
+    {
+      "gorsel": "/assets/img/marka-tropocells.png",
+      "alt": "Tropocells",
+      "kucuk": true
+    }
+  ],
+  "kutular": [
+    {
+      "baslik": "Kalite standartlarımız",
+      "metin": "Ürünlerimiz uluslararası klinik standartların en üst düzeyinde üretilmektedir.",
+      "maddeler": [
+        "FDA onaylı",
+        "CE Class IIb belgeli",
+        "ISO 13485 kalite yönetim sistemi",
+        "GMP koşullarında üretim"
+      ],
+      "linkYazi": "",
+      "linkAdres": "",
+      "vurgulu": true
+    },
+    {
+      "baslik": "Kullanım yaygınlığı",
+      "metin": "Portföyümüzde yer alan Cellenis<sup>&reg;</sup> (Bioteck, İspanya) ve Tropocells<sup>&reg;</sup> ürünleri; dermatoloji, estetik tıp, ortopedi, diş hekimliği, üroloji ve veteriner hekimlik alanlarındaki uzmanlar tarafından 60'tan fazla ülkede kullanılmaktadır.",
+      "maddeler": [],
+      "linkYazi": "",
+      "linkAdres": "",
+      "vurgulu": false
+    },
+    {
+      "baslik": "Neden Vivostem?",
+      "metin": "Portföyümüzü standart PRP kitlerinden ayıran teknik ve operasyonel farkları altı başlıkta topladık.",
+      "maddeler": [],
+      "linkYazi": "Başlıkları okuyun",
+      "linkAdres": "/neden-vivostem",
+      "vurgulu": false
+    }
+  ],
+  "kurucuBolum": {
+    "ustBaslik": "Kurucu",
+    "baslik": "Didem Sözer",
+    "metin": "Fizyoterapist, Sağlık Yöneticisi, Girişimci, Vivostem Medikal Kurucusu"
+  },
+  "kurucuSol": [
+    "2000 yılında Hacettepe Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü'nden mezun olan Didem Sözer, yaklaşık 25 yıllık meslek hayatı boyunca fizyoterapi, hastane yöneticiliği, sağlık danışmanlığı ve medikal teknolojiler alanlarında çalışmalar yürüttü.",
+    "Meslek hayatına klinik fizyoterapist olarak başlayan Sözer, kendi kliniğini kurarak uzun yıllar fizyoterapi hizmeti sundu; ardından hastane yöneticiliği ve sağlık sektöründe danışmanlık görevleri üstlendi. Klinik deneyimini yöneticilik bakış açısıyla birleştirerek sağlık hizmetlerinin geliştirilmesine ve operasyonel süreçlerin yönetilmesine katkı sağladı.",
+    "Medikal teknoloji alanındaki deneyimiyle rehabilitasyon sistemleri ve yenilikçi tıbbi cihazların Türkiye'de sağlık profesyonelleriyle buluşmasına öncülük eden Sözer, bugün aynı zamanda ileri teknoloji rehabilitasyon sistemlerinin satış, eğitim ve klinik uygulama süreçlerini yönetiyor."
+  ],
+  "kurucuSag": [
+    "2024 yılında kurucusu olduğu Vivostem Medikal ile rejeneratif tıp ve biyolojik ürünler alanına odaklandı; Cellenis<sup>&reg;</sup>, Tropocells<sup>&reg;</sup> ve TropoVet<sup>&reg;</sup> gibi yenilikçi teknolojilerin Türkiye'deki sağlık profesyonelleriyle buluşmasına liderlik ediyor.",
+    "Bilimsel yaklaşımı esas alan çalışma anlayışıyla eğitimler, uygulamalı workshop'lar ve klinik iş birlikleri aracılığıyla sağlık sektörüne değer katmaya devam ediyor."
+  ],
+  "kurucuNot": "<strong>İş birliği için:</strong> Eğitim, webinar veya klinik iş birliği önerileriniz için <a href=\"/iletisim\">iletişim formunu</a> kullanabilirsiniz.",
+  "ctaBaslik": "Kliniğiniz için doğru ürünü birlikte belirleyelim",
+  "ctaMetin": "Branşınıza ve hasta profilinize uygun portföy önerisi için ekibimize yazın."
+}
