@@ -13,6 +13,19 @@ const markaIsareti = () =>
     style: { display: 'block', width: 'auto' },
   });
 
+// Panel listelerinde HTML'li metni okunur hale getirir: etiketleri atar,
+// sık kullanılan işaretleri gerçek karakterine çevirir.
+const duzYazi = (h: string) =>
+  (h || '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&reg;/g, '\u00ae')
+    .replace(/&trade;/g, '\u2122')
+    .replace(/&#8209;/g, '-')
+    .replace(/&middot;/g, '\u00b7')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .trim();
+
 // Panelde ikon secimi icin ortak liste.
 const ikonAlani = (label: string) =>
   fields.select({
@@ -48,7 +61,7 @@ const baglantiDizisi = (label: string, description: string) =>
     {
       label,
       description,
-      itemLabel: (p) => (p.fields.yazi.value || '').replace(/<[^>]+>/g, '') || 'Bağlantı',
+      itemLabel: (p) => duzYazi(p.fields.yazi.value) || 'Bağlantı',
     }
   );
 
@@ -88,10 +101,10 @@ export default config({
   ui: {
     brand: { name: 'Vivostem içerik paneli', mark: markaIsareti },
     navigation: {
-      Ürünler: ['urunler', 'urunAileleri'],
+      Ürünler: ['urunler', 'urunAileleri', 'urunlerSayfasi'],
       İçerik: ['blog', 'kategoriler', 'etkinlikler'],
       Sayfalar: ['nedenler', 'uzmanlar', 'sss'],
-      'Sayfa metinleri': ['anasayfa', 'saglikProfesyonelleri', 'kvkk', 'gizlilik'],
+      'Sayfa metinleri': ['anasayfa', 'hakkimizda', 'saglikProfesyonelleri', 'tesekkurler', 'kvkk', 'gizlilik'],
       Ayarlar: ['menuler', 'formlar', 'ayarlar'],
     },
   },
@@ -195,6 +208,140 @@ export default config({
 
         ctaBaslik: fields.text({ label: 'Alt çağrı başlığı', multiline: true }),
         ctaMetin: fields.text({ label: 'Alt çağrı metni', multiline: true }),
+        seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
+        seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
+      },
+    }),
+
+    urunlerSayfasi: singleton({
+      label: 'Ürünler sayfası',
+      path: 'src/content/sayfalar/urunler',
+      previewUrl: '/urunler',
+      format: { data: 'json' },
+      schema: {
+        baslik: fields.text({ label: 'Sayfa başlığı' }),
+        ozet: fields.text({ label: 'Giriş metni', multiline: true }),
+
+        bloklar: fields.array(
+          fields.object({
+            baslik: fields.text({ label: 'Blok başlığı', description: 'HTML kullanabilirsiniz, örnek: Cellenis<sup>&reg;</sup>' }),
+            metin: fields.text({ label: 'Tanıtım metni', multiline: true }),
+            gorsel: fields.image({ label: 'Görsel', directory: 'public/assets/img', publicPath: '/assets/img/' }),
+            gorselAlt: fields.text({ label: 'Görsel açıklaması' }),
+            linkYazi: fields.text({ label: 'Bağlantı yazısı', description: 'Örnek: Ürün ailesini inceleyin' }),
+            linkAdres: fields.text({ label: 'Bağlantı adresi', description: 'Örnek: /cellenis' }),
+            aile: fields.relationship({
+              label: 'Kartları getirilecek ürün ailesi',
+              description: 'Bu ailedeki ürünler blokta kart olarak listelenir. Boş bırakılırsa kart listesi çıkmaz.',
+              collection: 'urunAileleri',
+            }),
+            haricTutulanlar: fields.array(
+              fields.relationship({ label: 'Ürün', collection: 'urunler' }),
+              {
+                label: 'Kart olarak gösterilmeyecek ürünler',
+                description: 'Ailede olup bu blokta kart istemediğiniz ürünler. Genelde bloğun kendi ana ürünü.',
+                itemLabel: (p) => p.value || 'Ürün',
+              }
+            ),
+          }),
+          {
+            label: 'Ürün blokları',
+            description: 'Sayfadaki her bir aile bloğu.',
+            itemLabel: (p) => duzYazi(p.fields.baslik.value) || 'Blok',
+          }
+        ),
+
+        ctaBaslik: fields.text({ label: 'Alt çağrı başlığı', multiline: true }),
+        ctaMetin: fields.text({ label: 'Alt çağrı metni', multiline: true }),
+        seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
+        seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
+      },
+    }),
+
+    hakkimizda: singleton({
+      label: 'Hakkımızda sayfası',
+      path: 'src/content/sayfalar/hakkimizda',
+      previewUrl: '/hakkimizda',
+      format: { data: 'json' },
+      schema: {
+        baslik: fields.text({ label: 'Sayfa başlığı' }),
+        ozet: fields.text({ label: 'Giriş metni', multiline: true }),
+
+        anaUstBaslik: fields.text({ label: 'Tanıtım bölümü üst başlığı' }),
+        anaBaslik: fields.text({ label: 'Tanıtım bölümü başlığı' }),
+        anaGiris: fields.text({ label: 'Tanıtım bölümü ilk paragraf', description: 'Koyu punto ile çıkar.', multiline: true }),
+        anaMetin: fields.text({ label: 'Tanıtım bölümü ikinci paragraf', multiline: true }),
+
+        portfoyBaslik: fields.text({ label: 'Portföy listesi başlığı' }),
+        portfoyMaddeler: fields.array(
+          fields.text({ label: 'Madde', description: 'HTML kullanabilirsiniz, bağlantı verebilirsiniz.', multiline: true }),
+          {
+            label: 'Portföy maddeleri',
+            itemLabel: (p) => duzYazi(p.value).slice(0, 60) || 'Madde',
+          }
+        ),
+
+        alanlarBaslik: fields.text({ label: 'Çalışma alanları başlığı' }),
+        alanlar: fields.array(fields.text({ label: 'Alan' }), {
+          label: 'Çalışma alanları',
+          itemLabel: (p) => p.value || 'Alan',
+        }),
+
+        markaEtiket: fields.text({ label: 'Marka şeridi yazısı' }),
+        markalar: fields.array(
+          fields.object({
+            gorsel: fields.image({ label: 'Marka logosu', directory: 'public/assets/img', publicPath: '/assets/img/' }),
+            alt: fields.text({ label: 'Logo açıklaması' }),
+            kucuk: fields.checkbox({ label: 'Küçük göster', defaultValue: false }),
+          }),
+          { label: 'Marka logoları', itemLabel: (p) => p.fields.alt.value || 'Logo' }
+        ),
+
+        kutular: fields.array(
+          fields.object({
+            baslik: fields.text({ label: 'Kutu başlığı' }),
+            metin: fields.text({ label: 'Açıklama', multiline: true }),
+            maddeler: fields.array(fields.text({ label: 'Madde' }), {
+              label: 'Maddeler',
+              itemLabel: (p) => p.value || 'Madde',
+            }),
+            linkYazi: fields.text({ label: 'Bağlantı yazısı', description: 'Boş bırakılırsa bağlantı çıkmaz.' }),
+            linkAdres: fields.text({ label: 'Bağlantı adresi' }),
+            vurgulu: fields.checkbox({ label: 'Lila zeminli göster', defaultValue: false }),
+          }),
+          {
+            label: 'Yan kutular',
+            itemLabel: (p) => duzYazi(p.fields.baslik.value) || 'Kutu',
+          }
+        ),
+
+        kurucuBolum: bolumBasligi('Kurucu bölümü'),
+        kurucuSol: fields.array(fields.text({ label: 'Paragraf', multiline: true }), {
+          label: 'Kurucu metni, sol sütun',
+          itemLabel: (p) => duzYazi(p.value).slice(0, 60) || 'Paragraf',
+        }),
+        kurucuSag: fields.array(fields.text({ label: 'Paragraf', multiline: true }), {
+          label: 'Kurucu metni, sağ sütun',
+          itemLabel: (p) => duzYazi(p.value).slice(0, 60) || 'Paragraf',
+        }),
+        kurucuNot: fields.text({ label: 'Kurucu bölümü alt notu', description: 'Çerçeveli küçük kutu. Boş bırakılırsa çıkmaz.', multiline: true }),
+
+        ctaBaslik: fields.text({ label: 'Alt çağrı başlığı', multiline: true }),
+        ctaMetin: fields.text({ label: 'Alt çağrı metni', multiline: true }),
+        seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
+        seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
+      },
+    }),
+
+    tesekkurler: singleton({
+      label: 'Teşekkürler sayfası',
+      path: 'src/content/sayfalar/tesekkurler',
+      previewUrl: '/tesekkurler',
+      format: { data: 'json' },
+      schema: {
+        baslik: fields.text({ label: 'Başlık' }),
+        metin: fields.text({ label: 'Açıklama', multiline: true }),
+        butonYazi: fields.text({ label: 'Ana sayfa butonu yazısı', description: 'Yanındaki WhatsApp butonu sabit.' }),
         seoBaslik: fields.text({ label: 'Tarayıcı sekmesi başlığı' }),
         seoAciklama: fields.text({ label: 'Arama motoru açıklaması', multiline: true }),
       },
@@ -450,6 +597,11 @@ export default config({
           description: 'Sayfa başlığının altındaki cümle.',
           multiline: true,
           validation: { length: { min: 1 } },
+        }),
+        kartOzeti: fields.text({
+          label: 'Ürünler sayfasındaki kart yazısı',
+          description: 'Ürünler sayfasında kartın altındaki tek satır. Boş bırakılırsa kısa tanım kullanılır.',
+          multiline: true,
         }),
         aile: fields.relationship({
           label: 'Ürün ailesi',
