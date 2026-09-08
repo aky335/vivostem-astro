@@ -1,18 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ayarlar } from '../lib/ayarlar.js';
+import s from '../content/sayfalar/hakkimizda.json';
 ---
 
-<Layout
-  baslik="Hakkımızda | Vivostem Türkiye"
-  aciklama="Vivostem Türkiye, rejeneratif ve biyolojik tıp alanında öncü markaların Türkiye distribütörüdür. Kurucu Didem Sözer, ürün portföyü ve kalite standartları."
->
+<Layout baslik={s.seoBaslik} aciklama={s.seoAciklama}>
 
 <section class="sayfa-bas">
   <div class="wrap">
     <p class="izlek"><a href="/">Ana Sayfa</a> &nbsp;/&nbsp; Hakkımızda</p>
-    <h1>Hakkımızda</h1>
-    <p>Vivostem Türkiye, dünya genelinde rejeneratif ve biyolojik tıp alanında öncü markaların Türkiye distribütörüdür.</p>
+    <h1 set:html={s.baslik} />
+    <p set:html={s.ozet} />
   </div>
 </section>
 
@@ -21,60 +19,41 @@ import { ayarlar } from '../lib/ayarlar.js';
     <div class="hakkinda">
       <div>
         <div class="kural"></div>
-        <p class="ustbaslik ustbaslik--mor">Vivostem Türkiye</p>
-        <h2>Ürün tedarikinden fazlası</h2>
-        <p class="giris">Bilimsel temelli ve yenilikçi çözümlerle, Vivostem olarak sağlık
-           profesyonellerine yalnızca ürün tedariki yapmıyor; eğitim, webinar ve klinik destek
-           programlarıyla uzun vadeli bir ortaklık sunuyoruz.</p>
-        <p>Uluslararası iş ortaklıklarıyla geliştirilmiş ürün portföyü ve uzman ekibiyle, farklı
-           branşlarda güvenilir, kaliteli ve sürdürülebilir çözümler sunmaya devam ediyoruz.</p>
+        <p class="ustbaslik ustbaslik--mor" set:html={s.anaUstBaslik} />
+        <h2 set:html={s.anaBaslik} />
+        <p class="giris" set:html={s.anaGiris} />
+        <p set:html={s.anaMetin} />
 
-        <h3 style="margin-top:38px">Ürün portföyümüz</h3>
+        <h3 style="margin-top:38px" set:html={s.portfoyBaslik} />
         <ul class="liste-ok">
-          <li><a href="/cellenis">Cellenis<sup>&reg;</sup></a>, Bioteck (İspanya) tarafından geliştirilen,
-              PRGF teknolojisinin orijinal üreticisi</li>
-          <li><a href="/tropocells-prp">Tropocells<sup>&reg;</sup> PRP</a>, yeni nesil PRP platformu</li>
-          <li><a href="/tropovet">TropoVet<sup>&reg;</sup></a>, veteriner hekimlik için PRGF</li>
-          <li><a href="/svf">SVF</a> ve <a href="/bmac">BMAC</a>, rejeneratif kök hücre uygulamaları</li>
+          {s.portfoyMaddeler.map((m) => <li set:html={m} />)}
         </ul>
 
-        <h3 style="margin-top:38px">Çalışma alanlarımız</h3>
+        <h3 style="margin-top:38px" set:html={s.alanlarBaslik} />
         <ul class="alan-liste">
-          <li>Dermatoloji</li><li>Estetik Tıp</li>
-          <li>Plastik Cerrahi</li><li>Ortopedi</li>
-          <li>Spor Hekimliği</li><li>Diş Hekimliği</li>
-          <li>Kadın Doğum</li><li>Üroloji</li>
-          <li>Kalp ve Damar Cerrahisi</li><li>Göz Hastalıkları</li>
-          <li>Hayvan Sağlığı</li>
+          {s.alanlar.map((a) => <li set:html={a} />)}
         </ul>
 
         <div class="marka-satiri">
-          <span class="marka-etiket">Distribütörlüğünü yürüttüğümüz markalar</span>
-          <img src="/assets/img/marka-cellenis.png" alt="Cellenis">
-          <img src="/assets/img/marka-tropocells.png" alt="Tropocells" class="kucuk"></div>
+          <span class="marka-etiket" set:html={s.markaEtiket} />
+          {s.markalar.map((m) => <img src={m.gorsel} alt={m.alt} class={m.kucuk ? 'kucuk' : undefined}>)}</div>
       </div>
 
       <aside>
-        <div class="kutu kutu--lila">
-          <h3>Kalite standartlarımız</h3>
-          <p>Ürünlerimiz uluslararası klinik standartların en üst düzeyinde üretilmektedir.</p>
+        {s.kutular.map((k, i) => (
+        <div class={'kutu' + (k.vurgulu ? ' kutu--lila' : '')} style={i === 0 ? undefined : 'margin-top:20px'}>
+          <h3 set:html={k.baslik} />
+          <p set:html={k.metin} />
+          {k.maddeler.length > 0 && (
           <ul>
-            <li>FDA onaylı</li><li>CE Class IIb belgeli</li>
-            <li>ISO 13485 kalite yönetim sistemi</li><li>GMP koşullarında üretim</li>
+            {k.maddeler.map((m) => <li set:html={m} />)}
           </ul>
+          )}
+          {k.linkYazi && (
+          <p style="margin-top:14px"><a class="metin-link" href={k.linkAdres}>{k.linkYazi} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          )}
         </div>
-        <div class="kutu" style="margin-top:20px">
-          <h3>Kullanım yaygınlığı</h3>
-          <p>Portföyümüzde yer alan Cellenis<sup>&reg;</sup> (Bioteck, İspanya) ve Tropocells<sup>&reg;</sup>
-             ürünleri; dermatoloji, estetik tıp, ortopedi, diş hekimliği, üroloji ve veteriner hekimlik
-             alanlarındaki uzmanlar tarafından 60'tan fazla ülkede kullanılmaktadır.</p>
-        </div>
-        <div class="kutu" style="margin-top:20px">
-          <h3>Neden Vivostem?</h3>
-          <p>Portföyümüzü standart PRP kitlerinden ayıran teknik ve operasyonel farkları altı başlıkta
-             topladık.</p>
-          <p style="margin-top:14px"><a class="metin-link" href="/neden-vivostem">Başlıkları okuyun <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-        </div>
+        ))}
       </aside>
     </div>
   </div>
@@ -84,35 +63,21 @@ import { ayarlar } from '../lib/ayarlar.js';
   <div class="wrap">
     <div class="bolum-bas">
       <div class="kural"></div>
-      <p class="ustbaslik ustbaslik--mor">Kurucu</p>
-      <h2>Didem Sözer</h2>
-      <p>Fizyoterapist, Sağlık Yöneticisi, Girişimci, Vivostem Medikal Kurucusu</p>
+      <p class="ustbaslik ustbaslik--mor" set:html={s.kurucuBolum.ustBaslik} />
+      <h2 set:html={s.kurucuBolum.baslik} />
+      <p set:html={s.kurucuBolum.metin} />
     </div>
     <div class="hakkinda">
       <div>
-        <p>2000 yılında Hacettepe Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü'nden mezun olan
-           Didem Sözer, yaklaşık 25 yıllık meslek hayatı boyunca fizyoterapi, hastane yöneticiliği,
-           sağlık danışmanlığı ve medikal teknolojiler alanlarında çalışmalar yürüttü.</p>
-        <p>Meslek hayatına klinik fizyoterapist olarak başlayan Sözer, kendi kliniğini kurarak uzun
-           yıllar fizyoterapi hizmeti sundu; ardından hastane yöneticiliği ve sağlık sektöründe
-           danışmanlık görevleri üstlendi. Klinik deneyimini yöneticilik bakış açısıyla birleştirerek
-           sağlık hizmetlerinin geliştirilmesine ve operasyonel süreçlerin yönetilmesine katkı sağladı.</p>
-        <p>Medikal teknoloji alanındaki deneyimiyle rehabilitasyon sistemleri ve yenilikçi tıbbi
-           cihazların Türkiye'de sağlık profesyonelleriyle buluşmasına öncülük eden Sözer, bugün aynı
-           zamanda ileri teknoloji rehabilitasyon sistemlerinin satış, eğitim ve klinik uygulama
-           süreçlerini yönetiyor.</p>
+        {s.kurucuSol.map((p) => <p set:html={p} />)}
       </div>
       <div>
-        <p>2024 yılında kurucusu olduğu Vivostem Medikal ile rejeneratif tıp ve biyolojik ürünler
-           alanına odaklandı; Cellenis<sup>&reg;</sup>, Tropocells<sup>&reg;</sup> ve TropoVet<sup>&reg;</sup>
-           gibi yenilikçi teknolojilerin Türkiye'deki sağlık profesyonelleriyle buluşmasına liderlik
-           ediyor.</p>
-        <p>Bilimsel yaklaşımı esas alan çalışma anlayışıyla eğitimler, uygulamalı workshop'lar ve
-           klinik iş birlikleri aracılığıyla sağlık sektörüne değer katmaya devam ediyor.</p>
+        {s.kurucuSag.map((p) => <p set:html={p} />)}
+        {s.kurucuNot && (
         <div class="olcut">
-          <p><strong>İş birliği için:</strong> Eğitim, webinar veya klinik iş birliği önerileriniz için
-             <a href="/iletisim">iletişim formunu</a> kullanabilirsiniz.</p>
+          <p set:html={s.kurucuNot} />
         </div>
+        )}
       </div>
     </div>
   </div>
@@ -121,8 +86,8 @@ import { ayarlar } from '../lib/ayarlar.js';
 <section class="cta">
   <div class="wrap">
     <div>
-      <h2>Kliniğiniz için doğru ürünü birlikte belirleyelim</h2>
-      <p>Branşınıza ve hasta profilinize uygun portföy önerisi için ekibimize yazın.</p>
+      <h2 set:html={s.ctaBaslik} />
+      <p set:html={s.ctaMetin} />
     </div>
     <div class="btn-grup">
       <a href="/iletisim" class="btn btn--beyaz">İletişim formu</a>
