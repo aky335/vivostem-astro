@@ -11,7 +11,7 @@ const yayinDerlemesi = process.argv.includes('build');
 export default defineConfig({
   // Gerçek alan adına geçince burayı güncelle; kanonik adres ve
   // paylaşım görselinin tam URL'i buradan üretiliyor.
-  site: 'https://vivostem.com.tr',
+  site: 'https://vivostem.com',
 
   // Sayfalar build sırasında üretilip statik dosya olarak yayınlanıyor.
   // Sadece Keystatic paneli (/keystatic) sunucu tarafında çalışıyor.
