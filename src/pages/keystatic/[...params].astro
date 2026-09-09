@@ -7,6 +7,18 @@ export const prerender = false;
 ---
 
 {/*
+  Bu rota tam bir HTML belgesi üretmiyor: Keystatic paneli <head> olmadan,
+  doğrudan gövdeye basılıyor. Astro da bu sayfada charset bildirmiyor ve
+  sunucu Content-Type başlığına charset koymuyor. Sonuçta tarayıcı belgeyi
+  UTF-8 değil windows-1252 sanıyor ve buradaki Türkçe metinler bozuk
+  görünüyor ("BaÄŸlantÄ±" gibi).
+
+  Bu satır, belgenin ilk 1024 baytı içinde yer aldığı sürece tarayıcıyı
+  UTF-8'e çeviriyor. Bu yüzden dosyanın en başında duruyor, aşağı taşımayın.
+*/}
+<meta charset="utf-8">
+
+{/*
   is:inline zorunlu. Bu sayfa tam bir HTML belgesi değil, <head> bölümü yok;
   Astro'nun normal stil işleyişi stili head'e taşımaya çalışıp sayfaya hiç
   koymuyor. is:inline ile stil yazıldığı yerde, olduğu gibi çıktıya giriyor.
@@ -49,3 +61,183 @@ export const prerender = false;
 </style>
 
 <Panel client:only="react" />
+
+{/*
+  is:inline zorunlu: bu betiğin Astro tarafından paketlenmeden, olduğu gibi
+  sayfaya girmesi gerekiyor.
+*/}
+<script is:inline>
+  /*
+    Keystatic'in arayüz ve hata metinleri İngilizce; kütüphane bir dil ayarı
+    sunmuyor. Panele içerik giren kişi hekim, git ya da GitHub bilmiyor.
+    "A path was requested for deletion which does not exist as of commit oid..."
+    gibi bir mesaj karşısında ne yapacağını bilemiyor, bize soruyor.
+
+    Bu yüzden metinler ekranda Türkçeye çevriliyor ve hatalar "ne oldu, şimdi
+    ne yapmalıyım" diyecek şekilde yeniden yazılıyor.
+
+    KIRILIRSA NE OLUR: Keystatic metinlerini değiştirirse eşleşme tutmaz, o
+    metin İngilizce kalır. Panel çalışmaya devam eder, hiçbir veri etkilenmez.
+  */
+  (function () {
+    // Birebir eşleşen kısa etiketler. Sadece tam eşleşmede değiştiriliyor ki
+    // içerik metninin ortasındaki bir kelimeye yanlışlıkla dokunulmasın.
+    var SOZLUK = {
+      'Save': 'Kaydet',
+      'Saving': 'Kaydediliyor',
+      'Saving…': 'Kaydediliyor…',
+      'Saved': 'Kaydedildi',
+      'Unsaved': 'Kaydedilmedi',
+      'Unsaved changes': 'Kaydedilmemiş değişiklikler',
+      'Add': 'Ekle',
+      'Cancel': 'Vazgeç',
+      'Close': 'Kapat',
+      'Delete': 'Sil',
+      'Duplicate': 'Kopyala',
+      'Create': 'Oluştur',
+      'Reset': 'Değişiklikleri geri al',
+      'Discard': 'Değişiklikleri geri al',
+      'Discard changes': 'Değişiklikleri geri al',
+      'Dashboard': 'Panel',
+      'Search': 'Ara',
+      'Search…': 'Ara…',
+      'Sign out': 'Çıkış yap',
+      'Manage Account': 'Hesap ayarları',
+      'Required': 'Bu alan boş bırakılamaz',
+      'This field is required': 'Bu alan boş bırakılamaz',
+      'No results': 'Sonuç yok',
+      'No entries': 'Henüz kayıt yok',
+      'Choose file': 'Dosya seçin',
+      'Remove': 'Kaldır',
+      'Preview': 'Önizleme',
+      'Edit': 'Düzenle',
+      'Back': 'Geri',
+      'Yes': 'Evet',
+      'No': 'Hayır',
+      'Copy entry': 'Kaydı kopyala',
+      'Paste entry': 'Kaydı yapıştır',
+      'Delete entry…': 'Kaydı sil…',
+      'Duplicate entry…': 'Kaydı çoğalt…',
+      'Reset changes': 'Değişiklikleri geri al',
+      'Regenerate': 'Yeniden oluştur',
+      'Slug': 'Adres',
+      'Click to start dragging.': 'Sürükleyerek sırasını değiştirin.',
+      'sortable column': 'sıralanabilir sütun',
+      'Sign into Cloud': 'Panele giriş yapın',
+      'Sign in': 'Giriş yap',
+      'Loading': 'Yükleniyor',
+      'Loading…': 'Yükleniyor…',
+    };
+
+    // Hata metinleri. Sırayla denenir, ilk eşleşen kazanır; bu yüzden özel
+    // durumlar genel olanlardan önce yazılı.
+    var HATALAR = [
+      [/path was requested for deletion which does not exist/i,
+       'Kaydedilemedi. Bu sayfada seçili görsellerden biri sitede bulunamadı. ' +
+       'Sayfayı yenileyip görseli yeniden seçin, sonra tekrar kaydedin. ' +
+       'Sorun sürerse d-option’a iletin.'],
+
+      [/expected(head)?oid|is at a different commit|not up to date|stale|conflict/i,
+       'Bu sayfa siz düzenlerken başka bir yerden güncellenmiş. Yazdıklarınızı ' +
+       'bir yere kopyalayın, sayfayı yenileyin ve değişikliği tekrar yapın.'],
+
+      [/(failed to fetch|network ?error|load failed|err_internet|offline)/i,
+       'Bağlantı kurulamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.'],
+
+      [/(not authoriz|unauthorized|forbidden|do(es)? not have (write )?permission|403)/i,
+       'Bu işlem için yetkiniz görünmüyor. Oturumu kapatıp yeniden girin, ' +
+       'sorun sürerse d-option’a iletin.'],
+
+      [/(rate limit|too many requests|429)/i,
+       'Çok fazla istek gönderildi. Bir dakika bekleyip tekrar kaydedin.'],
+
+      [/(branch protection|must be made through a pull request)/i,
+       'Kayıt engellendi: sitenin ayarları bu değişikliğe izin vermiyor. ' +
+       'd-option’a iletin.'],
+
+      [/(unable to load|failed to load|could not load)/i,
+       'İçerik yüklenemedi. Sayfayı yenileyip tekrar deneyin.'],
+
+      [/(unable to save|failed to save|could not save)/i,
+       'Kaydedilemedi. Sayfayı yenileyip tekrar deneyin; sorun sürerse ' +
+       'd-option’a iletin.'],
+
+      [/something went wrong/i,
+       'Beklenmedik bir sorun oluştu. Sayfayı yenileyip tekrar deneyin.'],
+    ];
+
+    // Kullanıcının kendi yazdığı metne dokunulmuyor: yazı alanları, zengin
+    // metin editörü ve kod blokları atlanıyor.
+    function atlanir(dugum) {
+      for (var e = dugum.parentElement; e; e = e.parentElement) {
+        if (e.isContentEditable) return true;
+        if (e.tagName === 'INPUT' || e.tagName === 'TEXTAREA') return true;
+        if (e.tagName === 'CODE' || e.tagName === 'PRE') return true;
+        if (e.getAttribute && e.getAttribute('role') === 'textbox') return true;
+      }
+      return false;
+    }
+
+    function karsilik(ham) {
+      var metin = ham.trim();
+      if (!metin || metin.length > 400) return null;
+
+      // Keystatic hataların başına "[GraphQL]" gibi bir etiket koyuyor.
+      var sade = metin.replace(/^\[[^\]]+\]\s*/, '');
+
+      for (var i = 0; i < HATALAR.length; i++) {
+        if (HATALAR[i][0].test(sade)) return HATALAR[i][1];
+      }
+      if (SOZLUK[metin]) return SOZLUK[metin];
+
+      var sayili = metin.match(/^(\d+)\s+(entries|entry)$/i);
+      if (sayili) return sayili[1] + ' kayıt';
+
+      // Panelde adı tanımlanmamış dizi satırları "Item 1" diye çıkıyor.
+      var satir = metin.match(/^Item (\d+)$/);
+      if (satir) return satir[1] + '. öğe';
+
+      // Tablo başlığı okuyucusu: "sorted by column Slug in ascending order"
+      var sirali = metin.match(/^sorted by column (.+) in (ascending|descending) order$/i);
+      if (sirali) {
+        return (SOZLUK[sirali[1]] || sirali[1]) + ' sütununa göre ' +
+          (/asc/i.test(sirali[2]) ? 'artan' : 'azalan') + ' sırada';
+      }
+
+      return null;
+    }
+
+    function gez(kok) {
+      if (!kok) return;
+      if (kok.nodeType === 3) { uygula(kok); return; }
+      if (kok.nodeType !== 1) return;
+      var yuruyucu = document.createTreeWalker(kok, NodeFilter.SHOW_TEXT, null);
+      var dugum, liste = [];
+      while ((dugum = yuruyucu.nextNode())) liste.push(dugum);
+      liste.forEach(uygula);
+    }
+
+    function uygula(dugum) {
+      if (atlanir(dugum)) return;
+      var yeni = karsilik(dugum.nodeValue);
+      if (yeni !== null && yeni !== dugum.nodeValue) dugum.nodeValue = yeni;
+    }
+
+    function basla() {
+      gez(document.body);
+      new MutationObserver(function (kayitlar) {
+        for (var i = 0; i < kayitlar.length; i++) {
+          var k = kayitlar[i];
+          if (k.type === 'characterData') uygula(k.target);
+          else for (var j = 0; j < k.addedNodes.length; j++) gez(k.addedNodes[j]);
+        }
+      }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', basla);
+    } else {
+      basla();
+    }
+  })();
+</script>
